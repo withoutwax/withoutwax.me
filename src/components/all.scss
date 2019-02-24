@@ -1,0 +1,70 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+@import url("https://use.typekit.net/olz0zfv.css"); // Only valid through SAIC account.
+
+// GLOBAL
+$black: black;
+$grey-01: #666666;
+$grey-02: #777777;
+$light-grey-01: #c9c9c9;
+
+// UTILS
+html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 900px;
+}
+
+a {
+    // font-family: 'Montserrat', sans-serif;
+    font-family: proxima-nova, sans-serif;
+    // font-family: aktiv-grotesk, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $grey-01;
+}
+
+a:hover {
+    color: $light-grey-01;
+}
+
+// HEADER
+// NAV
+.header-container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    .header-logo {
+        margin-top: 4vh;
+        margin-bottom: 7vh;
+    }
+}
+.nav-container {
+    margin-bottom: 100px;
+
+    .navbar-item {
+        margin: 13px;
+    }
+}
+
+
+
+// FOOTER
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 14px;
+    color: $grey-02;
+}
