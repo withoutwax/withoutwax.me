@@ -53,7 +53,7 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/archive">
                 <span role="img" aria-label="archive">🗄</span>
               </Link>
-              <Link className="navbar-item" to="/about">
+              <Link className="navbar-item" to="/about" activeClassName="active">
                 About
               </Link>
               <Link className="navbar-item" to="/contact">

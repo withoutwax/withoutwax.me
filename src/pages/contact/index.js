@@ -38,8 +38,14 @@ export default class Index extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            <div className="content">
+            <div className="content" style={{ textAlign:"center" }}>
               <h1>Contact</h1>
+              
+              <p><strong>If you wish to contact me, please fill in the space below:</strong></p>
+              <br />
+              <h2 style={{ textTransform:"uppercase" }}>Notice</h2>
+              <p>I will be able to reach you within 1 to 3 business days at maximum.</p>
+              <p>If I did not reach you within those days, please do not be offended, I am either in a situation where I cannot check my mail system and will reply to you ASAP as I get connected.</p>
               <form
                 name="contact"
                 method="post"

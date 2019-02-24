@@ -1,6 +1,6 @@
 // FONTS
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
-@import url("https://use.typekit.net/olz0zfv.css"); // Only valid through SAIC account.
+@import url("https://use.typekit.net/olz0zfv.css"); // Only valid through SAIC account - Proxima Nova, Aktiv-Grotesk
 
 // GLOBAL
 $black: black;
@@ -9,6 +9,25 @@ $grey-02: #777777;
 $light-grey-01: #c9c9c9;
 
 // UTILS
+h1,
+h2,
+h3 {
+    color: $light-grey-01;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
 html {
     display: flex;
     flex-direction: column;
@@ -18,22 +37,23 @@ html {
 }
 
 body {
-    width: 900px;
+    width: 800px;
+}
+
+p {
+    font-size: 14px;
+    margin: 30px 0px;
 }
 
 a {
     // font-family: 'Montserrat', sans-serif;
-    font-family: proxima-nova, sans-serif;
     // font-family: aktiv-grotesk, sans-serif;
-    font-size: 13px;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: $grey-01;
+    color: $light-grey-01;
 }
 
 a:hover {
-    color: $light-grey-01;
+    color: $grey-02;
 }
 
 // HEADER
@@ -49,11 +69,26 @@ a:hover {
         margin-bottom: 7vh;
     }
 }
+
 .nav-container {
+    font-family: proxima-nova, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+
     margin-bottom: 100px;
 
     .navbar-item {
         margin: 13px;
+        color: $grey-01;
+    }
+
+    .navbar-item:hover {
+        color: $light-grey-01;
+    }
+
+    .active {
+        color: $light-grey-01;
     }
 }
 
