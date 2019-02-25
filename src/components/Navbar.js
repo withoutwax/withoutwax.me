@@ -37,7 +37,7 @@ const Navbar = class extends React.Component {
         <div className="nav-container">
           <div id="navMenu" className="navbar-menu">
             <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/log">
+              <Link className="navbar-item" to="/blog">
                 <span role="img" aria-label="camera">📷 </span>
                 Log
               </Link>
