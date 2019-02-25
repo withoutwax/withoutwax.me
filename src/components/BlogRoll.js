@@ -9,28 +9,26 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
     
     return (
-      <div className="columns is-multiline">
+      <div className="">
       {posts && (posts
           .map(({ node: post }) => (
             <div
-              className="is-parent column is-6"
+              className=""
               key={post.id}
+              style={{ marginBottom:"60px" }}
             >
-            <article className="">
+            <article className="blog-roll-item" >
               <p>
+                <span className="blog-roll-item-title">
                 <Link className="" to={post.fields.slug}>
                 {post.frontmatter.title}
                 </Link>
+                </span>
                 <span> &bull; </span>
                 <span className="">{post.frontmatter.date}</span>
               </p>
               <p>
                 {post.excerpt}
-                <br />
-                <br />
-                {/* <Link className="button" to={post.fields.slug}>
-                  Keep Reading →
-                </Link> */}
               </p>
               </article>
             </div>
@@ -58,7 +56,7 @@ export default () => (
       ) {
         edges {
           node {
-            excerpt(pruneLength: 400)
+            excerpt(pruneLength: 200)
             id
             fields {
               slug
@@ -67,6 +65,7 @@ export default () => (
               title
               templateKey
               date(formatString: "MMMM DD, YYYY")
+              category
             }
           }
         }

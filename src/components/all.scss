@@ -92,6 +92,38 @@ a:hover {
     }
 }
 
+// BLOG
+// ROLL
+.blog-roll-item {
+    .blog-roll-item-title {
+        margin-bottom: 2px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    p {
+        margin: 20px 0px;
+    }
+}
+
+// FRONT MATTER
+.blog-date {
+    color: $light-grey-01;
+}
+.blog-category {
+    color: $light-grey-01;
+}
+
+// TAG
+.taglist {
+    display: flex;
+    list-style-type: none;
+    font-size: 14px;
+}
+.taglist > * {
+    margin-right: 2px;
+}
+
+
 
 
 // FOOTER

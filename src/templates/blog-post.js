@@ -10,6 +10,8 @@ export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
+  date,
+  category,
   tags,
   title,
   helmet,
@@ -20,17 +22,17 @@ export const BlogPostTemplate = ({
     <section className="section">
       {helmet || ''}
       <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="" style={{ textAlign:"center" }}>
               {title}
             </h1>
+            <p className="blog-date" style={{ textAlign:"center" }}>{date}</p>
+            <p className="blog-category" style={{ textAlign:"center" }}>{category}</p>
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
+              <div style={{ marginTop: `4rem`}}>
                 <ul className="taglist">
+                  <div>Tags: </div>
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
@@ -39,8 +41,6 @@ export const BlogPostTemplate = ({
                 </ul>
               </div>
             ) : null}
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -72,6 +72,8 @@ const BlogPost = ({ data }) => {
             />
           </Helmet>
         }
+        date={post.frontmatter.date}
+        category={post.frontmatter.category}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
@@ -97,6 +99,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        category
       }
     }
   }
