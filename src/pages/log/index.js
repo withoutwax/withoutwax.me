@@ -1,17 +1,17 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
+import LogRoll from '../../components/LogRoll'
 
-export default class BlogIndexPage extends React.Component {
+export default class LogIndexPage extends React.Component {
   render() {
     
   return (
       <Layout>
         <section className="section">
           <div className="container">
-              Blog
-              <BlogRoll />
+            Log
+              <LogRoll />
             </div>
         </section>
       </Layout>

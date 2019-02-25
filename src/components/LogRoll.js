@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-class BlogRoll extends React.Component {
+class LogRoll extends React.Component {
 
   render() {
     const { data } = this.props
@@ -40,7 +40,7 @@ class BlogRoll extends React.Component {
   }
 }
 
-BlogRoll.propTypes = {
+LogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -51,10 +51,10 @@ BlogRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-    query BlogRollQuery {
+    query LogRollQuery {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
+        filter: { frontmatter: { templateKey: { eq: "log-post" } }}
       ) {
         edges {
           node {
@@ -74,7 +74,7 @@ export default () => (
     }
     `}
     render={(data, count) => (
-      <BlogRoll data={data} count={count} />
+      <LogRoll data={data} count={count} />
     )}
   />
 )
