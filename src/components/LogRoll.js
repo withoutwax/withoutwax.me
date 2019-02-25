@@ -54,7 +54,7 @@ export default () => (
     query LogRollQuery {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "log-post" } }}
+        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "Log"} }}
       ) {
         edges {
           node {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-class CodeRoll extends React.Component {
+class UIUXRoll extends React.Component {
 
   render() {
     const { data } = this.props
@@ -40,7 +40,7 @@ class CodeRoll extends React.Component {
   }
 }
 
-CodeRoll.propTypes = {
+UIUXRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -51,10 +51,10 @@ CodeRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-    query CodeRollQuery {
+    query UIUXRollQuery {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "Code"} }}
+        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "UIUX"} }}
       ) {
         edges {
           node {
@@ -74,7 +74,7 @@ export default () => (
     }
     `}
     render={(data, count) => (
-      <CodeRoll data={data} count={count} />
+      <UIUXRoll data={data} count={count} />
     )}
   />
 )
