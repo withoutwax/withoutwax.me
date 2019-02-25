@@ -1,10 +1,10 @@
 ---
 templateKey: blog-post
 title: First UIUX post
-date: 2019-02-25T07:26:55.347s
-description: uiux description
-category: UIUX
+date: '2019-02-25T07:26:55.347s'
+description: uiux Description
 tags:
   - uiux
+category: UIUX
 ---
-uiux
+uiux!
