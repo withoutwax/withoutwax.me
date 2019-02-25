@@ -9,23 +9,24 @@ class LogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
     
     return (
-      <div className="columns is-multiline">
+      <div className="">
       {posts && (posts
           .map(({ node: post }) => (
             <div
-              className="is-parent column is-6"
+              className=""
               key={post.id}
             >
-            <article className="">
+            <article className="blog-roll-item">
               <p>
-                <Link className="" to={post.fields.slug}>
+                <Link className="blog-roll-item-title" to={post.fields.slug}>
                 {post.frontmatter.title}
                 </Link>
                 <span> &bull; </span>
                 <span className="">{post.frontmatter.date}</span>
               </p>
               <p>
-                {post.excerpt}
+                {/* {post.excerpt} */}
+                {post.frontmatter.description}
                 <br />
                 <br />
                 {/* <Link className="button" to={post.fields.slug}>
@@ -67,6 +68,7 @@ export default () => (
               title
               templateKey
               date(formatString: "MMMM DD, YYYY")
+              description
             }
           }
         }

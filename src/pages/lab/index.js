@@ -1,16 +1,16 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import UIUXRoll from '../../components/UIUXRoll'
+import LabRoll from '../../components/LabRoll'
 
-export default class UIUXIndexPage extends React.Component {
+export default class LogIndexPage extends React.Component {
   render() {
     
   return (
       <Layout>
         <section className="section">
           <div className="container">
-              <UIUXRoll />
+              <LabRoll />
             </div>
         </section>
       </Layout>

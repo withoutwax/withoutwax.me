@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-class UIUXRoll extends React.Component {
+class LabRoll extends React.Component {
 
   render() {
     const { data } = this.props
@@ -41,7 +41,7 @@ class UIUXRoll extends React.Component {
   }
 }
 
-UIUXRoll.propTypes = {
+LabRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -52,10 +52,10 @@ UIUXRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-    query UIUXRollQuery {
+    query LabRollQuery {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "UIUX"} }}
+        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "Lab"} }}
       ) {
         edges {
           node {
@@ -76,7 +76,7 @@ export default () => (
     }
     `}
     render={(data, count) => (
-      <UIUXRoll data={data} count={count} />
+      <LabRoll data={data} count={count} />
     )}
   />
 )

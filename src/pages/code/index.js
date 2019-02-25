@@ -10,7 +10,6 @@ export default class CodeIndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            Code
               <CodeRoll />
             </div>
         </section>

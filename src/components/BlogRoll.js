@@ -19,16 +19,15 @@ class BlogRoll extends React.Component {
             >
             <article className="blog-roll-item" >
               <p>
-                <span className="blog-roll-item-title">
-                <Link className="" to={post.fields.slug}>
+                <Link className="blog-roll-item-title" to={post.fields.slug}>
                 {post.frontmatter.title}
                 </Link>
-                </span>
                 <span> &bull; </span>
                 <span className="">{post.frontmatter.date}</span>
               </p>
               <p>
-                {post.excerpt}
+                {/* {post.excerpt} */}
+                {post.frontmatter.description}
               </p>
               </article>
             </div>
@@ -66,6 +65,7 @@ export default () => (
               templateKey
               date(formatString: "MMMM DD, YYYY")
               category
+              description
             }
           }
         }

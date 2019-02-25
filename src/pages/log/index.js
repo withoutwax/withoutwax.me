@@ -10,7 +10,6 @@ export default class LogIndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            Log
               <LogRoll />
             </div>
         </section>
