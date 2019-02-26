@@ -15,25 +15,22 @@ class CodeRoll extends React.Component {
             <div
               className=""
               key={post.id}
+              style={{ marginBottom:"20px" }}
             >
-            <article className="blog-roll-item">
-              <p>
-                <Link className="blog-roll-item-title" to={post.fields.slug}>
-                {post.frontmatter.title}
+            
+              <article className="blog-roll-item" >
+                <Link className="blog-link" to={post.fields.slug}>
+                <div><span className="blog-roll-item-title">{post.frontmatter.title}</span>
+                  <span> &bull; </span>
+                  <span className="blog-roll-date">{post.frontmatter.date}</span>
+                </div>
+                <p>
+                  {/* {post.excerpt} */}
+                  {post.frontmatter.description}
+                </p>
                 </Link>
-                <span> &bull; </span>
-                <span className="">{post.frontmatter.date}</span>
-              </p>
-              <p>
-                {/* {post.excerpt} */}
-                {post.frontmatter.description}
-                <br />
-                <br />
-                {/* <Link className="button" to={post.fields.slug}>
-                  Keep Reading →
-                </Link> */}
-              </p>
               </article>
+              
             </div>
           )))}
           </div>
