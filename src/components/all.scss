@@ -9,8 +9,8 @@ $grey-02: #777777;
 $light-grey-01: #c9c9c9;
 $light-grey-02: #f7f7f7;
 $dark-grey-01: #262626;
-$link-color: #4fa3b8; // #b84f4f
-$link-color-02: #69c4db; // #e99898
+$link-color: #ff4470; //#4fa3b8; // #b84f4f
+$link-color-02: #ff84a1;// #69c4db; // #e99898
 
 $p-line-height: 23.8px;
 
@@ -127,7 +127,7 @@ a:hover {
     }
 
     .active {
-        color: $light-grey-01;
+        color: $light-grey-01; // $link-color
     }
 }
 
