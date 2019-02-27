@@ -123,11 +123,11 @@ a:hover {
     }
 
     .navbar-item:hover {
-        color: $light-grey-01;
+        color: $link-color; // $light-grey-01;
     }
 
     .active {
-        color: $light-grey-01; // $link-color
+        color: $link-color; //$light-grey-01; 
     }
 }
 
