@@ -16,5 +16,4 @@ export default () => (
             <Link className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></Link>
         </div>
     </div>
-    
 );
