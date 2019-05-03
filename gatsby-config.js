@@ -5,6 +5,12 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    // {
+    //   resolve: 'gatsby-plugin-sass',
+    //   options: {
+
+    //   }
+    // },
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
     {

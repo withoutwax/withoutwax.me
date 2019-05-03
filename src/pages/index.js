@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import logo from '../img/logo.png';
 
+// import * as styles from './Index.module.scss';
 // import styled from 'styled-components';
 
 // const LandingContainer = styled
