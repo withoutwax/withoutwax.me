@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import logo from '../img/logo.png';
+import { Helmet } from 'react-helmet';
 
 import styled from 'styled-components';
 
@@ -59,6 +60,10 @@ const StyledLink = styled(Link)`
 
 export default () => (
     <div>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>withoutwax</title>
+        </Helmet>
         <LandingPage>
             <Logo src={logo} alt="logo" />
             {/* <img src={logo}  style={{ width:'25px' }}/> */}
