@@ -64,9 +64,8 @@ export default () => (
             <meta charSet="utf-8" />
             <title>withoutwax</title>
         </Helmet>
-        <LandingPage>
+        {/* <LandingPage>
             <Logo src={logo} alt="logo" />
-            {/* <img src={logo}  style={{ width:'25px' }}/> */}
                 <br />
                 <br />
                 <Links className="landing-container-link">
@@ -76,14 +75,14 @@ export default () => (
                     <StyledLink className="landing-container-link-link" to="lab">Lab<span role="img" aria-label="hammer">🔨</span></StyledLink>
                     <StyledLink className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></StyledLink>
                 </Links>
-        </LandingPage>
+        </LandingPage> */}
         {/* <div className="landing-container">
             
         </div> */}
         
-        {/* <ComingSoon>
+        <ComingSoon>
             <div id="coming-soon">Coming Soon</div>
-        </ComingSoon> */}
+        </ComingSoon>
         
     </div>
 );
