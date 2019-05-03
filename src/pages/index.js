@@ -23,26 +23,62 @@ const ComingSoon = styled.div`
     color: #ff4470;
 `
 
+const LandingPage = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 95vh;
+
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #666666;
+`
+const Logo = styled.img`
+    width: 25px;
+`
+const Links = styled.a`
+    display: flex;
+    align-items: center;
+`
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    margin: 10px;
+    letter-spacing: 3px;
+    color: #8c8c8c;
+
+    &:hover {
+        color: #ff4470;
+    }
+`
 
 export default () => (
-    
-    <div >
+    <div>
+        <LandingPage>
+            <Logo src={logo} alt="logo" />
+            {/* <img src={logo}  style={{ width:'25px' }}/> */}
+                <br />
+                <br />
+                <Links className="landing-container-link">
+                    <StyledLink className="landing-container-link-link" to="/log"><span role="img" aria-label="camera">📷</span></StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/code">Code</StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/uiux">UIUX</StyledLink>
+                    <StyledLink className="landing-container-link-link" to="lab">Lab<span role="img" aria-label="hammer">🔨</span></StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></StyledLink>
+                </Links>
+        </LandingPage>
         {/* <div className="landing-container">
-            <img src={logo} alt="logo" style={{ width:'25px' }}/>
-            <br />
-            <br />
-            <div className="landing-container-link">
-                <Link className="landing-container-link-link" to="/log"><span role="img" aria-label="camera">📷</span></Link>
-                <Link className="landing-container-link-link" to="/code">Code</Link>
-                <Link className="landing-container-link-link" to="/uiux">UIUX</Link>
-                <Link className="landing-container-link-link" to="lab">Lab<span role="img" aria-label="hammer">🔨</span></Link>
-                <Link className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></Link>
-            </div>
+            
         </div> */}
         
-        <ComingSoon>
+        {/* <ComingSoon>
             <div id="coming-soon">Coming Soon</div>
-        </ComingSoon>
+        </ComingSoon> */}
         
     </div>
 );
