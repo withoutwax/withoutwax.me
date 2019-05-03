@@ -2,25 +2,44 @@ import React from 'react';
 import { Link } from 'gatsby';
 import logo from '../img/logo.png';
 
-// import * as styles from './Index.module.scss';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
+// import * as styles from './Index.module.scss';
 // const LandingContainer = styled
+
+const ComingSoon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 95vh;
+
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+`
+
 
 export default () => (
     
-    <div className="landing-container">
-        <img src={logo} alt="logo" style={{ width:'25px' }}/>
-        <br />
-        <br />
-        <div className="landing-container-link">
-            <Link className="landing-container-link-link" to="/log"><span role="img" aria-label="camera">📷</span></Link>
-            <Link className="landing-container-link-link" to="/code">Code</Link>
-            <Link className="landing-container-link-link" to="/uiux">UIUX</Link>
-            <Link className="landing-container-link-link" to="lab">Lab<span role="img" aria-label="hammer">🔨</span></Link>
-            <Link className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></Link>
-        </div>
-
-        {/* <div id="coming-soon">Coming Soon</div> */}
+    <div >
+        {/* <div className="landing-container">
+            <img src={logo} alt="logo" style={{ width:'25px' }}/>
+            <br />
+            <br />
+            <div className="landing-container-link">
+                <Link className="landing-container-link-link" to="/log"><span role="img" aria-label="camera">📷</span></Link>
+                <Link className="landing-container-link-link" to="/code">Code</Link>
+                <Link className="landing-container-link-link" to="/uiux">UIUX</Link>
+                <Link className="landing-container-link-link" to="lab">Lab<span role="img" aria-label="hammer">🔨</span></Link>
+                <Link className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></Link>
+            </div>
+        </div> */}
+        
+        <ComingSoon>
+            <div id="coming-soon">Coming Soon</div>
+        </ComingSoon>
+        
     </div>
 );
