@@ -18,6 +18,9 @@ const ComingSoon = styled.div`
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ff4470;
 `
 
 
