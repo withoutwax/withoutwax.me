@@ -22,12 +22,12 @@ export const BlogPostTemplate = ({
     <section className="section">
       {helmet || ''}
       <div className="container content">
-            <h1 className="" style={{ textAlign:"left", marginBottom:"18px" }}>
+            <h1 className="blog-title">
               {title}
             </h1>
-            <p className="blog-description" style={{ marginTop:"15px" }}>{description}</p>
-            <p className="blog-category" style={{ textAlign:"left", display:"inline" }}>{category} | </p>
-            <p className="blog-date" style={{ textAlign:"left", display:"inline" }}>{date}</p>
+            <p className="blog-description">{description}</p>
+            <p className="blog-category">{category} | </p>
+            <p className="blog-date">{date}</p>
             
             <div className="blog" style={{ marginTop:"150px" }}>
               <PostContent content={content}  />

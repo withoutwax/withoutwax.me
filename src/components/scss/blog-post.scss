@@ -1,17 +1,29 @@
 // FRONT MATTER
+.blog-title {
+    text-align: left;
+    margin-bottom: 18px;
+}
 .blog-description {
     color: $light-grey-01;
     font-weight: bold;
     font-size: 2rem;
     line-height: 34px;
-
     font-family: $font-arial;
+    max-width: 600px;
+
+    margin-top:"15px";
 }
 .blog-category {
     color: $light-grey-02;
+
+    text-align: left;
+    display: inline;
 }
 .blog-date {
     color: $light-grey-02;
+
+    text-align: left;
+    display: inline;
 }
 
 
