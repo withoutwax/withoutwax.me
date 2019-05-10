@@ -3,10 +3,8 @@ templateKey: blog-post
 title: Will's Nerds
 date: 2018-11-20T21:42:00.000Z
 description: >-
-  An archive / collection of Will's friends' profile whien Will met during
-  2016~2019. Will realized that he made a lot of great and amazing friends (in /
-  outside his school) and since they were so great he wanted to make something
-  that is special and memorable for all.
+  An archive / collection of Will's friends' profile when Will met during
+  2016~2019.
 category: Code
 ---
 After completing the previous project, it was thanksgiving. During that time I thought it would be nice to do a simple project where other people can participate too. Also it was when I first saw a project [fff](http://fff.cmiscm.com/#!/main) by [cmiscm](http://cmiscm.com/), with his library [cm-rotate.js](https://github.com/cmiscm/cm-rotate.js). I wanted to try his code out and thought it would be a nice simple mini-project that I can do in few days.
