@@ -25,6 +25,8 @@ class BlogRoll extends React.Component {
                 <div className="blog-roll-meta">
                   <span> &bull; </span>
                   <span className="blog-roll-date">{post.frontmatter.date}</span>
+                  <span className="blog-roll-category"> | </span>
+                  <span className="blog-roll-category">{post.frontmatter.category}</span>
                 </div>
                 <p>
                   {/* {post.excerpt} */}

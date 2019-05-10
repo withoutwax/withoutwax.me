@@ -9,7 +9,7 @@
 
     .blog-roll-item-title {
         color: $dark-grey-01;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: bold;
         font-family: $font-heebo;
     }
@@ -22,12 +22,17 @@
         .blog-roll-date {
             color: $grey-01;
         }
+        .blog-roll-category {
+            color: $light-grey-01;
+            font-weight: 400;
+        }
     }
 
     p {
-        color: $grey-01;
+        color: $grey-01;// $grey-01;
         font-size: 16px;
         max-width: 600px;
+        margin-top: 10px;
     }   
 }
 .blog-roll-item:hover{
