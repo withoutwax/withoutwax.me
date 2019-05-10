@@ -13,16 +13,16 @@
 }
 
 .nav-container {
-    font-family: proxima-nova, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 13px;
+    font-family: $font-roboto-mono; //$font-proxima;
+    // text-transform: uppercase;
+    // letter-spacing: 2px;
+    font-size: 14px;
 
     margin-bottom: 100px;
 
     .navbar-item {
         margin: 13px;
-        color: $grey-01;
+        color: $grey-02;
     }
 
     .navbar-item:hover {
@@ -30,6 +30,8 @@
     }
 
     .active {
-        color: $link-color; //$light-grey-01; 
+        border-bottom: solid 1px $link-color; // text-decoration: underline;
+        color: $link-color; //$light-grey-01;
+        padding-bottom: 2px;
     }
 }

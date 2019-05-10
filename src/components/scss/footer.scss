@@ -5,8 +5,10 @@ footer {
     align-items: center;
     margin-top: 200px;
 
-    font-size: 14px;
-    color: $grey-02;
-
-    font-family: 'Roboto Mono', monospace;
+    p {
+        font-size: 14px;
+        color: $grey-02;
+        font-family: 'Roboto Mono', monospace;
+    }
+    
 }
