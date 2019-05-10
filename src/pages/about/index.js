@@ -12,7 +12,7 @@ export class About extends React.Component {
             
             <Layout>
                 <section style={{ textAlign:"center" }}>
-                    <h1>About</h1>
+                    <h1 style={{ textAlign:"center" }}>About</h1>
                     <br />
                     <h2 style={{ textTransform:"capitalize" }}>Hi. <span role="img" aria-label="cheers!">🙌🏼</span></h2>
                     <p>My name is Will and I am an UX Designer and Engineer who also enjoys studying the boundaries of Computer Science <span role="img" aria-label="MacBookPro">💻</span>, UIUX and Product Design <span role="img" aria-label="Paint">🎨</span></p>

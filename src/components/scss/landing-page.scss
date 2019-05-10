@@ -1,0 +1,25 @@
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 95vh;
+
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+.landing-container-link {
+    display: flex;
+    align-items: center;
+}
+.landing-container-link-link {
+    margin: 10px;
+    letter-spacing: 3px;
+    color: #8c8c8c;
+}
+.landing-container-link-link:hover {
+    color: $link-color;
+}

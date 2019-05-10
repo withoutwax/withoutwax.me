@@ -1,0 +1,70 @@
+// GLOBAL
+$black: black;
+$grey-01: #666666;
+$grey-02: #777777;
+$light-grey-01: #c9c9c9;
+$light-grey-02: #d8d8d8;
+$light-grey-03: #f7f7f7;
+$dark-grey-01: #262626;
+$link-color: #ff4470; //#4fa3b8; // #b84f4f
+$link-color-02: #ff84a1;// #69c4db; // #e99898
+
+$p-line-height: 23.8px;
+
+$font-arial: Arial, Helvetica, sans-serif;
+$font-heebo: 'Heebo', sans-serif;
+
+
+// UTILS
+h1,
+h2,
+h3 {
+    color: $dark-grey-01;
+}
+
+h1 {
+    font-size: 4rem; //2.5rem;
+    text-align: left;
+}
+
+h2 {
+    font-size: 3rem;
+    color: $light-grey-01;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $font-heebo;
+}
+
+body {
+    width: 900px;
+}
+
+p {
+    font-size: 14px;
+    margin: 30px 0px;
+    line-height: $p-line-height;
+    color: $dark-grey-01;
+    font-family: $font-arial;
+}
+li {
+    font-size: 14px;
+    line-height: $p-line-height;
+}
+a {
+    // font-family: 'Montserrat', sans-serif;
+    // font-family: aktiv-grotesk, sans-serif;
+    text-decoration: none;
+    color: $link-color;
+}
+
+a:hover {
+    color: $link-color-02;
+}

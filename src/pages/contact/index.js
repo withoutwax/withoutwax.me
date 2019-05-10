@@ -39,7 +39,7 @@ export default class Index extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content" style={{ textAlign:"center" }}>
-              <h1>Contact</h1>
+              <h1 style={{ textAlign:"center" }}>Contact</h1>
               
               <p><strong>If you wish to contact me, please fill in the space below:</strong></p>
               <br />

@@ -20,7 +20,8 @@ class LabRoll extends React.Component {
             
               <article className="blog-roll-item" >
                 <Link className="blog-link" to={post.fields.slug}>
-                <div><span className="blog-roll-item-title">{post.frontmatter.title}</span>
+                <div className="blog-roll-item-title">{post.frontmatter.title}</div>
+                <div className="blog-roll-meta">
                   <span> &bull; </span>
                   <span className="blog-roll-date">{post.frontmatter.date}</span>
                 </div>

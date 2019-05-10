@@ -1,0 +1,37 @@
+// FRONT MATTER
+.blog-description {
+    color: $light-grey-01;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 34px;
+
+    font-family: $font-arial;
+}
+.blog-category {
+    color: $light-grey-02;
+}
+.blog-date {
+    color: $light-grey-02;
+}
+
+
+// MAIN CONTENT
+.blog {
+    h1, h2, li, p { // Making the main text content to be smaller than the main width
+        margin: 0px 60px;
+    }
+    h2 {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+// TAG
+.taglist {
+    display: flex;
+    list-style-type: none;
+    font-size: 14px;
+}
+.taglist > * {
+    margin-right: 2px;
+}

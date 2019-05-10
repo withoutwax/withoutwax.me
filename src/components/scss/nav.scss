@@ -1,0 +1,35 @@
+// HEADER
+// NAV
+.header-container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    .header-logo {
+        margin-top: 4vh;
+        margin-bottom: 7vh;
+    }
+}
+
+.nav-container {
+    font-family: proxima-nova, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+
+    margin-bottom: 100px;
+
+    .navbar-item {
+        margin: 13px;
+        color: $grey-01;
+    }
+
+    .navbar-item:hover {
+        color: $link-color; // $light-grey-01;
+    }
+
+    .active {
+        color: $link-color; //$light-grey-01; 
+    }
+}

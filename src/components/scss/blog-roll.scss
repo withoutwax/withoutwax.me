@@ -1,0 +1,35 @@
+// BLOG
+// ROLL
+.blog-roll-item {
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    color: $dark-grey-01;
+    // background-color: red;
+
+    .blog-roll-item-title {
+        color: $dark-grey-01;
+        font-size: 3rem;
+        font-weight: bold;
+        font-family: $font-heebo;
+    }
+    
+    .blog-roll-meta {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: $font-arial;
+
+        .blog-roll-date {
+            color: $grey-01;
+        }
+    }
+
+    p {
+        color: $grey-01;
+        font-size: 16px;
+        max-width: 600px;
+    }   
+}
+.blog-roll-item:hover{
+    background-color: $light-grey-03;
+}
