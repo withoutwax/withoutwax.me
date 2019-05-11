@@ -6,6 +6,7 @@ $light-grey-01: #c9c9c9;
 $light-grey-02: #d8d8d8;
 $light-grey-03: #f7f7f7;
 $dark-grey-01: #262626;
+$dark-grey-02: #3d3d3d;
 $link-color: #ff4470; //#4fa3b8; // #b84f4f
 $link-color-02: #ff84a1;// #69c4db; // #e99898
 
@@ -35,7 +36,8 @@ h2 {
 }
 
 h3 {
-    font-size: 1rem;
+    font-size: 2rem;
+    color: $light-grey-01;
 }
 
 html {

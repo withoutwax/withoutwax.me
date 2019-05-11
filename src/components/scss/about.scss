@@ -1,0 +1,46 @@
+ul {
+    list-style: none;
+    .about-bold {
+        font-weight: bold;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+#about-resume-btn {
+    // color: $light-grey-01;
+    opacity: 0.1;
+
+    -webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    &:hover {
+        opacity: 1;
+    }
+    &::after {
+        -webkit-transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+}
+
+.about-container {
+
+    .about-section {
+        margin: 150px 0px;
+
+        p {
+            max-width: 600px;
+        }
+    }
+}
+.about-container > div:nth-child(even) {
+    text-align: right;
+    p {
+        margin-left: auto;
+    }
+}
+.about-container > div:last-child {
+    text-align: center;
+}
