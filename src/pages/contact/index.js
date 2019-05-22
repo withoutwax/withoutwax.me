@@ -41,12 +41,14 @@ export default class Index extends React.Component {
             <div className="content" style={{ textAlign:"center" }}>
               <h1 style={{ textAlign:"center" }}>Contact</h1>
               
-              <p><strong>If you wish to contact me, please fill in the space below:</strong></p>
+              <p><strong>If you wish to contact me, please do so with the email below:</strong></p>
+
+              <a class="mailto" href="mailto:rlagmlckd@gmail.com">rlagmlckd@gmail.com</a>
+              
               <br />
-              <h2 style={{ textTransform:"uppercase" }}>Notice</h2>
               <p>I will be able to reach you within 1 to 3 business days at maximum.</p>
               <p>If I did not reach you within those days, please do not be offended, I am either in a situation where I cannot check my mail system and will reply to you ASAP as I get connected.</p>
-              <form
+              {/* <form
                 name="contact"
                 method="post"
                 action="/contact/thanks/"
@@ -54,7 +56,7 @@ export default class Index extends React.Component {
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+               
                 <input type="hidden" name="form-name" value="contact" />
                 <div hidden>
                   <label>
@@ -111,7 +113,7 @@ export default class Index extends React.Component {
                     Send
                   </button>
                 </div>
-              </form>
+              </form> */}
             </div>
           </div>
         </section>
