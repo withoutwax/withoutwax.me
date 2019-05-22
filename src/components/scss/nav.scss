@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
 
-    align-items: center;
+    // align-items: center;
 
     .header-logo {
         margin-top: 4vh;
@@ -13,16 +13,41 @@
 }
 
 .nav-container {
-    font-family: $font-roboto-mono; //$font-proxima;
-    // text-transform: uppercase;
-    // letter-spacing: 2px;
-    font-size: 14px;
+    font-family: $font-heebo; //$font-roboto-mono; //$font-proxima;
+    font-size: 4rem; //14px;
+    font-weight: bold;
 
     margin-bottom: 100px;
 
+    .navbar-start {
+        // display: flex;
+        // flex-direction: row;
+        .navbar-sub {
+            // display: flex;
+            // flex-direction: column;
+            // margin-right: 100px;
+            
+            margin-bottom: 60px;
+
+            .navbar-item {
+                color: $light-grey-01;
+            }
+            .navbar-item:hover {
+                color: $link-color; // $light-grey-01;
+            }
+            .active {
+                border-bottom: solid 5px $link-color; // text-decoration: underline;
+                color: $link-color; //$light-grey-01;
+                padding-bottom: 2px;
+            }
+        }
+    }
+    
+
     .navbar-item {
         margin: 13px;
-        color: $grey-02;
+        margin-right: 50px;
+        color: $grey-02; // $grey-02;
     }
 
     .navbar-item:hover {
@@ -30,7 +55,7 @@
     }
 
     .active {
-        border-bottom: solid 1px $link-color; // text-decoration: underline;
+        border-bottom: solid 5px $link-color; // text-decoration: underline;
         color: $link-color; //$light-grey-01;
         padding-bottom: 2px;
     }

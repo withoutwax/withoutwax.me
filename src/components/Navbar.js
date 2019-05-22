@@ -37,22 +37,24 @@ const Navbar = class extends React.Component {
         <div className="nav-container">
           <div id="navMenu" className="navbar-menu">
             <div className="navbar-start has-text-centered">
+              
               <Link className="navbar-item" activeClassName="active" to="/blog" style={{ fontWeight:"bold" }} >
                 All
               </Link>
-              <Link className="navbar-item" to="/log" activeClassName="active">
-                <span role="img" aria-label="camera">📷 </span>
-                Log
-              </Link>
-              <Link className="navbar-item" to="/code" activeClassName="active">
-                Code
-              </Link>
-              <Link className="navbar-item" to="/uiux" activeClassName="active">
-                UIUX
-              </Link>
-              <Link className="navbar-item" to="/lab" activeClassName="active">
-                Lab<span role="img" aria-label="hammer">🔨</span>
-              </Link>
+              <div className="navbar-sub">
+                <Link className="navbar-item" to="/log" activeClassName="active">
+                Log<span role="img" aria-label="camera">📷</span>
+                </Link>
+                <Link className="navbar-item" to="/code" activeClassName="active">
+                  Code
+                </Link>
+                <Link className="navbar-item" to="/uiux" activeClassName="active">
+                  UIUX
+                </Link>
+                <Link className="navbar-item" to="/lab" activeClassName="active">
+                  Lab<span role="img" aria-label="hammer">🔨</span>
+                </Link>
+              </div>
               <Link className="navbar-item" to="/archive" activeClassName="active">
                 <span role="img" aria-label="archive">🗄</span>
               </Link>
