@@ -9,7 +9,10 @@ ul {
     display: none;
 }
 
-#about-resume-btn {
+.focus-btn {
+    color: $black;
+}
+.unfocus-btn {
     // color: $light-grey-01;
     opacity: 0.1;
 
@@ -43,8 +46,4 @@ ul {
 }
 .about-container > div:last-child {
     text-align: center;
-}
-
-.about-active {
-    color: $black;
 }
