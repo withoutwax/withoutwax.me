@@ -71,6 +71,7 @@ export class About extends React.Component {
             content = 
                 <article id="about-resume">
                     Resume
+                    <div>Coming Soon!</div>
                 </article>
         }
 
