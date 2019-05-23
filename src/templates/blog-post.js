@@ -64,7 +64,7 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <BlogPostTemplate
-        content={post.html}
+        content={post.html} 
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
