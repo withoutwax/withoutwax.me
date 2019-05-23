@@ -10,7 +10,9 @@ export class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            resume: false
+            resume: false,
+            aboutcssclass: "focus-btn",
+            resumecssclass: "unfocus-btn"
         }
         this.aboutToggle = this.aboutToggle.bind(this);
         this.resumeToggle = this.resumeToggle.bind(this);
@@ -18,12 +20,16 @@ export class About extends React.Component {
 
     aboutToggle = () => {
         this.setState({
-            resume: false
+            resume: false,
+            aboutcssclass: "focus-btn",
+            resumecssclass: "unfocus-btn"
         })
     }
     resumeToggle = () => {
         this.setState({
-            resume: true
+            resume: true,
+            aboutcssclass: "unfocus-btn",
+            resumecssclass: "focus-btn"
         })
     }
 
@@ -70,15 +76,16 @@ export class About extends React.Component {
         } else if (this.state.resume == true) {
             content = 
                 <article id="about-resume">
-                    Resume
-                    <div>Coming Soon!</div>
+                    <h2>Will Kim</h2>
+                    <div>Resume</div>
+                    
                 </article>
         }
 
         return (
             <Layout>
                 <section>
-                    <h1><span id="about-about-btn" onClick={this.aboutToggle}>About</span> <span id="about-resume-btn" onClick={this.resumeToggle} >Resume</span></h1>
+                    <h1><span id="about-about-btn" className={this.state.aboutcssclass} onClick={this.aboutToggle} >About</span> <span id="about-resume-btn" className={this.state.resumecssclass} onClick={this.resumeToggle} >Resume</span></h1>
 
                     {content}
                     
