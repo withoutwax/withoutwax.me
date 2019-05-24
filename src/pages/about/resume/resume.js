@@ -37,6 +37,9 @@ class Resume extends React.Component {
                 <h3>Experience</h3>
                 { experience }
 
+                {/* <h3>Featured Projects</h3>
+                <p style={{marginTop:"5px", fontStyle:"italic"}}>Coming Soon</p> */}
+                
                 <h3>Education</h3>
                 { education }
 

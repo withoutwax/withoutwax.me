@@ -2,15 +2,15 @@
 experiences: 
   - experience: {
     company: 'Legion Collective',
-    position: 'Front End Developer Intern',
+    position: 'Web Developer Intern',
     date: 'Feb 2019 - May 2019',
-    description: 'Test, Lorem ipsusm'
+    description: 'Worked with a dev team as a Web Developer Intern. Created prototypes and responsive live production web applications for clients.'
   }
   - experience: {
     company: 'NVISIA',
     position: 'Creative Web Design Intern',
     date: 'Jan 2018 - May 2018 ',
-    description: 'Test, Lorem ipsusm'
+    description: 'Worked as UX design intern in Marketing Team. Solved UX problems, developed UI prototypes, implemented using HTML, CSS and JavaScript.'
   }
 
 educations: 
