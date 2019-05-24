@@ -1,6 +1,8 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { Link } from 'gatsby';
+
+import Resume from './resume/resume';
 // import Helmet from 'react-helmet';
 // import PageHelmet from '../../components/';
 
@@ -35,7 +37,7 @@ export class About extends React.Component {
 
     render() {
         let content;
-        console.log(this.state);
+
         if (this.state.resume == false) {
             content = 
                 <article className="about-container">   
@@ -77,8 +79,11 @@ export class About extends React.Component {
             content = 
                 <article id="about-resume">
                     <h2>Will Kim</h2>
-                    <div>Resume</div>
-                    
+                    <div>
+                        
+                        <Resume />
+                        
+                    </div>
                 </article>
         }
 

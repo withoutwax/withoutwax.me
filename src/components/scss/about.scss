@@ -47,3 +47,40 @@ ul {
 .about-container > div:last-child {
     text-align: center;
 }
+
+#about-resume {
+
+    .resume-container {
+        h4 {
+            margin-bottom: 5px;
+        }
+        p.resume-date {
+            margin: 0px 0px;
+            font-family: $font-roboto-mono;
+            color: $grey-02;
+            text-transform: uppercase;
+        }
+        p.resume-description {
+            margin-top: 5px;
+        }
+        
+        .resume-position {
+            color: $link-color;
+        }
+    
+        // EDUCATION
+        .resume-education-degree {
+            margin-top: 5px;
+            color: $link-color;
+            font-weight: bold;
+        }
+    
+        .resume-education-major {
+            margin-top: 5px;
+            color: $grey-02;
+            font-weight: normal;
+            font-style: italic;
+        }
+    }
+
+}
