@@ -51,6 +51,8 @@ ul {
 #about-resume {
 
     .resume-container {
+        max-width: 600px;
+
         h4 {
             margin-bottom: 5px;
         }
@@ -62,6 +64,7 @@ ul {
         }
         p.resume-description {
             margin-top: 5px;
+            // font-style: italic;
         }
         
         .resume-position {
