@@ -8,9 +8,8 @@ const Education = class extends React.Component {
         return (
                 <div className="resume-education">
                     <h4>{ school } <span className="resume-education-degree">| { degree }</span></h4>
+                    <p style={{margin:"5px 0px"}}>{ degree } in <span className="resume-education-major">{ major }</span></p>
                     <p className="resume-date">{ date }</p>
-                    <p className="resume-education-major">{ major }</p>
-                    
                 </div>
         );
     }
