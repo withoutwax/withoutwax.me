@@ -4,12 +4,14 @@ experiences:
     company: 'Legion Collective',
     position: 'Web Developer Intern',
     date: 'Feb 2019 - May 2019',
+    location: 'Chicago, IL',
     description: 'Worked with a dev team as a Web Developer Intern. Created prototypes and responsive live production web applications for clients.'
   }
   - experience: {
     company: 'NVISIA',
     position: 'Creative Web Design Intern',
     date: 'Jan 2018 - May 2018 ',
+    location: 'Chicago, IL',
     description: 'Worked as UX design intern in Marketing Team. Solved UX problems, developed UI prototypes, implemented using HTML, CSS and JavaScript.'
   }
 
@@ -21,4 +23,10 @@ educations:
     major: 'Visual Communication, Art and Technology'
   }
 
+awards:
+  - award: {
+      title: 'Adobe Creative Jam',
+      date: 'Aug 2018',
+      achievement: "2nd Place Winner in People's Choice Award"
+  }
   

@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 
 import Experience from './experience';
 import Education from './education';
+import Award from './award';
 
 class Resume extends React.Component {
 
@@ -11,6 +12,7 @@ class Resume extends React.Component {
         const resume = data.resume.allDataYaml.edges[0].node;
         const experiences = resume.experiences;
         const educations = resume.educations;
+        const awards = resume.awards;
 
         let experience = experiences && (experiences.map((resume, index) => (
             <Experience 
@@ -18,6 +20,7 @@ class Resume extends React.Component {
                 company={resume.experience.company}
                 position={resume.experience.position}
                 date={resume.experience.date}
+                location={resume.experience.location}
                 description={resume.experience.description}
             />
         )))
@@ -30,6 +33,14 @@ class Resume extends React.Component {
                 major={resume.education.major}
             />
         )))
+        let award = awards && (awards.map((resume, index) => (
+            <Award
+                key={index}
+                title={resume.award.title}
+                date={resume.award.date}
+                achievement={resume.award.achievement}
+             />
+        )))
         
 
         return (
@@ -40,6 +51,9 @@ class Resume extends React.Component {
                 {/* <h3>Featured Projects</h3>
                 <p style={{marginTop:"5px", fontStyle:"italic"}}>Coming Soon</p> */}
                 
+                <h3>Honors & Awards</h3>
+                { award }
+
                 <h3>Education</h3>
                 { education }
 
@@ -60,6 +74,7 @@ export default () => (
                                 company
                                 position
                                 date
+                                location
                                 description
                             }
                         }
@@ -69,6 +84,13 @@ export default () => (
                                 date
                                 degree
                                 major
+                            }
+                        }
+                        awards {
+                            award {
+                                title
+                                date
+                                achievement
                             }
                         }
                     }

@@ -38,7 +38,7 @@ export class About extends React.Component {
     render() {
         let content;
 
-        if (this.state.resume == false) {
+        if (this.state.resume === false) {
             content = 
                 <article className="about-container">   
                     <div className="about-section" style={{ marginTop:"5px" }}>
@@ -75,7 +75,7 @@ export class About extends React.Component {
                     </div>
                 </article>
             
-        } else if (this.state.resume == true) {
+        } else if (this.state.resume === true) {
             content = 
                 <article id="about-resume">
                     <h2>Will Kim</h2>

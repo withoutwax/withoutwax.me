@@ -8,21 +8,22 @@ import styled from 'styled-components';
 // import * as styles from './Index.module.scss';
 // const LandingContainer = styled
 
-const ComingSoon = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+// DO NOT DELETE - might need this code later if we do maintenance
+// const ComingSoon = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
 
-    min-height: 95vh;
+//     min-height: 95vh;
 
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
+//     font-size: 14px;
+//     text-transform: uppercase;
+//     font-weight: bold;
 
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ff4470;
-`
+//     font-family: Arial, Helvetica, sans-serif;
+//     color: #ff4470;
+// `
 
 const LandingPage = styled.div`
     display: flex;
