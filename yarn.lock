@@ -5733,6 +5733,13 @@ gatsby-plugin-favicon@^3.1.5:
     html-react-parser "^0.4.6"
     lodash "^4.17.10"
 
+gatsby-plugin-google-analytics@^2.0.20:
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.0.20.tgz#ee8f10228a072247686a33d180d978abc574327c"
+  integrity sha512-bv2vlHdG14MIuZU0yUzGvb5Y3kL+UBY2Ii3v9PgYX7Bu7r5np/vMy82vtafkRUsrA3hcK9ipxUw8kmviurvFtQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-plugin-netlify-cms@^3.0.9:
   version "3.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify-cms/-/gatsby-plugin-netlify-cms-3.0.12.tgz#1812653fba2690f85b2796fa22e4b59b7b169520"

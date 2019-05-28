@@ -8,6 +8,7 @@
     "gatsby": "^2.4.0",
     "gatsby-image": "^2.0.23",
     "gatsby-plugin-favicon": "^3.1.5",
+    "gatsby-plugin-google-analytics": "^2.0.20",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^3.0.9",
     "gatsby-plugin-purgecss": "^3.1.0",
