@@ -21,12 +21,12 @@ class Resume extends React.Component {
                 company={resume.experience.company}
                 position={resume.experience.position}
                 date={resume.experience.date}
-                location={resume.experience.location}
+                locations={resume.experience.location}
                 description={resume.experience.description}
             />
         )))
         let volunteer = volunteers && (volunteers.map((resume, index) => (
-            <Experience //Use experience since the format is the same
+            <Experience //Use experience since the format is the same 
                 key={index}
                 company={resume.volunteer.company}
                 position={resume.volunteer.position}
