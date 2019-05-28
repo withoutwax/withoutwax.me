@@ -15,6 +15,15 @@ experiences:
     description: 'Worked as UX design intern in Marketing Team. Solved UX problems, developed UI prototypes, implemented using HTML, CSS and JavaScript.'
   }
 
+volunteers:
+  - volunteer: {
+    company: 'School of the Art Institute of Chicago',
+    position: 'Coding Instructor',
+    date: 'Oct 2017 - Dec 2018',
+    location: 'Chicago, IL',
+    description: "Developed a curriculum and taught a foundation of web design and web development to fellow SAIC students. Demonstrated the core concept of HTML, CSS, including concepts such as CSS Grids and Flexbox."
+  }  
+
 educations: 
   - education: {
     school: 'School of the Art Institute of Chicago',

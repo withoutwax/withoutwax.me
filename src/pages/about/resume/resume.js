@@ -11,6 +11,7 @@ class Resume extends React.Component {
         const data = this.props;
         const resume = data.resume.allDataYaml.edges[0].node;
         const experiences = resume.experiences;
+        const volunteers = resume.volunteers;
         const educations = resume.educations;
         const awards = resume.awards;
 
@@ -22,6 +23,16 @@ class Resume extends React.Component {
                 date={resume.experience.date}
                 location={resume.experience.location}
                 description={resume.experience.description}
+            />
+        )))
+        let volunteer = volunteers && (volunteers.map((resume, index) => (
+            <Experience //Use experience since the format is the same
+                key={index}
+                company={resume.volunteer.company}
+                position={resume.volunteer.position}
+                date={resume.volunteer.date}
+                location={resume.volunteer.location}
+                description={resume.volunteer.description}
             />
         )))
         let education = educations && (educations.map((resume, index) => (
@@ -48,9 +59,12 @@ class Resume extends React.Component {
                 <h3>Experience</h3>
                 { experience }
 
+                <h3>Volunteer</h3>
+                { volunteer }
+
                 {/* <h3>Featured Projects</h3>
                 <p style={{marginTop:"5px", fontStyle:"italic"}}>Coming Soon</p> */}
-                
+
                 <h3>Honors & Awards</h3>
                 { award }
 
@@ -71,6 +85,15 @@ export default () => (
                     node {
                         experiences {
                             experience {
+                                company
+                                position
+                                date
+                                location
+                                description
+                            }
+                        }
+                        volunteers {
+                            volunteer {
                                 company
                                 position
                                 date
