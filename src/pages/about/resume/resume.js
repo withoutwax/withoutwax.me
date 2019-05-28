@@ -31,7 +31,7 @@ class Resume extends React.Component {
                 company={resume.volunteer.company}
                 position={resume.volunteer.position}
                 date={resume.volunteer.date}
-                location={resume.volunteer.location}
+                locations={resume.volunteer.location}
                 description={resume.volunteer.description}
             />
         )))
