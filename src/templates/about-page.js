@@ -11,9 +11,9 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
 //   const PageContent = aboutAbout || Content
 
   return (
-    <article>
-        {aboutAbout.qna.map(about => (
-            <div className="about-section" style={{ marginTop:"5px" }}>
+    <article className="about-container">
+        {aboutAbout.qna.map((about, i) => (
+            <div className="about-section" style={{ marginTop:"5px" }} key={i}>
                 <h2>{about.question}</h2>
                 <p>{about.answer}</p>
             </div>
@@ -23,7 +23,10 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
 }
 
 AboutPageTemplate.propTypes = {
-    aboutAbout: PropTypes.array,
+    aboutAbout: PropTypes.shape({
+        title: PropTypes.string,
+        qna: PropTypes.array
+    }),
 }
 
 const AboutPage = ({ data }) => {
