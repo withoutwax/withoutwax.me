@@ -12,13 +12,12 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
 
   return (
     <article>
-        <div className="about-section" style={{ marginTop:"5px" }}>
-            <h2>Hi. <span role="img" aria-label="cheers!">🙌🏼, </span> This is Will.</h2>
-            <p>Welcome to my about page! I saw you were wondering who I am. Well, let me introduce myself! <span role="img" aria-label="smile">😊</span></p>
-            {/* <p>{aboutAbout}</p> */}
-            {console.log(aboutAbout)}
-            {console.log(aboutAbout.qna[0].question)}
-        </div>
+        {aboutAbout.map(about => (
+            <div className="about-section" style={{ marginTop:"5px" }}>
+                <h2>{about.question}</h2>
+                <p>{about.answer}</p>
+            </div>
+        ))}
     </article>
   )
 }
