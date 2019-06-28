@@ -103,7 +103,7 @@ collections:
                 {label: "Description", name: "description", widget: "text"}
             ]},
               {label: "Volunteer", name: "volunteer", widget: "list", fields: [
-                {label: "Organization", name: "position", widget: "string"},
+                {label: "Organization", name: "organization", widget: "string"},
                 {label: "Position", name: "position", widget: "string"},
                 {label: "Start Date", name: "startDate", widget: "date", format: "MMM YYYY"},
                 {label: "Currently Working", name: "currentlyWorking", widget: "boolean", default: true},
