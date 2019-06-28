@@ -1,7 +1,7 @@
 ---
 templateKey: contact-page
 title: Contact
-callout: 'If you wish to contact me, please do so with the email below'
+callout: 'If you wish to contact me, please do so with the email below:'
 email: rlagmlckd@gmail.com
 ---
 I will be able to reach you within 1 to 3 business days at maximum.
