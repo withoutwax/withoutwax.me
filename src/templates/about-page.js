@@ -1,15 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql  } from 'gatsby';
 import Layout from '../components/Layout';
 // import Content, { HTMLContent } from '../components/Content';
 
-// import Resume from '../pages/about/resume/resume';
+import Resume from '../pages/about/resume/resume';
 // import { prototype } from 'module';
 
 export const AboutPageTemplate = ({ aboutAbout }) => {
-//   const PageContent = aboutAbout || Content
-
   return (
     <article className="about-container">
         {aboutAbout.qna.map((about, i) => (
@@ -26,8 +24,20 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
             <p>Will Kim</p>
         </div>
     </article>
-  )
+  );
 }
+
+export const ResumePageTemplate = ({ aboutResume }) => {
+    return (
+        <article id="about-resume">
+            <h2>Will Kim</h2>
+            <div>
+                {/* {console.log(aboutResume)} */}
+                <Resume resume={aboutResume}/>
+            </div>
+        </article>
+    );
+}   
 
 AboutPageTemplate.propTypes = {
     aboutAbout: PropTypes.shape({
@@ -36,21 +46,48 @@ AboutPageTemplate.propTypes = {
     }),
 }
 
+ResumePageTemplate.propTypes = {
+    aboutResume: PropTypes.shape({
+        title: PropTypes.string,
+        name: PropTypes.string,
+        experience: PropTypes.array,
+        volunteer: PropTypes.array,
+        education: PropTypes.array,
+        award: PropTypes.array
+    }),
+}
+
 const AboutPage = ({ data }) => {
     const { frontmatter } = data.markdownRemark;
 
-  return (
-    <Layout>
-      <AboutPageTemplate
-        aboutAbout={frontmatter.aboutAbout}
-      />
-      <section>
-        {/* <h1><span id="about-about-btn" className={this.state.aboutcssclass} onClick={this.aboutToggle} >About</span> <span id="about-resume-btn" className={this.state.resumecssclass} onClick={this.resumeToggle} >Resume</span></h1> */}
+    // React Hooks
+    const [resume, setResume] = useState(false);
+    const [aboutcssclass, setAboutCss] = useState("focus-btn");
+    const [resumecssclass, setResumeCss] = useState("unfocus-btn");
 
-        {/* {content} */}
-      </section>
-    </Layout>
-  )
+
+    const aboutToggle = () => {
+        setResume(false);
+        setAboutCss("focus-btn");
+        setResumeCss("unfocus-btn");
+    }
+
+    const resumeToggle = () => {
+        setResume(true);
+        setAboutCss("unfocus-btn");
+        setResumeCss("focus-btn");
+    }
+
+    return (
+        <Layout>
+        <section>
+            <h1><span id="about-about-btn" className={aboutcssclass} onClick={() => aboutToggle()} >About</span> <span id="about-resume-btn" className={resumecssclass} onClick={() => resumeToggle()} >Resume</span></h1>
+
+            {resume ? <ResumePageTemplate aboutResume={frontmatter.aboutResume} /> : <AboutPageTemplate aboutAbout={frontmatter.aboutAbout} />}
+
+        </section>
+        </Layout>
+    )
 }
 
 AboutPage.propTypes = {
@@ -64,7 +101,7 @@ AboutPage.propTypes = {
 export default AboutPage;
 
 export const aboutPageQuery = graphql`
-  query AboutPageTemplate {
+query AboutPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
       frontmatter {
         aboutAbout {
@@ -74,7 +111,42 @@ export const aboutPageQuery = graphql`
                 answer
             }
         }
-      }
+        aboutResume {
+            title
+            name
+            experience {
+                company
+                position
+                startDate
+                currentlyWorking
+                endDate
+                location
+                description
+            }
+            volunteer {
+                    organization
+                    position
+                    startDate
+                    currentlyWorking
+                    endDate
+                    location
+                    description
+            }
+            education {
+                    school
+                    startDate
+                    currentlyAttending
+                    endDate
+                    degree
+                    major
+            }
+            award {
+                    title
+                    date
+                    description
+                }
+            }
+        } 
     }
   }
 `
