@@ -12,7 +12,7 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
 
   return (
     <article>
-        {aboutAbout.map(about => (
+        {aboutAbout.qna.map(about => (
             <div className="about-section" style={{ marginTop:"5px" }}>
                 <h2>{about.question}</h2>
                 <p>{about.answer}</p>
