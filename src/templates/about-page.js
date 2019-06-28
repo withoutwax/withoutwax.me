@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { Link, graphql  } from 'gatsby';
 import Layout from '../components/Layout';
 // import Content, { HTMLContent } from '../components/Content';
 
@@ -18,6 +18,13 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
                 <p>{about.answer}</p>
             </div>
         ))}
+        <div>
+            <p>Thanks for visiting! <span role="img" aria-label="cheers!">🙌🏼 </span></p>
+            <Link to="/about/withoutwax/" alt="withoutwax">
+                without wax
+            </Link>,
+            <p>Will Kim</p>
+        </div>
     </article>
   )
 }
