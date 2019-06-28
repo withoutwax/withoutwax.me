@@ -4,70 +4,70 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
+import Resume from '../pages/about/resume';
+import { prototype } from 'module';
+
 export const AboutPageTemplate = ({ title, callout, email, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section">
-        <div className="container">
-            <div className="content" style={{ textAlign:"center" }}>
-                <h1 style={{ textAlign:"center" }}>{title}</h1>
-                
-                <p><strong>{callout}</strong></p>
-                {/* <p><strong>If you wish to contact me, please do so with the email below:</strong></p> */}
-
-                <a className="mailto" href="mailto:rlagmlckd@gmail.com">{email}</a>
-                
-                <br />
-                {/* <p>{body}</p> */}
-                <PageContent className="content" content={content} />
-                {/* <p>I will be able to reach you within 1 to 3 business days at maximum.</p>
-                <p>If I did not reach you within those days, please do not be offended, I am either in a situation where I cannot check my mail system and will reply to you ASAP as I get connected.</p> */}
-
-            </div>
+    <article>
+        <div className="about-section" style={{ marginTop:"5px" }}>
+            <h2>Hi. <span role="img" aria-label="cheers!">🙌🏼, </span> This is Will.</h2>
+            <p>Welcome to my about page! I saw you were wondering who I am. Well, let me introduce myself! <span role="img" aria-label="smile">😊</span></p>
         </div>
-    </section>
+    </article>
   )
 }
 
 AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  callout: PropTypes.string,
-  email: PropTypes.string,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
+    aboutAbout: Prototype.shape({
+        title: PropTypes.string,
+        qna: PropTypes.shape({
+            question: PropTypes.string,
+            answer: PropTypes.string,
+        }),
+    }),
 }
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
+    const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
       <AboutPageTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        callout={post.frontmatter.callout}
-        email={post.frontmatter.email}
-        content={post.html}
+        aboutAbout={frontmatter.aboutAbout}
       />
+      <section>
+        <h1><span id="about-about-btn" className={this.state.aboutcssclass} onClick={this.aboutToggle} >About</span> <span id="about-resume-btn" className={this.state.resumecssclass} onClick={this.resumeToggle} >Resume</span></h1>
+
+        {content}
+      </section>
     </Layout>
   )
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        markdownRemark: PropTypes.shape({
+            frontmatter: PropTypes.object,
+        }),
+    }),
 }
 
 export default AboutPage;
 
 export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
+  query AboutPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
       frontmatter {
-        title
-        callout
-        email
+        aboutAbout {
+            title
+            qna {
+                question
+                answer
+            }
+        }
       }
     }
   }
