@@ -18,6 +18,25 @@ aboutAbout:
       question: "Anything else? \U0001F4AD"
   title: About
 aboutResume:
+  experience:
+    - company: Legion Collective
+      currentlyWorking: false
+      description: >-
+        Worked with a dev team as a Web Developer Intern. Created prototypes and
+        responsive live production web applications for clients.
+      endDate: May 2019
+      location: 'Chicago, IL'
+      position: Web Developer Intern
+      startDate: Feb 2019
+    - company: NVISIA
+      currentlyWorking: false
+      description: >-
+        Worked as UX design intern in Marketing Team. Solved UX problems,
+        developed UI prototypes, implemented using HTML, CSS and JavaScript.
+      endDate: May 2018
+      location: 'Chicago, IL'
+      position: Creative Web Design Intern
+      startDate: Jan 2018
   name: Will Kim
   title: Resume
 ---
