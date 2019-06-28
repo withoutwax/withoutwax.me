@@ -18,6 +18,17 @@ aboutAbout:
       question: "Anything else? \U0001F4AD"
   title: About
 aboutResume:
+  award:
+    - date: Aug 2018
+      description: 2nd Place Winner in People's Choice Award
+      title: Adobe Creative Jam
+  education:
+    - currentlyAttending: false
+      degree: BFA
+      endDate: '2019'
+      major: 'Visual Communication, Art and Technology'
+      school: School of the Art Institute of Chicago
+      startDate: '2012'
   experience:
     - company: Legion Collective
       currentlyWorking: false
@@ -39,5 +50,16 @@ aboutResume:
       startDate: Jan 2018
   name: Will Kim
   title: Resume
+  volunteer:
+    - currentlyWorking: false
+      description: >-
+        Developed a curriculum and taught a foundation of web design and web
+        development to fellow SAIC students. Demonstrated the core concept of
+        HTML, CSS, including concepts such as CSS Grids and Flexbox.
+      endDate: Dec 2018
+      location: 'Chicago, IL'
+      organization: School of the Art Institute of Chicago
+      position: Coding Instructor
+      startDate: Oct 2017
 ---
 
