@@ -7,14 +7,15 @@ import Content, { HTMLContent } from '../components/Content';
 import Resume from '../pages/about/resume';
 import { prototype } from 'module';
 
-export const AboutPageTemplate = ({ title, callout, email, content, contentComponent }) => {
-  const PageContent = contentComponent || Content
+export const AboutPageTemplate = ({ aboutAbout }) => {
+//   const PageContent = aboutAbout || Content
 
   return (
     <article>
         <div className="about-section" style={{ marginTop:"5px" }}>
             <h2>Hi. <span role="img" aria-label="cheers!">🙌🏼, </span> This is Will.</h2>
             <p>Welcome to my about page! I saw you were wondering who I am. Well, let me introduce myself! <span role="img" aria-label="smile">😊</span></p>
+            <p>{aboutAbout}</p>
         </div>
     </article>
   )
@@ -41,7 +42,7 @@ const AboutPage = ({ data }) => {
       <section>
         <h1><span id="about-about-btn" className={this.state.aboutcssclass} onClick={this.aboutToggle} >About</span> <span id="about-resume-btn" className={this.state.resumecssclass} onClick={this.resumeToggle} >Resume</span></h1>
 
-        {content}
+        {/* {content} */}
       </section>
     </Layout>
   )
