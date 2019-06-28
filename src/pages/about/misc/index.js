@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from '../../components/Layout';
+import Layout from '../../../components/Layout';
 import { Link } from 'gatsby';
 
-import Resume from './resume/resume';
+import Resume from '../resume/resume';
 // import Helmet from 'react-helmet';
 // import PageHelmet from '../../components/';
 

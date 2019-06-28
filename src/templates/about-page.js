@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
-import Resume from '../pages/about/resume';
+import Resume from '../pages/about/resume/resume';
 import { prototype } from 'module';
 
 export const AboutPageTemplate = ({ aboutAbout }) => {
@@ -22,7 +22,7 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
 }
 
 AboutPageTemplate.propTypes = {
-    aboutAbout: Prototype.shape({
+    aboutAbout: PropTypes.shape({
         title: PropTypes.string,
         qna: PropTypes.shape({
             question: PropTypes.string,
