@@ -6,9 +6,6 @@ import Education from './education';
 import Award from './award';
 
 export class Resume extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const resume = this.props.resume;
