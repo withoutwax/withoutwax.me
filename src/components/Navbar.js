@@ -48,8 +48,8 @@ const Navbar = class extends React.Component {
                 <Link className="navbar-item" to="/code" activeClassName="active">
                   Code
                 </Link>
-                <Link className="navbar-item" to="/uiux" activeClassName="active">
-                  UIUX
+                <Link className="navbar-item" to="/design" activeClassName="active">
+                  Design
                 </Link>
                 <Link className="navbar-item" to="/lab" activeClassName="active">
                   Lab<span role="img" aria-label="hammer">🔨</span>
