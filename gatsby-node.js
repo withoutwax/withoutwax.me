@@ -8,10 +8,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: ASC, fields: [frontmatter___date] }
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-      ) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
             id
