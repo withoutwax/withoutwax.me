@@ -72,7 +72,7 @@ export default () => (
                 <Links className="landing-container-link">
                     <StyledLink className="landing-container-link-link" to="/log">Log<span role="img" aria-label="camera">📷</span></StyledLink>
                     <StyledLink className="landing-container-link-link" to="/code">Code</StyledLink>
-                    <StyledLink className="landing-container-link-link" to="/uiux">UIUX</StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/design">Design</StyledLink>
                     <StyledLink className="landing-container-link-link" to="lab">Lab<span role="img" aria-label="hammer">🔨</span></StyledLink>
                     <StyledLink className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></StyledLink>
                 </Links>
