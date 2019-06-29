@@ -119,7 +119,6 @@ const AboutPage = ({ data }) => {
     const [aboutcssclass, setAboutCss] = useState("focus-btn");
     const [resumecssclass, setResumeCss] = useState("unfocus-btn");
 
-
     const aboutToggle = () => {
         setResume(false);
         setAboutCss("focus-btn");
