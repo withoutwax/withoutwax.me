@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql  } from 'gatsby';
 import Layout from '../components/Layout';
-// import Content, { HTMLContent } from '../components/Content';
 
-import Resume from '../pages/about/resume/resume';
-// import { prototype } from 'module';
+import Experience from '../pages/about/resume/experience';
+import Volunteer from '../pages/about/resume/volunteer';
+import Education from '../pages/about/resume/education';
+import Award from '../pages/about/resume/award';
 
 export const AboutPageTemplate = ({ aboutAbout }) => {
   return (
@@ -28,12 +29,65 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
 }
 
 export const ResumePageTemplate = ({ aboutResume }) => {
+    const { experience: experiences, volunteer: volunteers, education: educations, award: awards } = aboutResume;
+
     return (
         <article id="about-resume">
-            <h2>Will Kim</h2>
-            <div>
-                {/* {console.log(aboutResume)} */}
-                <Resume resume={aboutResume}/>
+            <div className="resume-container">
+                <h3>Experience</h3>
+                {experiences && experiences.map((experience, index) => (
+                        <Experience 
+                            key={index}
+                            company={experience.company}
+                            position={experience.position}
+                            startDate={experience.startDate}
+                            currentlyWorking={experience.currentlyWorking}
+                            endDate={experience.endDate}
+                            locations={experience.location}
+                            description={experience.description}
+                        />
+                ))}
+
+                <h3>Volunteer</h3>
+                {volunteers && volunteers.map((volunteer, index) => (
+                    <Volunteer 
+                        key={index}
+                        organization={volunteer.organization}
+                        position={volunteer.position}
+                        startDate={volunteer.startDate}
+                        currentlyWorking={volunteer.currentlyWorking}
+                        endDate={volunteer.endDate}
+                        locations={volunteer.location}
+                        description={volunteer.description}
+                    />
+                ))}
+
+                {/* <h3>Featured Projects</h3>
+                <p style={{marginTop:"5px", fontStyle:"italic"}}>Coming Soon</p> */}
+
+                <h3>Honors & Awards</h3>
+                {awards && awards.map((award, index) => (
+                    <Award 
+                        key={index}
+                        title={award.title}
+                        date={award.date}
+                        description={award.description}
+                    />
+                ))}
+
+                <h3>Education</h3>
+                {educations && educations.map((education, index) => (
+                    <Education
+                        key={index}
+                        school={education.school}
+                        startDate={education.startDate}
+                        currentlyAttending={education.currentlyAttending}
+                        endDate={education.endDate}
+                        degree={education.degree}
+                        major={education.major}
+                    />
+                ))}
+
             </div>
         </article>
     );
@@ -83,7 +137,8 @@ const AboutPage = ({ data }) => {
         <section>
             <h1><span id="about-about-btn" className={aboutcssclass} onClick={() => aboutToggle()} >About</span> <span id="about-resume-btn" className={resumecssclass} onClick={() => resumeToggle()} >Resume</span></h1>
 
-            {resume ? <ResumePageTemplate aboutResume={frontmatter.aboutResume} /> : <AboutPageTemplate aboutAbout={frontmatter.aboutAbout} />}
+            {resume ? 
+            <ResumePageTemplate aboutResume={frontmatter.aboutResume} /> : <AboutPageTemplate aboutAbout={frontmatter.aboutAbout} />}
 
         </section>
         </Layout>
