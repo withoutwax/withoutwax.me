@@ -45,8 +45,16 @@ const Logo = styled.img`
     width: 25px;
 `
 const Links = styled.a`
+    // Phone
     display: flex;
+    flex-direction: column;
     align-items: center;
+
+    /* Tablet ----------- */
+    @media (min-width: 600px) {
+        align-items: center;
+        flex-direction: row;
+    }
 `
 const StyledLink = styled(Link)`
     text-decoration: none;
