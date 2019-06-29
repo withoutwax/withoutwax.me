@@ -29,7 +29,7 @@ export const BlogPostTemplate = ({
             <p className="blog-category">{category} | </p>
             <p className="blog-date">{date}</p>
             
-            <div className="blog" style={{ marginTop:"150px" }}>
+            <div className="blog" style={{ marginTop:"100px" }}>
               <PostContent content={content}  />
             </div>
             

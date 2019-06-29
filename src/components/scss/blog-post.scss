@@ -29,7 +29,7 @@
 
 // MAIN CONTENT
 .blog {
-    h1, h2, li { // Making the main text content to be smaller than the main width
+    h1, li { // Making the main text content to be smaller than the main width
         margin: 0px 60px;
         word-break: keep-all;
     }
@@ -63,9 +63,18 @@
         margin-top:"15px";
     }
 
+    // .blog {
+    //     h1, h2, li { // Making the main text content to be smaller than the main width
+    //         margin: 0px 60px;
+    //     }
+    // }
+}
+
+/* Laptop, Desktop ----------- */
+@media (min-width: 1024px) {
     .blog {
-        h1, h2, li, p { // Making the main text content to be smaller than the main width
-            margin: 0px 60px;
+        h1, h2, p, li {
+            margin: 30px 60px;
         }
     }
 }
