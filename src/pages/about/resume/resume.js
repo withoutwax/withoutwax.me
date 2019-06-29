@@ -6,33 +6,47 @@ import Education from './education';
 import Award from './award';
 
 export class Resume extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            resume: "",
+        }
+    }
+
+    componentDidMount() {
+        if (typeof window === 'undefined') {
+          return;
+        }
+        this.setState(() => ({ 
+            resume: this.props.location.state.resume,
+        }));
+      }
 
     render() {
-        const resume = this.props.resume;
-        console.log(resume)
-        const experiences = resume.experience;
-        const volunteers = resume.volunteer;
-        const educations = resume.education;
-        const awards = resume.award;
+        // const resume = this.props.resume;
+        const experiences = this.state.resume.experience;
+        const volunteers = this.state.resume.volunteer;
+        const educations = this.state.resume.education;
+        const awards = this.state.resume.award;
 
         return (
             <div className="resume-container">
                 <h3>Experience</h3>
-                {experiences.map((experience, index) => (
-                    <Experience 
-                        key={index}
-                        company={experience.company}
-                        position={experience.position}
-                        startDate={experience.startDate}
-                        currentlyWorking={experience.currentlyWorking}
-                        endDate={experience.endDate}
-                        locations={experience.location}
-                        description={experience.description}
-                    />
-                ))}
+                {experiences ? experiences.map((experience, index) => (
+                        <Experience 
+                            key={index}
+                            company={experience.company}
+                            position={experience.position}
+                            startDate={experience.startDate}
+                            currentlyWorking={experience.currentlyWorking}
+                            endDate={experience.endDate}
+                            locations={experience.location}
+                            description={experience.description}
+                        />
+                )) : console.log("meh")}
 
                 <h3>Volunteer</h3>
-                {volunteers.map((volunteer, index) => (
+                {volunteers ? volunteers.map((volunteer, index) => (
                     <Volunteer 
                         key={index}
                         organization={volunteer.organization}
@@ -43,23 +57,23 @@ export class Resume extends React.Component {
                         locations={volunteer.location}
                         description={volunteer.description}
                     />
-                ))}
+                )) : console.log("meh")}
 
                 {/* <h3>Featured Projects</h3>
                 <p style={{marginTop:"5px", fontStyle:"italic"}}>Coming Soon</p> */}
 
                 <h3>Honors & Awards</h3>
-                {awards.map((award, index) => (
+                {awards ? awards.map((award, index) => (
                     <Award 
                         key={index}
                         title={award.title}
                         date={award.date}
                         description={award.description}
                     />
-                ))}
+                )) : console.log("meh")}
 
                 <h3>Education</h3>
-                {educations.map((education, index) => (
+                {educations ? educations.map((education, index) => (
                     <Education
                         key={index}
                         school={education.school}
@@ -69,7 +83,7 @@ export class Resume extends React.Component {
                         degree={education.degree}
                         major={education.major}
                     />
-                ))}
+                )) : console.log("meh")}
 
             </div>      
         );
