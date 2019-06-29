@@ -1,46 +1,74 @@
-// HEADER
-// NAV
+// Phones
+// HEADER NAV
 .header-container {
     display: flex;
     flex-direction: column;
 
-    // align-items: center;
-
     .header-logo {
         margin-top: 4vh;
-        margin-bottom: 7vh;
+        margin-bottom: 2vh;
     }
 }
 
+nav {
+    min-width: 80vw;
+}
+.hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 50px;
+
+    .hamburger-box {
+        .hamburger-inner {
+            background-color: $light-grey-01;
+            
+            &::before {
+                background-color: $light-grey-01;
+            }
+            &::after {
+                background-color: $light-grey-01;
+            }
+        }
+    }
+}
+.nav-container.is-active {
+    display: flex;
+    // position: fixed;
+    background: white;
+    top: 0;
+    width: 100vw;
+}
 .nav-container {
+    // visibility: hidden;
+
     font-family: $font-heebo; //$font-roboto-mono; //$font-proxima;
     font-size: 4rem; //14px;
     font-weight: bold;
 
     margin-bottom: 100px;
 
-    .navbar-start {
-        // display: flex;
-        // flex-direction: row;
-        .navbar-sub {
-            // display: flex;
-            // flex-direction: column;
-            // margin-right: 100px;
-            
-            margin-bottom: 60px;
+    display: none; // Need to set to none for hamburger menu. (When visible, the menu will have 'flex'
+    flex-direction: column;
+    align-items: center;
 
-            .navbar-item {
-                color: $light-grey-01;
-            }
-            .navbar-item:hover {
-                color: $link-color; // $light-grey-01;
-            }
-            .active {
-                border-bottom: solid 5px $link-color; // text-decoration: underline;
-                color: $link-color; //$light-grey-01;
-                padding-bottom: 2px;
-            }
+    .navbar-sub {
+        display: flex;
+        flex-direction: column;
+        
+        margin-bottom: 60px;
+
+        .navbar-item {
+            color: $light-grey-01;
         }
+        .navbar-item:hover {
+            color: $link-color; // $light-grey-01;
+        }
+        .active {
+            border-bottom: solid 5px $link-color; // text-decoration: underline;
+            color: $link-color; //$light-grey-01;
+            padding-bottom: 2px;
+        }
+        
     }
     
 
@@ -58,5 +86,42 @@
         border-bottom: solid 5px $link-color; // text-decoration: underline;
         color: $link-color; //$light-grey-01;
         padding-bottom: 2px;
+    }
+}
+
+/* Tablet ----------- */
+@media (min-width: 600px) {
+    // HEADER NAV
+    .header-container {
+        display: flex;
+        flex-direction: column;
+
+        .header-logo {
+            margin-top: 4vh;
+            margin-bottom: 7vh;
+        }
+    }
+
+    nav {
+        margin-bottom: 100px;
+    }
+    .hamburger {
+        display: none;
+    }
+    .nav-container {
+        font-family: $font-heebo; //$font-roboto-mono; //$font-proxima;
+        font-size: 4rem; //14px;
+        font-weight: bold;
+
+        
+        display: initial;
+        align-items: flex-start;
+
+        .navbar-sub {
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+            margin-bottom: 30px;
+        }
     }
 }

@@ -26,17 +26,17 @@ h3 {
 }
 
 h1 {
-    font-size: 4rem; //2.5rem;
+    font-size: 3rem; //2.5rem;
     text-align: left;
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     color: $light-grey-01;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $light-grey-01;
 }
 
@@ -48,7 +48,8 @@ html {
 }
 
 body {
-    width: 900px;
+    width: 80vw;
+    max-width: 900px;
 }
 
 p {
@@ -71,4 +72,18 @@ a {
 
 a:hover {
     color: $link-color-02;
+}
+/* Tablet ----------- */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 4rem; //2.5rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+    
+    h3 {
+        font-size: 2rem;
+    }
 }

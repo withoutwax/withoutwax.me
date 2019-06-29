@@ -6,7 +6,7 @@
 .blog-description {
     color: $light-grey-01;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 34px;
     font-family: $font-arial;
     max-width: 600px;
@@ -29,8 +29,9 @@
 
 // MAIN CONTENT
 .blog {
-    h1, h2, li, p { // Making the main text content to be smaller than the main width
+    h1, h2, li { // Making the main text content to be smaller than the main width
         margin: 0px 60px;
+        word-break: keep-all;
     }
     h2 {
         margin-top: 40px;
@@ -38,6 +39,9 @@
     }
     p {
         margin-bottom: 20px;
+    }
+    img {
+        width: 100%;
     }
 }
 
@@ -49,4 +53,19 @@
 }
 .taglist > * {
     margin-right: 2px;
+}
+/* Tablet ----------- */
+@media (min-width: 600px) {
+    .blog-description {
+        font-size: 2rem;
+        line-height: 34px;
+    
+        margin-top:"15px";
+    }
+
+    .blog {
+        h1, h2, li, p { // Making the main text content to be smaller than the main width
+            margin: 0px 60px;
+        }
+    }
 }
