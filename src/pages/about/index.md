@@ -31,6 +31,13 @@ aboutResume:
       startDate: '2012'
   experience:
     - company: Legion Collective
+      currentlyWorking: true
+      description: Currently working on exciting things.
+      endDate: Jul 2020
+      location: 'Chicago, IL'
+      position: Junior Web Developer
+      startDate: Jul 2019
+    - company: Legion Collective
       currentlyWorking: false
       description: >-
         Worked with a dev team as a Web Developer Intern. Created prototypes and
