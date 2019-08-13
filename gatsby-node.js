@@ -8,7 +8,11 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
+<<<<<<< HEAD
       allMarkdownRemark(limit:1000) {
+=======
+      allMarkdownRemark(limit: 1000) {
+>>>>>>> 10328dbf1854e21763bb2367a40f78bf8412e8e3
         edges {
           node {
             id
