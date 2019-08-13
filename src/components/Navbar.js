@@ -42,9 +42,9 @@ const Navbar = class extends React.Component {
         {/* <div className="hamburger-menu"  >{this.state.Logo}</div> */}
 
         {/* Hamburger Button */}
-        <button class={`hamburger hamburger--slider ${this.state.navBarActiveClass}`} onClick={() => this.toggleHamburger()} type="button">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
+        <button className={`hamburger hamburger--slider ${this.state.navBarActiveClass}`} onClick={() => this.toggleHamburger()} type="button">
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
           </span>
         </button>
 
