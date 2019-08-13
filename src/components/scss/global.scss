@@ -69,6 +69,9 @@ a {
     text-decoration: none;
     color: $link-color;
 }
+code {
+    color: $grey-01;
+}
 
 a:hover {
     color: $link-color-02;
