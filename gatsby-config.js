@@ -98,8 +98,4 @@ if (process.env.CONTEXT === "production") {
   cfg.plugins.push(googleAnalyticsCfg);
 }
 
-<<<<<<< HEAD
 module.exports = cfg;
-=======
-module.exports = cfg;
->>>>>>> 10328dbf1854e21763bb2367a40f78bf8412e8e3

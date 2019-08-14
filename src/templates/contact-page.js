@@ -71,8 +71,4 @@ export const contactPageQuery = graphql`
       }
     }
   }
-<<<<<<< HEAD
 `
-=======
-`
->>>>>>> 10328dbf1854e21763bb2367a40f78bf8412e8e3

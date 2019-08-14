@@ -78,7 +78,6 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-<<<<<<< HEAD
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
@@ -126,28 +125,12 @@ collections:
                 {label: "Description", name: "description", widget: "text"}
             ]}
           ]}
-=======
-      # - file: "src/pages/about/index.md"
-      #   label: "About"
-      #   name: "about"
-      #   fields:
-      #     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-      #     - {label: "Title", name: "title", widget: "string"}
-      #     - {label: "Body", name: "body", widget: "markdown"}
->>>>>>> 10328dbf1854e21763bb2367a40f78bf8412e8e3
       - file: "src/pages/contact/index.md"
         label: "Contact"
         name: "contact"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
-<<<<<<< HEAD
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Callout", name: "callout", widget: "string"}
           - {label: "Email", name: "email", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-=======
-          - {label: Title, name: title, widget: string}
-          - {label: Callout, name: callout, widget: string}
-          - {label: Email, name: email, widget: string}
-          - {label: Body, name: body, widget: markdown}
->>>>>>> 10328dbf1854e21763bb2367a40f78bf8412e8e3
