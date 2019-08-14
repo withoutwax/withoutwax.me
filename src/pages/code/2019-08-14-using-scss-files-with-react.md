@@ -4,8 +4,8 @@ title: Using SCSS files with React
 date: 2019-08-14T05:56:15.366Z
 description: 'With simple steps, you can use powerful SCSS with React ⚛︎'
 tags:
-  - scss
-  - react
+  - SCSS
+  - React
 category: Code
 ---
 Using SCSS is simple as install a dependency and importing the `.scss` file:
