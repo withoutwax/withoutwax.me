@@ -4,7 +4,7 @@ title: Deploying React project to GitHub Pages
 date: 2019-08-13T06:46:52.253Z
 description: "Documentation of how to publish React ⚛︎ project to GitHub Pages \U0001F5A5"
 tags:
-  - react
+  - React
   - GitHub
 category: Code
 ---
