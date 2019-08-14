@@ -35,7 +35,7 @@ aboutResume:
       description: Currently working on exciting things.
       endDate: Jul 2020
       location: 'Chicago, IL'
-      position: Junior Web Developer
+      position: Junior Developer
       startDate: Jul 2019
     - company: Legion Collective
       currentlyWorking: false
