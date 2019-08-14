@@ -3,6 +3,9 @@ templateKey: blog-post
 title: Installing node with nvm
 date: 2019-08-13T05:43:58.032Z
 description: A proper way to install and updating node.
+tags:
+  - Node
+  - NVM
 category: Code
 ---
 There are many ways in installing Node, but one of my favorite way is using a [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).
