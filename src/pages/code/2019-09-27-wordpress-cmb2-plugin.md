@@ -5,6 +5,7 @@ date: 2019-09-27T20:23:28.808Z
 description: 'Simple code which helped me create a metabox with plugin: CMB2 in WordPress.'
 tags:
   - WordPress
+  - CMB2
 category: Code
 ---
 In the world of WordPress, there are unique things called 'Metabox.' These boxes are created to give freedom to the users who wishes to create a custom fields for the users to use and display data into the front end. In my work, I had to use this plugins, and here's some code that helped me out:
