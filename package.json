@@ -1,7 +1,7 @@
 {
   "name": "withoutwax-me",
   "description": "Will's Blog",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Will Kim",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
