@@ -5,7 +5,7 @@ date: 2018-08-30T18:19:00.000Z
 description: A UIUX Hackathon hosted by Adobe. My team won 2nd place.
 archive: true
 tags:
-  - award
+  - Award
 category: Project
 ---
 Sometime during early August, one of my friend posted an interesting post about participating a UIUX competition hosted by Adobe! Though she wasn’t participating the event, I was interested so I messaged her and decided to give a shot.
