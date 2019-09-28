@@ -3,7 +3,7 @@ templateKey: blog-post
 title: Adobe Creative Jam 2018
 date: 2018-08-30T18:19:00.000Z
 description: A UIUX Hackathon hosted by Adobe. My team won 2nd place.
-category: Design
+category: Project
 ---
 Sometime during early August, one of my friend posted an interesting post about participating a UIUX competition hosted by Adobe! Though she wasn’t participating the event, I was interested so I messaged her and decided to give a shot.
 
@@ -43,7 +43,7 @@ We also had to think about the different method that the App could nudge the use
 
 Having these two basic functionality of the App figured out, next was to design the App.
 
-## Design
+## Project
 
 In terms of deciding the color scheme and the design language for the App, we thought that the color has to match and support the main objective of the App - help the user to build relationship. We decided to use a color that is not too strong, yet offers a friendly introduction to the users. We thought light pink was a good color choice to convey such meaning due to the friendliness and lightness of the color, also attractive to the many users as well. The HEX Code for the color was: #FAC0CB
 

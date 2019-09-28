@@ -54,13 +54,13 @@ const Navbar = class extends React.Component {
           </Link>
           <div className="navbar-sub">
             <Link className="navbar-item" to="/log" activeClassName="active">
-            Log<span role="img" aria-label="camera">📷</span>
+              Log<span role="img" aria-label="camera">📷</span>
             </Link>
             <Link className="navbar-item" to="/code" activeClassName="active">
-              Code
+              Code<span role="img" aria-label="computer">💻</span>
             </Link>
-            <Link className="navbar-item" to="/design" activeClassName="active">
-              Design
+            <Link className="navbar-item" to="/project" activeClassName="active">
+              Project<span role="img" aria-label="project">🕹</span>
             </Link>
             <Link className="navbar-item" to="/lab" activeClassName="active">
               Lab<span role="img" aria-label="hammer">🔨</span>

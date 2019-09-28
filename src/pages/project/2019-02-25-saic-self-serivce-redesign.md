@@ -5,7 +5,7 @@ date: 2017-09-21T17:44:00.000Z
 description: >-
   Re-desiging the user interface of the Self-Service webpage provided by my
   school.
-category: Design
+category: Project
 ---
 This project is about redesigning the user interface of the Self-Service webpage provided by my school:
 

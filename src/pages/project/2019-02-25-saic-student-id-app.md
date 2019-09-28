@@ -3,7 +3,7 @@ templateKey: blog-post
 title: SAIC Student ID App
 date: 2017-10-17T17:53:00.000Z
 description: Why doesn't our school have an App?
-category: Design
+category: Project
 ---
 Quite recently, I came across a question which I've never notice to ask myself: why doesn't our school have an App? This very simple and obvious question seemed never been challenged by other people - rather it seemed that many were thinking as 'that's the way it is'. I quickly realized the huge benefit that App would bring to the students, hence decided to design this app.
 
