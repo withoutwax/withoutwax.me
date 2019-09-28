@@ -15,6 +15,7 @@ class ArchiveRoll extends React.Component {
       <div className="">
       {posts && (posts
           .map(({ node: post }) => (
+            
             <div
               className=""
               key={post.id}
@@ -38,6 +39,7 @@ class ArchiveRoll extends React.Component {
               </article>
               
             </div>
+            
           )))}
           </div>
     );
@@ -56,10 +58,7 @@ export default () => (
   <StaticQuery
     query={graphql`
     query ArchiveRollQuery {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
-      ) {
+      allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}, archive: {eq: true}}}) {
         edges {
           node {
             excerpt(pruneLength: 200)
@@ -73,6 +72,7 @@ export default () => (
               date(formatString: "MMMM DD, YYYY")
               category
               description
+              archive
             }
           }
         }

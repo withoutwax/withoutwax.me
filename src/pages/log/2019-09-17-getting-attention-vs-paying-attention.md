@@ -3,8 +3,9 @@ templateKey: blog-post
 title: Getting Attention vs Paying Attention
 date: 2019-09-17T04:51:48.222Z
 description: '2019년 9월 16일 당시, 프로그래밍에 대한 저의 생각을 담은 글입니다.'
+archive: false
 tags:
-  - thoughts
+  - Thoughts
 category: Log
 ---
 내가 프로그래밍을 하는 가장 크고 중요한 이유는 무엇인가 - 내가 프로그래밍을 하는 **본질적인** 이유는 무엇인가?

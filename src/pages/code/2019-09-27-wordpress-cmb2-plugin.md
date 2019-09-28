@@ -3,6 +3,7 @@ templateKey: blog-post
 title: WordPress CMB2 Plugin
 date: 2019-09-27T20:23:28.808Z
 description: 'Simple code which helped me create a metabox with plugin: CMB2 in WordPress.'
+archive: false
 tags:
   - WordPress
   - CMB2

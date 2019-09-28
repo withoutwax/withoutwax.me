@@ -51,10 +51,7 @@ export default () => (
   <StaticQuery
     query={graphql`
     query CodeRollQuery {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "Code"} }}
-      ) {
+      allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: "Code"}, archive: {eq: false}}}) {
         edges {
           node {
             excerpt(pruneLength: 400)
@@ -72,6 +69,7 @@ export default () => (
         }
       }
     }
+    
     `}
     render={(data, count) => (
       <CodeRoll data={data} count={count} />

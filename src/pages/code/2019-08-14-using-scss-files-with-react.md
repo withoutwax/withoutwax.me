@@ -3,6 +3,7 @@ templateKey: blog-post
 title: Using SCSS files with React
 date: 2019-08-14T05:56:15.366Z
 description: 'With simple steps, you can use powerful SCSS with React ⚛︎'
+archive: false
 tags:
   - SCSS
   - React

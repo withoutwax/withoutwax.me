@@ -51,10 +51,7 @@ export default () => (
   <StaticQuery
     query={graphql`
     query LogRollQuery {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] },
-        filter: { frontmatter: { templateKey: { eq: "blog-post" }, category: {eq: "Log"} }}
-      ) {
+      allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}, category: {eq: "Log"}, archive: {eq: false}}}) {
         edges {
           node {
             excerpt(pruneLength: 200)

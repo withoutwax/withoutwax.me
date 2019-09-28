@@ -3,6 +3,7 @@ templateKey: blog-post
 title: Installing node with nvm
 date: 2019-08-13T05:43:58.032Z
 description: A proper way to install and updating node.
+archive: false
 tags:
   - Node
   - NVM
