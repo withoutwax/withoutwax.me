@@ -70,17 +70,32 @@ a {
     text-decoration: none;
     color: $link-color;
 }
-code {
-    color: $grey-02;
-    background-color: $light-grey-04;
-    padding: 2px;
-    border-radius: 3px;
-}
+
 pre {
-    // border: solid red 1px;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: pre-line;
+
+    border: 1px solid red;
 }
-
-
+code {
+    background-color: $light-grey-04;
+    color: $grey-02;
+    width: 100%;
+    border-radius: 3px;
+    padding: 2rem;
+    display: inline-block;
+    line-height: 1.3rem; 
+}
+p, a, li, h1, h2, h3 {
+    code {
+        width: auto;
+        padding: 0.15rem 0.3rem;
+    }
+}
 
 a:hover {
     color: $link-color-02;
