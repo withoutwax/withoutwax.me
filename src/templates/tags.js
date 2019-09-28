@@ -7,11 +7,27 @@ class TagRoute extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map(post => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
+
+      <div
+        className="tag-content-container"
+        key={post.node.fields.slug}
+      >
+        <article className="blog-roll-item" >
+          <Link className="blog-link" to={post.node.fields.slug}>
+          <div className="blog-roll-item-title">{post.node.frontmatter.title}</div>
+          <div className="blog-roll-meta">
+            <span> &bull; </span>
+            <span className="blog-roll-date">{post.node.frontmatter.date}</span>
+            <span className="blog-roll-category"> | </span>
+            <span className="blog-roll-category">{post.node.frontmatter.category}</span>
+          </div>
+          <p>
+            {post.node.excerpt}
+            {post.node.frontmatter.description}
+          </p>
+          </Link>
+        </article> 
+      </div>
     ))
     const tag = this.props.pageContext.tag
     const title = this.props.data.site.siteMetadata.title
@@ -53,11 +69,7 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      limit: 1000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
-    ) {
+    allMarkdownRemark(limit: 1000, sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {tags: {in: [$tag]}}}) {
       totalCount
       edges {
         node {
@@ -66,7 +78,11 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
+            date(formatString: "MMMM DD, YYYY")
+            category
+            description
           }
+          excerpt
         }
       }
     }
