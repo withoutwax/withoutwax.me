@@ -36,6 +36,12 @@ $ cd /usr/local/bin
 $ ln -s /Applications/ngrok ngrok
 ```
 
+If this doesn't install **ngrok**, then you can also install by using **brew**:
+
+```
+$ brew cask install ngrok
+```
+
 ## 4. Start using ngrok
 
 You can start using **ngrok** by using:
