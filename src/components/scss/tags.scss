@@ -1,5 +1,8 @@
 .taglist {
     flex-wrap: wrap;
+    li {
+        line-height: 1.5rem;
+    }
 }
 
 .tag-content-container {
