@@ -21,7 +21,7 @@ You can also read in more detail about deployment in React [documentation](https
 
 Add this code to `package.json`
 
-```
+```json
 "homepage": "https://myusername.github.io/my-app"
 ```
 

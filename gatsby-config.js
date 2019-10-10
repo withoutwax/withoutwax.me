@@ -62,6 +62,9 @@ const cfg = {
               destinationDir: 'static',
             },
           },
+          {
+            resolve: 'gatsby-remark-prismjs',
+          },
         ],
       },
     },

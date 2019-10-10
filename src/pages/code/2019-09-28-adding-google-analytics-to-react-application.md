@@ -22,7 +22,7 @@ yarn add react-ga
 2. Import and Add `react-ga` code in `App.js`.
 
 
-```
+```JavaScript
 import ReactGoogleAnalytics from 'react-ga'
 
 ...
