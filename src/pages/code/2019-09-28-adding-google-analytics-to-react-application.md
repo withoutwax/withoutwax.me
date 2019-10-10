@@ -14,7 +14,7 @@ The steps are pretty simple:
 1. Install `react-ga` package, which is a wrapper for Google Analytics script.
 
 
-```
+```bash
 # Yarn 
 yarn add react-ga
 ```

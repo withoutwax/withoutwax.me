@@ -35,13 +35,13 @@ It is important to know that we need to use the url generated with GitHub pages.
 
 While the React documentation uses `npm`, you could also use `yarn` to run the deployment.
 
-```
+```bash
 yarn add gh-pages
 ```
 
 After installing the dependencies, you also need to update the `package.json`:
 
-```
+```json
 "scripts": {  "predeploy": "npm run build",  "deploy": "gh-pages -d build",}
 ```
 
@@ -53,6 +53,6 @@ Note that the `predeploy` script will run automatically before `deploy` script i
 
 You are ready. Simply run:
 
-```
+```bash
 yarn deploy
 ```

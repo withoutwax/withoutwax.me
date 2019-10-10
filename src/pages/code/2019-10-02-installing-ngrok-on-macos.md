@@ -18,7 +18,7 @@ Downloading can be done in this [site](https://dashboard.ngrok.com/get-started).
 
 It is said that you can unzip the file using this script if you are a Linux or Mac users:
 
-```
+```bash
 $ unzip /path/to/ngrok.zip
 ```
 
@@ -28,7 +28,7 @@ $ unzip /path/to/ngrok.zip
 
 Now, here's a part where it becomes slightly tricky where I actually used a script to install the **ngrok** into my Mac:
 
-```
+```bash
 # cd into your local bin directory
 $ cd /usr/local/bin
 
@@ -38,7 +38,7 @@ $ ln -s /Applications/ngrok ngrok
 
 If this doesn't install **ngrok**, then you can also install by using **brew**:
 
-```
+```bash
 $ brew cask install ngrok
 ```
 
@@ -46,7 +46,7 @@ $ brew cask install ngrok
 
 You can start using **ngrok** by using:
 
-```
+```bash
 # For port localhost:3000, you can insert the port number with ngrok:
 $ ngrok http 3000
 ```

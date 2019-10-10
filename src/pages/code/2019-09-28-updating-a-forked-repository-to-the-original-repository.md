@@ -10,20 +10,28 @@ category: Code
 ---
 **1. Add remote with the original repository url - name it "upstream"**
 
-`git remote add upstream https://github.com/original-repo/example.git`
+```bash
+git remote add upstream https://github.com/original-repo/example.git
+```
 
 **2. Fetch all the branches and content of remote upstream**
 
-`git fetch upstream`
+```bash
+git fetch upstream
+```
 
 **3. Need to rewrite the master with upstream's master using git rebase**
 
 _\- Also need to make sure that you are on the master branch:_ `git checkout master`
 
-`git rebase upstream/master`
+```bash
+git rebase upstream/master
+```
 
 **4. Push the updates to local master (may need `--force`)**
 
-`git push origin master`
+```bash
+git push origin master
+```
 
 Also, some great content about [How to GitHub: Fork, Branch, Track, Squash and Pull Request](https://www.gun.io/blog/how-to-github-fork-branch-and-pull-request)

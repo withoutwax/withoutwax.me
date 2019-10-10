@@ -17,7 +17,7 @@ The plugin that I used was called [CMB2](https://github.com/CMB2/CMB2).
 
 First, we need to create a function in `function.php` to display the form in the admin section:
 
-```
+```php
 add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes' );
 /* Define the metabox and field configurations.*/
 
@@ -63,4 +63,6 @@ Once this code is implemented,
 
 All we need is just implement a single code to start extracting the data from the admin:
 
-`$text = get_post_meta( get_the_ID(), '_yourprefix_text', true );`
+```php
+$text = get_post_meta( get_the_ID(), '_yourprefix_text', true );
+```

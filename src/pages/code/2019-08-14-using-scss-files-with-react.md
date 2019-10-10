@@ -11,8 +11,12 @@ category: Code
 ---
 Using SCSS is simple as install a dependency and importing the `.scss` file:
 
-`yarn add node-sass`
+```bash
+yarn add node-sass
+```
 
 Once installing the dependency, import the scss file and start using!
 
-`import './sample.scss';`
+```JavaScript
+import './sample.scss';
+```

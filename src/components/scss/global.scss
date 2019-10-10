@@ -98,7 +98,7 @@ p, a, li {
 }
 h1, h2, h3 {
     code {
-        // font-size: inherit;
+        font-size: inherit !important;
         width: auto;
         padding: 0.15rem 0.15rem;
         line-height: 1rem; 
