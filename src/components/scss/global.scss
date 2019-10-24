@@ -39,8 +39,8 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
-    color: $light-grey-01;
+    font-size: 1.25rem;
+    color: $black;
 }
 
 html {
@@ -64,7 +64,7 @@ p {
 }
 li {
     font-size: 14px;
-    line-height: 0px;
+    line-height: 1.5rem;
 }
 a {
     // font-family: 'Montserrat', sans-serif;
@@ -119,6 +119,6 @@ a:hover {
     }
     
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
