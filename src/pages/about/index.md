@@ -12,7 +12,7 @@ aboutAbout:
         and took it - and it changed my life. Since then, I've been coding and
         diving deeper into the world of programming. Now I am here!
       question: "How did you start \U0001F4BB coding?"
-    - answer: "Currently, I am working as a Web Developer in Legion Collective, a design agency based in Chicago. I often wear many hats, using different tech stacks, such as HTML, CSS, JavaScript, PHP, React, etc... When I am home, I normally work on my side projects \U0001F579, build dev tools \U0001F6E0 or fun games \U0001F47E"
+    - answer: "Currently, I am working as a Web Developer in Legion Collective, a design agency based in Chicago. I am currently into Web Technology \U0001F310 using JavaScript, React and TypeScript. Occasionally, I am also doing some work in PHP, Python and C++. At home, I normally work on my side projects \U0001F579, build dev tools \U0001F6E0 or fun games \U0001F47E"
       question: What are you currently doing?
     - answer: "I have special love for minimalism, technology and the nature \U0001F331 Let's save the nature and make the \U0001F30E a better place. Plus, I love quotes too."
       question: "Anything else? \U0001F4AD"
