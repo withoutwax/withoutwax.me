@@ -1,0 +1,38 @@
+---
+templateKey: blog-post
+title: Facebook Developer Community Hackathon
+date: 2019-11-03T15:29:29.063Z
+description: "I participated Facebook Developer Community Hackathon \U0001F468\U0001F3FB‍\U0001F4BBand our team won the Productivity and Utility category \U0001F3C6 Here's my few thoughts on the event."
+archive: false
+tags:
+  - Hackathon
+  - Facebook
+category: Log
+---
+On November 1st and 2nd, I attended a Facebook Hackathon which was hosted in Chicago. I first discovered this event in Facebook advertisement (which somehow proves me wrong about how Facebook advertisement are not work effectively) and I must say, I thoroughly enjoyed the event. Fortunately, our team also won the Productivity and Utility category.
+
+I've definitely have learned quite a lot in this Hackathon, and wanted to note few things that I learned during this event.
+
+### Facebook Messenger
+
+One of our technology stack our team had to implement was using a Facebook Messenger bot. I never seriously considered building or even using a bot but learning using Facebook Messenger bot API, it opened my perspective on how Messenger bot (or any other types of bot) can actually be powerful and fun. Although the event is now over, I am thinking of continuing to develop the project that we did in the event.
+
+### Spark AR
+
+Spark AR was another choice of tech stack that participants could choose. I was surprised about the fact how ridiculously easy creating an AR app have become. During the event one of the mentors of the Spark AR demonstrated creating an AR application with a Software called Spark AR Studio, and it really surprised me of how easy (and looked very similar to 3D Modeling program) to use the software. Although I did not implement using Spark AR technology for our project, I am thinking of using it for any future personal AR projects.
+
+### Designers
+
+There were two big surprises that I felt with designers in the Hackathon. First, I was surprised to realize there were a lot more designers participated in the Hackathon than I expected, and secondly, I realized that I was glad that there were designers with us. One of our teammate was a designer and it really showed how important collaborating with designers can impact how the product can develop. Just having developers in the team might be effective in executing the idea but what would be the point if the direction of the idea might not be insightful. The designer in my team showcased perfectly of the importance of diverse background of ideas can be very effective and it clearly showed that the team with a designer goes a long way.   
+Having said this, I really felt it is very, very important that a lot of designers should participate in the Hackathon as well. It really made a huge difference.
+
+### People
+
+One thing that I definitely felt during the event was the diversity of different people in the event. There were so many different people that I never met, that were very talented. Also I had a chance to talk to one of the mentors at the event, who happens to be in Messenger team at Facebook and the conversation we had was very insightful. I must say I had a great opportunity to meet a lot of people and able to make some connections with them. Kudos for Facebook to actually give us a time where we could network with different people. I enjoyed them quite a lot.
+
+### Experience
+
+Although our team won the Hackathon, there were few valuable lessons that I also learned. During our final presentation, there were some technical issues (our server went down 😥) and that was a panic moment for our team. However at the end of the day, we kept our cool and manage to pull the presentation off and surprisingly, we won! Thinking back now, you just never know what will happen (event after you screw up) so I realize it's important to not to lose hope. I think this was very important lesson to learn. Of course, we should've checked the server and presentation before the presentation so another lesson would be it never hurts to over prepare.    
+If it doesn't work, fake it. I realized the power of this first hand. Large essential part of our functionality had some issues. We did not have enough time, so decide to fake it until we make it. To be honest, I felt bad in doing this, but it proved me wrong. At the end of the day, we did manage to pull off the essential core mechanism and faking it played the big role here.   
+
+Overall, the event was great. Normally, I wouldn't think of doing a same event again when it's live, but for this one I think I might. I think doing such event often definitely helps me improve as a developer and gain valuable experience. One thing that I personally found delightful was how exciting and fun writing a backend code is. I might now do some more project in backend code. But, since we got Facebook Portal as our prize, I might just play and hack around with that toy for now.
