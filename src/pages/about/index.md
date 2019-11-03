@@ -19,6 +19,9 @@ aboutAbout:
   title: About
 aboutResume:
   award:
+    - date: Nov 2019
+      description: Winner in Productivity and Utility category
+      title: Facebook Developer Community Hackathon
     - date: Aug 2018
       description: 2nd Place Winner in People's Choice Award
       title: Adobe Creative Jam
