@@ -20,7 +20,11 @@ aboutAbout:
 aboutResume:
   award:
     - date: Nov 2019
-      description: Winner in Productivity and Utility category
+      description: >-
+        Won in a Facebook Developer Community Hackathon in Productivity and
+        Utility Divison. We created a Facebook messenger bot that helps users
+        decide on what food they should get and recommends a restaurant. API was
+        built in Ruby with Front-End landing page built in React.
       title: Facebook Developer Community Hackathon
     - date: Aug 2018
       description: 2nd Place Winner in People's Choice Award
@@ -35,7 +39,11 @@ aboutResume:
   experience:
     - company: Legion Collective
       currentlyWorking: true
-      description: Currently working on exciting things.
+      description: >-
+        Building and optimizing client websites and web applications with HTML,
+        CSS, JavaScript and PHP.
+
+        Currently working on optimizing performance.
       endDate: Jul 2020
       location: 'Chicago, IL'
       position: Junior Developer
@@ -43,8 +51,8 @@ aboutResume:
     - company: Legion Collective
       currentlyWorking: false
       description: >-
-        Worked with a dev team as a Web Developer Intern. Created prototypes and
-        responsive live production web applications for clients.
+        Built prototypes and responsive live production web applications for
+        clients and in-house projects.
       endDate: May 2019
       location: 'Chicago, IL'
       position: Web Developer Intern
@@ -52,8 +60,9 @@ aboutResume:
     - company: NVISIA
       currentlyWorking: false
       description: >-
-        Worked as UX design intern in Marketing Team. Solved UX problems,
-        developed UI prototypes, implemented using HTML, CSS and JavaScript.
+        Participated in both as UIUX Design and Engineer intern. Implemented the
+        Visual / UIUX Design to Web Development (Prototyping & Production build)
+        for in-house project.
       endDate: May 2018
       location: 'Chicago, IL'
       position: Creative Web Design Intern
@@ -63,9 +72,8 @@ aboutResume:
   volunteer:
     - currentlyWorking: false
       description: >-
-        Developed a curriculum and taught a foundation of web design and web
-        development to fellow SAIC students. Demonstrated the core concept of
-        HTML, CSS, including concepts such as CSS Grids and Flexbox.
+        Volunteered to teach Web Developments to fellow SAIC students by
+        developing a curriculum that helped more than 100 fellow SAIC students.
       endDate: Dec 2018
       location: 'Chicago, IL'
       organization: School of the Art Institute of Chicago
