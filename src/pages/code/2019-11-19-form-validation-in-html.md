@@ -13,7 +13,7 @@ category: Code
 When there is `onSubmit="someFunction(this)"` in the the form element:
 
 ```html
-<form onSubmit="someFunction(this)>
+<form onSubmit="someFunction(this)">
     
     <!-- Some Code -->
 
