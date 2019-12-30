@@ -8,7 +8,7 @@ tags:
   - Status Updates
 category: Log
 ---
-As of November 15th, 2019, I...
+As of December 30th, 2019, I...
 
 ## Current
 
