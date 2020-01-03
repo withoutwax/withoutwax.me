@@ -9,9 +9,10 @@ import React from 'react'
 
 const Footer = class extends React.Component {
   render() {
+    let currentYear = new Date().getFullYear()
     return (
       <footer className="footer">
-        <p>Copyright &copy; 2019 Will Kim</p>
+        <p>Copyright &copy; {currentYear} Will Kim</p>
         <p>Invely's</p>
       </footer>
     )
