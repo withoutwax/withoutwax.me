@@ -31,4 +31,4 @@ openssl.cafile=/Users/username/.config/valet/CA/cacert-mod.pem
 
 Now run `valet restart` and refresh the page. 
  
-For detail, visit [stackoverflow](https://stackoverflow.com/a/39807251/8762354) or this [blog post](https://leolutz.com/tag/https-stream-wrapper/).
+Credit to: [stackoverflow](https://stackoverflow.com/a/39807251/8762354) or this [blog post](https://leolutz.com/tag/https-stream-wrapper/).
