@@ -1,0 +1,81 @@
+---
+templateKey: blog-post
+title: Angular 9 + Tailwind CSS
+date: 2020-02-25T16:08:49.127Z
+description: Configuring Angular to work with Tailwind CSS
+archive: false
+tags:
+  - Angular
+  - Tailwind CSS
+category: Log
+---
+1. Install the following:
+
+```bash
+npm i tailwindcss postcss-scss postcss-import postcss-loader @angular-builders/custom-webpack -D
+```
+
+2. In the `styles.scss` file and add the following:
+
+```css
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+```
+
+3. In the project directory, use `npx tailwind init`.
+
+4. Create `webpack.config.js` file and add the following code:
+
+```JavaScript
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                loader: 'postcss-loader',
+                options: {
+                    ident: 'postcss',
+                    syntax: 'postcss-scss',
+                    plugins: () => [
+                        require('postcss-import'),
+                        require('tailwindcss'),
+                        require('autoprefixer'),
+                    ]
+                }
+            }
+        ]
+    }
+};
+```
+
+5. Modify the `angular.json`:
+
+```JSON
+{
+  "architect": {
+    "build": {
+      "builder": "@angular-builders/custom-webpack:browser",
+      "options": {
+        "customWebpackConfig": {
+          "path": "./webpack.config.js"
+        }
+      }
+    },
+    "serve": {
+      "builder": "@angular-builders/custom-webpack:dev-server",
+      "options": {
+        "customWebpackConfig": {
+          "path": "./webpack.config.js"
+        }
+      }
+    }
+  }
+}
+```
+There might be cases where the `"builder: "` might have different address. We would need to change it to the code we have above: `"builder": "@angular-builders/custom-webpack:browser",` & `"builder": "@angular-builders/custom-webpack:dev-server"`.
+
+Start building Angular project with `npm start` or `ng serve --open`.  
+Now we can use Tailwind CSS.
+
+Source: [Angular 8 + Tailwind CSS Guid (Updated for Angular 9)](https://dev.to/seankerwin/angular-8-tailwind-css-guide-3m45) by Sean Kerwin
