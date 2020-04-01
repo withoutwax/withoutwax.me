@@ -8,7 +8,7 @@ tags:
   - React
   - Enzyme
   - Jest
-category: Log
+category: Code
 ---
 With React 16,
 
