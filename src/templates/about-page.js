@@ -134,7 +134,7 @@ const AboutPage = ({ data }) => {
     return (
         <Layout>
         <section>
-            <h1><span id="about-about-btn" className={aboutcssclass} onClick={() => aboutToggle()} >About</span> <span id="about-resume-btn" className={resumecssclass} onClick={() => resumeToggle()} >Resume</span></h1>
+            <h1><span id="about-about-btn" className={aboutcssclass} role="button" tabIndex='0' onClick={() => aboutToggle()} onKeyDown={() => aboutToggle()}>About</span> <span id="about-resume-btn" className={resumecssclass} role="button" tabIndex='0' onClick={() => resumeToggle()} onKeyDown={() => resumeToggle()} >Resume</span></h1>
 
             {resume ? 
             <ResumePageTemplate aboutResume={frontmatter.aboutResume} /> : <AboutPageTemplate aboutAbout={frontmatter.aboutAbout} />}
