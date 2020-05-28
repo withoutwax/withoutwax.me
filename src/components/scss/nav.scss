@@ -94,34 +94,52 @@ nav {
     // HEADER NAV
     .header-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        font-family: $font-heebo; //$font-roboto-mono; //$font-proxima;
+        font-size: 1.25rem; //14px;
+        font-weight: bold;
+        color: $light-grey-01;
+        align-items: center;
+        justify-content: center;
 
         .header-logo {
             margin-top: 4vh;
             margin-bottom: 7vh;
         }
+        .navbar-item {
+            margin: 0px 1rem;
+        }
     }
 
     nav {
-        margin-bottom: 100px;
+        min-width: initial;
+        margin-bottom: 25px;
+        width: 100%;
     }
     .hamburger {
         display: none;
     }
     .nav-container {
         font-family: $font-heebo; //$font-roboto-mono; //$font-proxima;
-        font-size: 4rem; //14px;
+        font-size: 1.25rem; //14px;
         font-weight: bold;
 
-        
-        display: initial;
+        display: flex;
+        flex-direction: row;
         align-items: flex-start;
+        justify-content: center;
 
         .navbar-sub {
             flex-direction: row;
             flex-wrap: wrap;
             
             margin-bottom: 30px;
+        }
+
+        .navbar-item {
+            text-align: center;
+            display: flex;
+            flex-direction: row;
         }
     }
 }

@@ -28,8 +28,17 @@ const TemplateWrapper = ({ children }) => (
           <Link to="/" title="Logo" className="header-logo">
             <img src={logo} alt="logo" style={{ width:'13px' }}/>
           </Link>
-          <Navbar />
+          <Link className="navbar-item" to="/archive" activeClassName="active">
+            <span role="img" aria-label="archive">🗄</span>
+          </Link>
+          <Link className="navbar-item" to="/about" activeClassName="active">
+            About
+          </Link>
+          <Link className="navbar-item" to="/contact" activeClassName="active">
+            Contact
+          </Link>
         </div>
+        <Navbar />
         
         <div>{children}</div>
         <Footer />
