@@ -42,11 +42,11 @@ const Navbar = class extends React.Component {
         {/* <div className="hamburger-menu"  >{this.state.Logo}</div> */}
 
         {/* Hamburger Button */}
-        <button className={`hamburger hamburger--slider ${this.state.navBarActiveClass}`} onClick={() => this.toggleHamburger()} type="button">
+        {/* <button className={`hamburger hamburger--slider ${this.state.navBarActiveClass}`} onClick={() => this.toggleHamburger()} type="button">
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>
           </span>
-        </button>
+        </button> */}
 
         <div className={`nav-container ${this.state.navBarActiveClass}`}>
           {/* <Link className="navbar-item" activeClassName="active" to="/blog" style={{ fontWeight:"bold" }} >
