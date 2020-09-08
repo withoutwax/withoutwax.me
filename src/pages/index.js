@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import logo from '../img/logo.png';
 import { Helmet } from 'react-helmet';
+// import TemplateWrapper from '../components/Layout';
 
 import styled from 'styled-components';
 
@@ -41,7 +42,7 @@ const LandingPage = styled.div`
     text-transform: uppercase;
     color: #666666;
 `
-const Thoughtso = styled.img`
+const Thoughts = styled.img`
     width: 25px;
 `
 const Links = styled.a`
@@ -57,8 +58,9 @@ const Links = styled.a`
     }
 `
 const StyledLink = styled(Link)`
+    font-size: 1.5rem;
     text-decoration: none;
-    margin: 10px;
+    margin: 10px 20px;
     letter-spacing: 3px;
     color: #8c8c8c;
 
@@ -75,15 +77,15 @@ export default () => (
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Helmet>
         <LandingPage>
-            <Thoughtso src={logo} alt="logo" />
+            <Thoughts src={logo} alt="logo" />
                 <br />
                 <br />
                 <Links className="landing-container-link">
-                    <StyledLink className="landing-container-link-link" to="/log"><span role="img" aria-label="thoughts">💭</span></StyledLink>
-                    <StyledLink className="landing-container-link-link" to="/code"><span role="img" aria-label="computer">💻</span></StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/blog"><span role="img" aria-label="thoughts">💭</span></StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/about"><span role="img" aria-label="profile">👨🏻‍💻</span></StyledLink>
                     <StyledLink className="landing-container-link-link" to="/project"><span role="img" aria-label="project">🕹</span></StyledLink>
-                    <StyledLink className="landing-container-link-link" to="lab"><span role="img" aria-label="hammer">🔨</span></StyledLink>
-                    <StyledLink className="landing-container-link-link" to="/about">Hi.<span role="img" aria-label="cheers">🙌🏼</span></StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/contact"><span role="img" aria-label="mail">📬</span></StyledLink>
+                    <StyledLink className="landing-container-link-link" to="/archive"><span role="img" aria-label="archive">🗄</span></StyledLink>
                 </Links>
         </LandingPage>
         {/* <div className="landing-container">
