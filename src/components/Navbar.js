@@ -56,7 +56,7 @@ const Navbar = class extends React.Component {
           <span role="img" aria-label="thoughts">💭</span>
         </Link>
         <Link className="my-2 text-lg" to="/about" activeClassName="active">
-          <span role="img" aria-label="question">👨🏻‍💻</span>
+          <span role="img" aria-label="profile">👨🏻‍💻</span>
         </Link>
         <Link className="my-2 text-lg" to="/project" activeClassName="active">
           <span role="img" aria-label="project">🕹</span>
