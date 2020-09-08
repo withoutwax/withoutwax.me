@@ -6,7 +6,7 @@ description: 'My monthly summary, goals and updates about me on December 30th, 2
 archive: false
 tags:
   - Status Updates
-category: Log
+category: Thoughts
 ---
 As of December 30th, 2019, I...
 
@@ -19,7 +19,7 @@ As of December 30th, 2019, I...
 
 I (still) need to do:
 
-* Upgrade Log -> Create a MVP product.
+* Upgrade Thoughts -> Create a MVP product.
 * Complete GitHub Commit Chart as a separate library.
 * Update Liar Game - need to add Spy Mode.
 

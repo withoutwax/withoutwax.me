@@ -41,7 +41,7 @@ const LandingPage = styled.div`
     text-transform: uppercase;
     color: #666666;
 `
-const Logo = styled.img`
+const Thoughtso = styled.img`
     width: 25px;
 `
 const Links = styled.a`
@@ -75,7 +75,7 @@ export default () => (
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Helmet>
         <LandingPage>
-            <Logo src={logo} alt="logo" />
+            <Thoughtso src={logo} alt="logo" />
                 <br />
                 <br />
                 <Links className="landing-container-link">

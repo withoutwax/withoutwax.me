@@ -9,10 +9,10 @@ export default class BlogIndexPage extends React.Component {
   return (
       <Layout>
         <section className="section">
-          <div style={{ textAlign: "center" }}>
-            <h2>Archive</h2>
+          <div className="text-center">
+            <h2>Archive <span role="img" aria-label="archive">🗄</span></h2>
             <p>This place is where I archived all the posts and projects from the past.</p>
-            <div style={{ marginBottom: "2rem", fontSize: "3rem", color: "#c9c9c9"}}><span> &bull; </span></div>
+            <div className="text-gray-800 text-2xl"><span> &bull; </span></div>
           </div>
           <div className="container">
             <ArchiveRoll />

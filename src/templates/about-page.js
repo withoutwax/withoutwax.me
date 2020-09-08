@@ -13,7 +13,7 @@ export const AboutPageTemplate = ({ aboutAbout }) => {
     <article className="about-container">
         {aboutAbout.qna.map((about, i) => (
             <div className="about-section" style={{ marginTop:"5px" }} key={i}>
-                <h2>{about.question}</h2>
+                <h3>{about.question}</h3>
                 <p>{about.answer}</p>
             </div>
         ))}
@@ -134,7 +134,7 @@ const AboutPage = ({ data }) => {
     return (
         <Layout>
         <section>
-            <h1><span id="about-about-btn" className={aboutcssclass} role="button" tabIndex='0' onClick={() => aboutToggle()} onKeyDown={() => aboutToggle()}>About</span> <span id="about-resume-btn" className={resumecssclass} role="button" tabIndex='0' onClick={() => resumeToggle()} onKeyDown={() => resumeToggle()} >Resume</span></h1>
+            <h2 class="mb-16 flex justify-between"><span id="about-about-btn" className={aboutcssclass} role="button" tabIndex='0' onClick={() => aboutToggle()} onKeyDown={() => aboutToggle()}>About <span role="img" aria-label="profile">👨🏻‍💻</span></span> <span id="about-resume-btn" className={resumecssclass} role="button" tabIndex='0' onClick={() => resumeToggle()} onKeyDown={() => resumeToggle()} >Resume <span role="img" aria-label="resume">📄</span></span></h2>
 
             {resume ? 
             <ResumePageTemplate aboutResume={frontmatter.aboutResume} /> : <AboutPageTemplate aboutAbout={frontmatter.aboutAbout} />}

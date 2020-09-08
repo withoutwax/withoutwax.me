@@ -5,7 +5,16 @@ const cfg = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+          require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
+    
     'gatsby-plugin-styled-components',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -80,13 +89,13 @@ const cfg = {
         logo: "./src/img/favicon/favicon.png"
       }
     },
-    {
-      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-      options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/all.scss'], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
+    // {
+    //   resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+    //   options: {
+    //     develop: false, // Activates purging in npm run develop
+    //     purgeOnly: ['/all.scss'], // applies purging only on the bulma css file // 
+    //   },
+    // }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 };

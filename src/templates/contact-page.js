@@ -10,8 +10,8 @@ export const ContactPageTemplate = ({ title, callout, email, content, contentCom
   return (
     <section className="section">
         <div className="container">
-            <div className="content" style={{ textAlign:"center" }}>
-                <h1 style={{ textAlign:"center" }}>{title}</h1>
+            <div className="content text-center">
+                <h2 className="text-center">{title} <span role="img" aria-label="mail">📬</span></h2>
                 
                 <p><strong>{callout}</strong></p>
                 {/* <p><strong>If you wish to contact me, please do so with the email below:</strong></p> */}

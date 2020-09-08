@@ -7,7 +7,7 @@ archive: false
 tags:
   - Hackathon
   - Facebook
-category: Log
+category: Thoughts
 ---
 On November 1st and 2nd, I attended a Facebook Hackathon which was hosted in Chicago. I first discovered this event in Facebook advertisement (which somehow proves me wrong about how Facebook advertisement are not work effectively) and I must say, I thoroughly enjoyed the event. Fortunately, our team also won the Productivity and Utility category.
 

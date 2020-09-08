@@ -1,50 +1,12 @@
-// FRONT MATTER
-.blog-title {
-    text-align: left;
-    margin-bottom: 18px;
-    font-size: 3.5rem;
-}
-.blog-description {
-    color: $light-grey-01;
-    font-weight: bold;
-    font-size: 1.5rem;
-    line-height: 34px;
-    font-family: $font-arial;
-    max-width: 600px;
-
-    margin-top:"15px";
-}
-.blog-category {
-    color: $light-grey-02;
-
-    text-align: left;
-    display: inline;
-}
-.blog-date {
-    color: $light-grey-02;
-
-    text-align: left;
-    display: inline;
-}
-
 
 // MAIN CONTENT
 .blog {
-    h1 { // Making the main text content to be smaller than the main width
-        margin-top: 40px;
-        word-break: keep-all;
-        color: $grey-01;
-    }
-    h2 {
-        margin-top: 40px;
-        margin-bottom: 40px;
-        // color: $grey-02;
-    }
     li {
-        margin: 0px 5px;
+        @apply my-0;
+        @apply mx-4;
     }
     p {
-        margin-bottom: 20px;
+        @apply mb-10;
     }
     img {
         width: 100%;
@@ -60,27 +22,18 @@
 .taglist > * {
     margin-right: 1rem;
 }
-/* Tablet ----------- */
-@media (min-width: 600px) {
-    .blog-description {
-        font-size: 2rem;
-        line-height: 34px;
-    
-        margin-top:"15px";
-    }
-}
+
 
 /* Laptop, Desktop ----------- */
 @media (min-width: 1024px) {
     .blog {
-        padding: 0px 60px;
 
         h1, h2 {
-            margin-top: 40px;
-            margin-bottom: 40px;
+            @apply my-10;
         }
         p, li, img {
-            margin: 30px 0px;
+            @apply my-8;
+            @apply mx-0;
         }
     }
 }

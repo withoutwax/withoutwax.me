@@ -6,7 +6,7 @@ description: '2019년 9월 16일 당시, 프로그래밍에 대한 저의 생각
 archive: false
 tags:
   - Thoughts
-category: Log
+category: Thoughts
 ---
 내가 프로그래밍을 하는 가장 크고 중요한 이유는 무엇인가 - 내가 프로그래밍을 하는 **본질적인** 이유는 무엇인가?
 

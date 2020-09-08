@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
+
+// import logo from '../img/logo.png';
+// import Footer from '../components/Footer';
+
 // import github from '../img/github-icon.svg'
 // import logo from '../img/logo.svg'
 
@@ -35,11 +39,11 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="navbar"
+        className="w-40 text-right flex flex-col p-4 pt-20 h-screen fixed"
         role="navigation"
         aria-label="main-navigation"
       >
-        {/* <div className="hamburger-menu"  >{this.state.Logo}</div> */}
+        {/* <div className="hamburger-menu"  >{this.state.Thoughtso}</div> */}
 
         {/* Hamburger Button */}
         {/* <button className={`hamburger hamburger--slider ${this.state.navBarActiveClass}`} onClick={() => this.toggleHamburger()} type="button">
@@ -47,11 +51,24 @@ const Navbar = class extends React.Component {
             <span className="hamburger-inner"></span>
           </span>
         </button> */}
+        <Link to="/blog" title="Blog" className="flex justify-end header-logo">
+          {/* <img src={logo} alt="logo" style={{ width:'13px' }}/> */}
+          <span role="img" aria-label="thoughts">💭</span>
+        </Link>
+        <Link className="my-2 text-lg" to="/about" activeClassName="active">
+          <span role="img" aria-label="question">👨🏻‍💻</span>
+        </Link>
+        <Link className="my-2 text-lg" to="/project" activeClassName="active">
+          <span role="img" aria-label="project">🕹</span>
+        </Link>
+        <Link className="my-2 text-lg" to="/contact" activeClassName="active">
+        <span role="img" aria-label="mail">📬</span>
+        </Link>
+        <Link className="my-2 text-lg" to="/archive" activeClassName="active">
+          <span role="img" aria-label="archive">🗄</span>
+        </Link>
 
-        <div className={`nav-container ${this.state.navBarActiveClass}`}>
-          {/* <Link className="navbar-item" activeClassName="active" to="/blog" style={{ fontWeight:"bold" }} >
-            All
-          </Link> */}
+        {/* <div className={`nav-container ${this.state.navBarActiveClass}`}>
           <Link className="navbar-item" to="/log" activeClassName="active">
             Thoughts<span role="img" aria-label="camera">💭</span>
           </Link>
@@ -64,9 +81,8 @@ const Navbar = class extends React.Component {
           <Link className="navbar-item" to="/lab" activeClassName="active">
             Lab<span role="img" aria-label="hammer">🔨</span>
           </Link>
-          {/* <div className="navbar-sub">
-          </div> */}
-        </div>
+        </div> */}
+        {/* <Footer /> */}
       </nav>
     )
   }

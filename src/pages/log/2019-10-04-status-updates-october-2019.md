@@ -6,7 +6,7 @@ description: 'My monthly summary, goals and updates about me on October 4th, 201
 archive: false
 tags:
   - Status Updates
-category: Log
+category: Thoughts
 ---
 This is a new posts that I am thinking of doing every months, where I share what is currently happening with my life (or what had happened). You can think of this as a simple journal.
 
@@ -25,7 +25,7 @@ So, as of October 4th, 2019, I...
 
 I need to do:
 
-* Upgrade Log -> Create a MVP product.
+* Upgrade Thoughts -> Create a MVP product.
 * Complete [GitHub Commit Chart](https://github.com/withoutwax/Commit-Chart-Generator) as a separate library.
 * Update [Liar Games](https://github.com/withoutwax/Liar-Game) - need to add Spy Mode.
 

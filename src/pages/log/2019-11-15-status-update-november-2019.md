@@ -6,7 +6,7 @@ description: 'My monthly summary, goals and updates about me on November 15th, 2
 archive: false
 tags:
   - Status Updates
-category: Log
+category: Thoughts
 ---
 As of November 15th, 2019, I...
 
@@ -21,7 +21,7 @@ As of November 15th, 2019, I...
 
 I (still) need to do:
 
-* Upgrade Log -> Create a MVP product.
+* Upgrade Thoughts -> Create a MVP product.
 * Complete [GitHub Commit Chart](https://github.com/withoutwax/Commit-Chart-Generator) as a separate library.
 * Update [Liar Game](https://github.com/withoutwax/Liar-Game) - need to add Spy Mode.
 

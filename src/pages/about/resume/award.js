@@ -6,10 +6,10 @@ const Award = class extends React.Component {
         const { title, date, description } = this.props;
 
         return (
-                <div className="resume-award">
-                    <h4>{ title }</h4>
-                    <p style={{margin:"5px 0px"}}>{ description }</p>
-                    <p className="resume-date">{ date }</p>
+                <div className="my-10">
+                    <h4 className="text-lg font-bold text-gray-500">{ title }</h4>
+                    <p className="my-2">{ description }</p>
+                    <p className="my-2">{ date }</p>
                 </div>
         );
     }

@@ -1,9 +1,9 @@
 import React from 'react';
 // import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import { StaticQuery, graphql } from 'gatsby';
 
-import logo from '../img/logo.png';
+// import logo from '../img/logo.png';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -23,28 +23,17 @@ const TemplateWrapper = ({ children }) => (
       }
     `}
     render={data => (
-      <div>
-        <div className="header-container">
-          <Link to="/" title="Logo" className="header-logo">
-            <img src={logo} alt="logo" style={{ width:'13px' }}/>
-          </Link>
-          <Link className="navbar-item" to="/archive" activeClassName="active">
-            <span role="img" aria-label="archive">🗄</span>
-          </Link>
-          <Link className="navbar-item" to="/about" activeClassName="active">
-            About
-          </Link>
-          <Link className="navbar-item" to="/contact" activeClassName="active">
-            Contact
-          </Link>
+      <main className="w-full">
+
+        <div className="max-w-screen-md flex mx-auto">
+          <Navbar />
+          <section className="ml-40 mt-16 px-10">{children}</section>
         </div>
-        <Navbar />
-        
-        <div>{children}</div>
+
         <Footer />
-      </div>
+      </main>
     )}
   />
 )
 
-export default TemplateWrapper
+export default TemplateWrapper;

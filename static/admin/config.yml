@@ -20,7 +20,7 @@ collections:
   #     - {label: "Tags", name: "tags", widget: "list"}
 
   - name: "log"
-    label: "Log"
+    label: "Thoughts"
     folder: "src/pages/log"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -30,9 +30,9 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Archive Log", name: "archive", widget: "boolean", default: false}
+      - {label: "Archive Thoughts", name: "archive", widget: "boolean", default: false}
       - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Category", name: "category", widget: "hidden", default: "Log"}
+      - {label: "Category", name: "category", widget: "hidden", default: "Thoughts"}
 
   - name: "code"
     label: "Code"

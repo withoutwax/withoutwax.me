@@ -6,7 +6,7 @@ description: My thoughts on where I want to be as a Software Engineer
 archive: false
 tags:
   - Thoughts
-category: Log
+category: Thoughts
 ---
 As some of you might've already know looking at my [previous post](https://withoutwax.me/log/2019-05-23-ios-%F0%9F%93%B1-%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80-%EC%8B%9C%EC%9E%91/), I've had interest in learning some iOS Programming. Truth to be told, I did not complete the course (yet again 😔) and still hoping to learn iOS development in the future.
 

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import LogRoll from '../../components/LogRoll'
+import ThoughtsRoll from '../../components/ThoughtsRoll'
 
-export default class LogIndexPage extends React.Component {
+export default class ThoughtsIndexPage extends React.Component {
   render() {
     
   return (
@@ -18,7 +18,7 @@ export default class LogIndexPage extends React.Component {
             <div style={{ marginBottom: "2rem", fontSize: "3rem", color: "#c9c9c9"}}><span> &bull; </span></div>
           </div>
           <div className="container">
-              <LogRoll />
+              <ThoughtsRoll />
             </div>
         </section>
       </Layout>

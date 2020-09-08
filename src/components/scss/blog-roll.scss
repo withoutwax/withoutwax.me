@@ -1,40 +1,46 @@
 // BLOG
 // ROLL
 .blog-roll-item {
-    padding: 10px 20px;
-    margin-bottom: 50px;
-    border-radius: 5px;
-    color: $dark-grey-01;
-    // background-color: red;
+    @apply py-4;
+    @apply px-8;
+    @apply rounded-md;
+    @apply mb-2;
+    // @apply bg-gray-200;
+    @apply border-gray-200;
 
     .blog-roll-item-title {
+        @apply text-2xl;
+        @apply font-bold;
+
         color: $dark-grey-01;
-        font-size: 2rem;
-        font-weight: bold;
         font-family: $font-heebo;
     }
     
     .blog-roll-meta {
-        font-size: 16px;
-        font-weight: bold;
+        @apply text-sm;
+        @apply font-bold;
         font-family: $font-arial;
 
         .blog-roll-date {
             color: $grey-01;
         }
-        .blog-roll-category {
-            color: $light-grey-01;
-            font-weight: 400;
-        }
     }
 
     p {
+        @apply text-sm;
+        @apply mt-4;
+
         color: $grey-01;// $grey-01;
-        font-size: 14px;
         max-width: 600px;
         margin-top: 10px;
     }   
 }
 .blog-roll-item:hover{
-    background-color: $light-grey-03;
+    @apply bg-gray-100;
+    // background-color: $light-grey-03;
+}
+.blog-roll-category {
+    // @apply font-normal;
+    
+    // color: $light-grey-01;
 }
