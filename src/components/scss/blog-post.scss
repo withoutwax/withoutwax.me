@@ -1,13 +1,14 @@
-
 // MAIN CONTENT
 .blog {
     li {
         @apply my-0;
         @apply mx-4;
     }
+
     p {
         @apply mb-10;
     }
+
     img {
         width: 100%;
     }
@@ -19,7 +20,8 @@
     list-style-type: none;
     font-size: 14px;
 }
-.taglist > * {
+
+.taglist>* {
     margin-right: 1rem;
 }
 
@@ -28,10 +30,14 @@
 @media (min-width: 1024px) {
     .blog {
 
-        h1, h2 {
+        h1,
+        h2 {
             @apply my-10;
         }
-        p, li, img {
+
+        p,
+        li,
+        img {
             @apply my-8;
             @apply mx-0;
         }

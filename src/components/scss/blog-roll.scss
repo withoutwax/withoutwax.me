@@ -1,46 +1,42 @@
 // BLOG
 // ROLL
 .blog-roll-item {
-    @apply py-4;
-    @apply px-8;
-    @apply rounded-md;
-    @apply mb-2;
-    // @apply bg-gray-200;
-    @apply border-gray-200;
+  @apply py-4;
+  @apply px-8;
+  @apply rounded-md;
+  @apply mb-2;
+  // @apply bg-gray-200;
+  @apply border-gray-200;
 
-    .blog-roll-item-title {
-        @apply text-2xl;
-        @apply font-bold;
+  .blog-roll-item-title {
+    @apply text-2xl;
+    @apply font-bold;
 
-        color: $dark-grey-01;
-        font-family: $font-heebo;
+    color: $dark-grey-01;
+    font-family: $font-heebo;
+  }
+
+  .blog-roll-meta {
+    @apply text-sm;
+    @apply font-bold;
+    font-family: $font-arial;
+
+    .blog-roll-date {
+      color: $grey-01;
     }
-    
-    .blog-roll-meta {
-        @apply text-sm;
-        @apply font-bold;
-        font-family: $font-arial;
+  }
 
-        .blog-roll-date {
-            color: $grey-01;
-        }
-    }
+  p {
+    @apply text-sm;
+    @apply mt-4;
 
-    p {
-        @apply text-sm;
-        @apply mt-4;
-
-        color: $grey-01;// $grey-01;
-        max-width: 600px;
-        margin-top: 10px;
-    }   
+    color: $grey-01; // $grey-01;
+    max-width: 600px;
+    margin-top: 10px;
+  }
 }
-.blog-roll-item:hover{
-    @apply bg-gray-100;
-    // background-color: $light-grey-03;
-}
-.blog-roll-category {
-    // @apply font-normal;
-    
-    // color: $light-grey-01;
+
+.blog-roll-item:hover {
+  @apply bg-gray-100;
+  // background-color: $light-grey-03;
 }

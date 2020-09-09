@@ -1,39 +1,40 @@
-import React from 'react';
+import React from "react";
 
 export default class BlogRollCategory extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       category: this.props.category,
-      componentClass: 'inline-flex items-center mb-4 py-1 rounded-full text-sm font-medium leading-4',
-      emoji: '',
-    }
+      componentClass:
+        "inline-flex items-center mb-4 py-1 rounded-full text-sm font-medium leading-4",
+      emoji: "",
+    };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // let color = '';
     switch (this.state.category) {
-      case 'Thoughts':
+      case "Thoughts":
         this.setState({
-          emoji: '💭'
+          emoji: "💭",
         });
         // color = 'orange';
         break;
-      case 'Project':
+      case "Project":
         this.setState({
-          emoji: '🕹'
+          emoji: "🕹",
         });
         // color = 'red';
         break;
-      case 'Lab':
+      case "Lab":
         this.setState({
-          emoji: '🔨'
+          emoji: "🔨",
         });
         // color = 'purple';
         break;
       default:
         this.setState({
-          emoji: '💻'
+          emoji: "💻",
         });
         // color = 'gray';
         break;
@@ -44,10 +45,10 @@ export default class BlogRollCategory extends React.Component {
   }
 
   render() {
-    
     return (
-    <div className={this.state.componentClass}>{this.state.category} {this.state.emoji}</div>
+      <div className={this.state.componentClass}>
+        {this.state.category} {this.state.emoji}
+      </div>
     );
   }
-  
-};
+}

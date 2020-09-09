@@ -1,40 +1,42 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Link, graphql } from "gatsby";
+import Layout from "../components/Layout";
 
 class TagRoute extends React.Component {
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges
-    const postLinks = posts.map(post => (
-
-      <div
-        className="tag-content-container"
-        key={post.node.fields.slug}
-      >
-        <article className="blog-roll-item" >
+    const posts = this.props.data.allMarkdownRemark.edges;
+    const postLinks = posts.map((post) => (
+      <div className="tag-content-container" key={post.node.fields.slug}>
+        <article className="blog-roll-item">
           <Link className="blog-link" to={post.node.fields.slug}>
-          <div className="blog-roll-item-title">{post.node.frontmatter.title}</div>
-          <div className="blog-roll-meta">
-            <span> &bull; </span>
-            <span className="blog-roll-date">{post.node.frontmatter.date}</span>
-            <span className="blog-roll-category"> | </span>
-            <span className="blog-roll-category">{post.node.frontmatter.category}</span>
-          </div>
-          <p>
-            {post.node.excerpt}
-            {post.node.frontmatter.description}
-          </p>
+            <div className="blog-roll-item-title">
+              {post.node.frontmatter.title}
+            </div>
+            <div className="blog-roll-meta">
+              <span> &bull; </span>
+              <span className="blog-roll-date">
+                {post.node.frontmatter.date}
+              </span>
+              <span className="blog-roll-category"> | </span>
+              <span className="blog-roll-category">
+                {post.node.frontmatter.category}
+              </span>
+            </div>
+            <p>
+              {post.node.excerpt}
+              {post.node.frontmatter.description}
+            </p>
           </Link>
-        </article> 
+        </article>
       </div>
-    ))
-    const tag = this.props.pageContext.tag
-    const title = this.props.data.site.siteMetadata.title
-    const totalCount = this.props.data.allMarkdownRemark.totalCount
+    ));
+    const tag = this.props.pageContext.tag;
+    const title = this.props.data.site.siteMetadata.title;
+    const totalCount = this.props.data.allMarkdownRemark.totalCount;
     const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`
+      totalCount === 1 ? "" : "s"
+    } tagged with “${tag}”`;
 
     return (
       <Layout>
@@ -44,7 +46,7 @@ class TagRoute extends React.Component {
             <div className="columns">
               <div
                 className="column is-10 is-offset-1"
-                style={{ marginBottom: '6rem' }}
+                style={{ marginBottom: "6rem" }}
               >
                 <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
                 <ul className="taglist">{postLinks}</ul>
@@ -56,11 +58,11 @@ class TagRoute extends React.Component {
           </div>
         </section>
       </Layout>
-    )
+    );
   }
 }
 
-export default TagRoute
+export default TagRoute;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
@@ -69,7 +71,11 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 1000, sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {tags: {in: [$tag]}}}) {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
       totalCount
       edges {
         node {
@@ -87,4 +93,4 @@ export const tagPageQuery = graphql`
       }
     }
   }
-`
+`;

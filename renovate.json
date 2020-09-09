@@ -7,10 +7,8 @@
     "enabled": true,
     "extends": "schedule:weekly"
   },
-  "packageRules": [
-    {
-      "packageNames": ["netlify-cms"],
-      "rangeStrategy": "bump"
-    }
-  ]
+  "packageRules": [{
+    "packageNames": ["netlify-cms"],
+    "rangeStrategy": "bump"
+  }]
 }

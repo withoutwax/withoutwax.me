@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import * as React from "react";
+import { Helmet } from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
 
 // class PageHelmet extends React.Component {
-//     <StaticQuery 
+//     <StaticQuery
 //         query={graphql`
 //         query HeadingQuery {
 //         site {
@@ -20,7 +20,7 @@ import { StaticQuery, graphql } from 'gatsby';
 //     />
 
 //   };
-  export default PageHelmet;
+export default PageHelmet;
 
 //   <Helmet title={title}>
 //                     <meta name="viewport" content="width=device-width,initial-scale=1" />

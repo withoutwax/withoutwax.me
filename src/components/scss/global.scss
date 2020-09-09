@@ -9,16 +9,21 @@ $light-grey-04: #ededed;
 $dark-grey-01: #262626;
 $dark-grey-02: #3d3d3d;
 $link-color: #ff4470; //#4fa3b8; // #b84f4f
-$link-color-02: #ff84a1;// #69c4db; // #e99898
+$link-color-02: #ff84a1; // #69c4db; // #e99898
 $yellow: #fdf6e3;
 $light-blue: #F6F8FA;
 
 $p-line-height: 23.8px;
 
-$font-arial: Arial, Helvetica, sans-serif;
-$font-heebo: 'Heebo', sans-serif;
-$font-proxima: proxima-nova, sans-serif;
-$font-roboto-mono: Roboto Mono, monospace;
+$font-arial: Arial,
+Helvetica,
+sans-serif;
+$font-heebo: 'Heebo',
+sans-serif;
+$font-proxima: proxima-nova,
+sans-serif;
+$font-roboto-mono: Roboto Mono,
+monospace;
 
 
 // UTILS
@@ -60,10 +65,12 @@ p {
     @apply text-gray-800;
     font-family: $font-arial;
 }
+
 li {
     font-size: 14px;
     line-height: 1.5rem;
 }
+
 a {
     @apply text-gray-500;
     // font-family: 'Montserrat', sans-serif;
@@ -80,34 +87,46 @@ a {
 pre {
     @apply max-w-xl;
 
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: pre-wrap;
+    /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
     white-space: pre-line;
     // background-color: $light-blue !important;
 }
+
 code {
     width: 100%;
     border-radius: 3px;
     display: inline-block;
-    line-height: 1.3rem; 
+    line-height: 1.3rem;
 }
-p, a, li {
+
+p,
+a,
+li {
     code {
         // font-size: 0.85rem;
         width: auto;
         padding: 0.15rem 0.15rem;
-        line-height: 1rem; 
+        line-height: 1rem;
     }
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
     code {
         font-size: inherit !important;
         width: auto;
         padding: 0.15rem 0.15rem;
-        line-height: 1rem; 
+        line-height: 1rem;
     }
 }
 
@@ -121,7 +140,7 @@ h1, h2, h3 {
     h2 {
         font-size: 2rem;
     }
-    
+
     h3 {
         font-size: 1.25rem;
     }
