@@ -25,9 +25,9 @@ const TemplateWrapper = ({ children }) => (
     render={data => (
       <main className="w-full">
 
-        <div className="max-w-screen-md flex mx-auto">
+        <div className="max-w-screen-md flex flex-col md:flex-row mx-auto">
           <Navbar />
-          <section className="ml-40 mt-16 px-10">{children}</section>
+          <section className="md:ml-40 mt-16 px-10">{children}</section>
         </div>
 
         <Footer />

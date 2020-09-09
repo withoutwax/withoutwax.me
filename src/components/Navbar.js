@@ -39,7 +39,7 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="w-40 text-right flex flex-col p-4 pt-20 h-screen fixed"
+        className="w-full md:w-40 text-2xl md:text-lg text-right flex flex-row justify-evenly md:justify-start md: md:flex-col p-4 pt-20 md:h-screen sticky md:fixed"
         role="navigation"
         aria-label="main-navigation"
       >
@@ -51,20 +51,20 @@ const Navbar = class extends React.Component {
             <span className="hamburger-inner"></span>
           </span>
         </button> */}
-        <Link to="/blog" title="Blog" className="flex justify-end header-logo">
+        <Link className="my-2" to="/blog" title="Blog" >
           {/* <img src={logo} alt="logo" style={{ width:'13px' }}/> */}
           <span role="img" aria-label="thoughts">💭</span>
         </Link>
-        <Link className="my-2 text-lg" to="/project" activeClassName="active">
+        <Link className="my-2" to="/project" activeClassName="active">
           <span role="img" aria-label="project">🕹</span>
         </Link>
-        <Link className="my-2 text-lg" to="/about" activeClassName="active">
+        <Link className="my-2" to="/about" activeClassName="active">
           <span role="img" aria-label="profile">👨🏻‍💻</span>
         </Link>
-        <Link className="my-2 text-lg" to="/contact" activeClassName="active">
+        <Link className="my-2" to="/contact" activeClassName="active">
         <span role="img" aria-label="mail">📬</span>
         </Link>
-        <Link className="my-2 text-lg" to="/archive" activeClassName="active">
+        <Link className="my-2" to="/archive" activeClassName="active">
           <span role="img" aria-label="archive">🗄</span>
         </Link>
 
