@@ -6,6 +6,8 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
+import BlogRollCategory from '../components/BlogRollCategory';
+
 export const BlogPostTemplate = ({
   content,
   contentComponent,
@@ -22,7 +24,7 @@ export const BlogPostTemplate = ({
     <section className="section">
       {helmet || ''}
       <div className="container content">
-        <p className="blog-category inline-flex items-center px-3 py-1 rounded-full text-xs font-medium leading-4 bg-gray-200 text-gray-800">{category}</p>
+        <BlogRollCategory category={category} />
         <h1 className="blog-title font-bold text-4xl">
           {title}
         </h1>

@@ -55,11 +55,11 @@ const Navbar = class extends React.Component {
           {/* <img src={logo} alt="logo" style={{ width:'13px' }}/> */}
           <span role="img" aria-label="thoughts">💭</span>
         </Link>
-        <Link className="my-2 text-lg" to="/about" activeClassName="active">
-          <span role="img" aria-label="profile">👨🏻‍💻</span>
-        </Link>
         <Link className="my-2 text-lg" to="/project" activeClassName="active">
           <span role="img" aria-label="project">🕹</span>
+        </Link>
+        <Link className="my-2 text-lg" to="/about" activeClassName="active">
+          <span role="img" aria-label="profile">👨🏻‍💻</span>
         </Link>
         <Link className="my-2 text-lg" to="/contact" activeClassName="active">
         <span role="img" aria-label="mail">📬</span>

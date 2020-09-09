@@ -10,7 +10,7 @@ export default class BlogRollCategory extends React.Component {
     }
   }
 
-  componentWillMount(){
+  componentDidMount(){
     let color = '';
     switch (this.state.category) {
       case 'Thoughts':

@@ -134,7 +134,7 @@ const AboutPage = ({ data }) => {
     return (
         <Layout>
         <section>
-            <h2 class="mb-16 flex justify-between"><span id="about-about-btn" className={aboutcssclass} role="button" tabIndex='0' onClick={() => aboutToggle()} onKeyDown={() => aboutToggle()}>About <span role="img" aria-label="profile">👨🏻‍💻</span></span> <span id="about-resume-btn" className={resumecssclass} role="button" tabIndex='0' onClick={() => resumeToggle()} onKeyDown={() => resumeToggle()} >Resume <span role="img" aria-label="resume">📄</span></span></h2>
+            <h2 className="mb-16 flex justify-between"><span id="about-about-btn" className={aboutcssclass} role="button" tabIndex='0' onClick={() => aboutToggle()} onKeyDown={() => aboutToggle()}>About <span role="img" aria-label="profile">👨🏻‍💻</span></span> <span id="about-resume-btn" className={resumecssclass} role="button" tabIndex='0' onClick={() => resumeToggle()} onKeyDown={() => resumeToggle()} >Resume <span role="img" aria-label="resume">📄</span></span></h2>
 
             {resume ? 
             <ResumePageTemplate aboutResume={frontmatter.aboutResume} /> : <AboutPageTemplate aboutAbout={frontmatter.aboutAbout} />}
