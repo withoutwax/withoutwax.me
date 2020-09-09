@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import { DiscussionEmbed } from "disqus-react";
 
 import BlogRollCategory from "../components/BlogRollCategory";
 
@@ -63,7 +64,12 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
-
+  const url = `https://withoutwax.me${post.fields.slug}`;
+  const disqusConfig = {
+    url: url,
+    identifier: post.id,
+    title: post.frontmatter.title,
+  };
   return (
     <Layout>
       <BlogPostTemplate
@@ -84,6 +90,7 @@ const BlogPost = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
+      <DiscussionEmbed shortname="withoutwax-me" config={disqusConfig} />
     </Layout>
   );
 };
@@ -101,6 +108,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
