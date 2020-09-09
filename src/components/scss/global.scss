@@ -85,7 +85,7 @@ a {
 }
 
 pre {
-    @apply max-w-xl;
+    @apply max-w-lg;
 
     white-space: pre-wrap;
     /* Since CSS 2.1 */
@@ -102,7 +102,7 @@ pre {
 }
 
 code {
-    width: 100%;
+    width: 0px;
     border-radius: 3px;
     display: inline-block;
     line-height: 1.3rem;
