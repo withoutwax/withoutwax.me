@@ -4,6 +4,7 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+publish_mode: editorial_workflow
 
 collections:
   # - name: "blog"
@@ -25,14 +26,29 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Archive Thoughts", name: "archive", widget: "boolean", default: false}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Category", name: "category", widget: "hidden", default: "Thoughts"}
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Archive Thoughts",
+          name: "archive",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "hidden",
+          default: "Thoughts",
+        }
 
   - name: "code"
     label: "Code"
@@ -40,29 +56,59 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Archive Post", name: "archive", widget: "boolean", default: false}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Category", name: "category", widget: "hidden", default: "Code"}
-  
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Archive Post",
+          name: "archive",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "hidden",
+          default: "Code",
+        }
+
   - name: "project"
     label: "Project"
     folder: "src/pages/project"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Archive Project", name: "archive", widget: "boolean", default: false}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Category", name: "category", widget: "hidden", default: "Project"}
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Archive Project",
+          name: "archive",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "hidden",
+          default: "Project",
+        }
 
   - name: "lab"
     label: "Lab"
@@ -70,14 +116,29 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Archive Lab", name: "archive", widget: "boolean", default: false}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Category", name: "category", widget: "hidden", default: "Lab"}
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Archive Lab",
+          name: "archive",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "hidden",
+          default: "Lab",
+        }
 
   - name: "pages"
     label: "Pages"
@@ -86,55 +147,198 @@ collections:
         label: "About"
         name: "about"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "About-about", name: "aboutAbout", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Q&A", name: "qna", widget: "list", fields: [
-                {label: "Question", name: "question", widget: "string"},
-                {label: "Answer", name: "answer", widget: "text"}
-              ]}
-            ]}
-          - {label: "About-resume", name: "aboutResume", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Name", name: "name", widget: "string", default: "Will Kim"},
-              {label: "Experience", name: "experience", widget: "list", fields: [
-                {label: "Company", name: "company", widget: "string"},
-                {label: "Position", name: "position", widget: "string"},
-                {label: "Start Date", name: "startDate", widget: "date", format: "MMM YYYY"},
-                {label: "Currently Working", name: "currentlyWorking", widget: "boolean", default: true},
-                {label: "End Date", name: "endDate", widget: "date", format: "MMM YYYY"},
-                {label: "Location", name: "location", widget: "string"},
-                {label: "Description", name: "description", widget: "text"}
-            ]},
-              {label: "Volunteer", name: "volunteer", widget: "list", fields: [
-                {label: "Organization", name: "organization", widget: "string"},
-                {label: "Position", name: "position", widget: "string"},
-                {label: "Start Date", name: "startDate", widget: "date", format: "MMM YYYY"},
-                {label: "Currently Working", name: "currentlyWorking", widget: "boolean", default: true},
-                {label: "End Date", name: "endDate", widget: "date", format: "MMM YYYY"},
-                {label: "Location", name: "location", widget: "string"},
-                {label: "Description", name: "description", widget: "text"}
-            ]},
-              {label: "Education", name: "education", widget: "list", fields: [
-                {label: "School", name: "school", widget: "string"},
-                {label: "Start Date", name: "startDate", widget: "date", format: "YYYY"},
-                {label: "Currently Attending", name: "currentlyAttending", widget: "boolean", default: true},
-                {label: "End Date", name: "endDate", widget: "date", format: "YYYY"},
-                {label: "Degree", name: "degree", widget: "string"},
-                {label: "Major", name: "major", widget: "string"}
-            ]},
-              {label: "Award", name: "award", widget: "list", fields: [
-                {label: "Title", name: "title", widget: "string"},
-                {label: "Date", name: "date", widget: "date", format: "MMM YYYY"},
-                {label: "Description", name: "description", widget: "text"}
-            ]}
-          ]}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
+          - {
+              label: "About-about",
+              name: "aboutAbout",
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Q&A",
+                    name: "qna",
+                    widget: "list",
+                    fields:
+                      [
+                        {
+                          label: "Question",
+                          name: "question",
+                          widget: "string",
+                        },
+                        { label: "Answer", name: "answer", widget: "text" },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: "About-resume",
+              name: "aboutResume",
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Name",
+                    name: "name",
+                    widget: "string",
+                    default: "Will Kim",
+                  },
+                  {
+                    label: "Experience",
+                    name: "experience",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Company", name: "company", widget: "string" },
+                        {
+                          label: "Position",
+                          name: "position",
+                          widget: "string",
+                        },
+                        {
+                          label: "Start Date",
+                          name: "startDate",
+                          widget: "date",
+                          format: "MMM YYYY",
+                        },
+                        {
+                          label: "Currently Working",
+                          name: "currentlyWorking",
+                          widget: "boolean",
+                          default: true,
+                        },
+                        {
+                          label: "End Date",
+                          name: "endDate",
+                          widget: "date",
+                          format: "MMM YYYY",
+                        },
+                        {
+                          label: "Location",
+                          name: "location",
+                          widget: "string",
+                        },
+                        {
+                          label: "Description",
+                          name: "description",
+                          widget: "text",
+                        },
+                      ],
+                  },
+                  {
+                    label: "Volunteer",
+                    name: "volunteer",
+                    widget: "list",
+                    fields:
+                      [
+                        {
+                          label: "Organization",
+                          name: "organization",
+                          widget: "string",
+                        },
+                        {
+                          label: "Position",
+                          name: "position",
+                          widget: "string",
+                        },
+                        {
+                          label: "Start Date",
+                          name: "startDate",
+                          widget: "date",
+                          format: "MMM YYYY",
+                        },
+                        {
+                          label: "Currently Working",
+                          name: "currentlyWorking",
+                          widget: "boolean",
+                          default: true,
+                        },
+                        {
+                          label: "End Date",
+                          name: "endDate",
+                          widget: "date",
+                          format: "MMM YYYY",
+                        },
+                        {
+                          label: "Location",
+                          name: "location",
+                          widget: "string",
+                        },
+                        {
+                          label: "Description",
+                          name: "description",
+                          widget: "text",
+                        },
+                      ],
+                  },
+                  {
+                    label: "Education",
+                    name: "education",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "School", name: "school", widget: "string" },
+                        {
+                          label: "Start Date",
+                          name: "startDate",
+                          widget: "date",
+                          format: "YYYY",
+                        },
+                        {
+                          label: "Currently Attending",
+                          name: "currentlyAttending",
+                          widget: "boolean",
+                          default: true,
+                        },
+                        {
+                          label: "End Date",
+                          name: "endDate",
+                          widget: "date",
+                          format: "YYYY",
+                        },
+                        { label: "Degree", name: "degree", widget: "string" },
+                        { label: "Major", name: "major", widget: "string" },
+                      ],
+                  },
+                  {
+                    label: "Award",
+                    name: "award",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Title", name: "title", widget: "string" },
+                        {
+                          label: "Date",
+                          name: "date",
+                          widget: "date",
+                          format: "MMM YYYY",
+                        },
+                        {
+                          label: "Description",
+                          name: "description",
+                          widget: "text",
+                        },
+                      ],
+                  },
+                ],
+            }
       - file: "src/pages/contact/index.md"
         label: "Contact"
         name: "contact"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Callout", name: "callout", widget: "string"}
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "contact-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Callout", name: "callout", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
