@@ -8,19 +8,22 @@ category: 'code'
 
 The steps are pretty simple:
 
-Install react-ga package, which is a wrapper for Google Analytics script.
+1. Install `react-ga` package, which is a wrapper for Google Analytics script.
+
 
 ```bash
-# Yarn
-
+# Yarn 
 yarn add react-ga
-Import and Add react-ga code in App.js.
-import ReactGoogleAnalytics from 'react-ga'
 ```
+
+2. Import and Add `react-ga` code in `App.js`.
+
+
+```JavaScript
+import ReactGoogleAnalytics from 'react-ga'
 
 ...
 
-```javascript
 ReactGoogleAnalytics.initialize('UA-XXXXXXXXX-X'); // Google Analytics ID
 ReactGoogleAnalytics.pageview('/');
 ```

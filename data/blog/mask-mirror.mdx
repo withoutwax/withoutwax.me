@@ -10,41 +10,55 @@ Mask Mirror is a simple simulation where it captures a user's face and allows ot
 
 The idea was originally developed from a generic smart mirror, where instead of reflecting the user with holographic diagram which aides the user this mirror explores with the concept of manipulating the someone else's face and implementing onto the other.
 
-The library that was used is a JavaScript library called: clmtrackr. The algorithms to track the faces are done by the creator of this algorithm. The code I implemented are with the functionality where different people can play around with this mirror, indefinitely add and save their face and let other try their faces on.
+The library that was used is a JavaScript library called: [clmtrackr](https://github.com/auduno/clmtrackr). The algorithms to track the faces are done by the creator of this algorithm. The code I implemented are with the functionality where different people can play around with this mirror, indefinitely add and save their face and let other try their faces on.
 
-You can find the source code for this project here.
+You can find the source code for this project [here](https://github.com/withoutwax/ARTTECH-4900-001-Advanced-Art-Tech-Projects).
 
-Demo
+## Demo
+
 Using this mirror is simple. First of all, you need to capture your face with your name:
 
-Will captured
+![](/static/images/mask-mirror/01-will-captured.gif "Will captured")
 
 Once the face is captured, then different user can mask the captured face onto their face.
 
-Xue-Will
+![](/static/images/mask-mirror/02-will-will.gif)
 
-Christ Will
+![](/static/images/mask-mirror/01-xue-will.gif "Xue-Will")
+
+![](/static/images/mask-mirror/02-chris-will.gif "Christ Will")
 
 One key issue on implementing this project is to build a system where the software can automatically get all the tracked data of the newly captured user into a database. The process consisted of implementing the existing tracking algorithm with captured image, so that it can use the data obtained from the image and be applied to the new user's face.
 
-The clmtrackr library also offered different types of preset faces for the users to try:
+The [clmtrackr](https://github.com/auduno/clmtrackr) library also offered different types of preset faces for the users to try:
 
-Chris Obama
+![](/static/images/mask-mirror/03-will_2.gif "Chris Obama")
 
-Documentations:
+![](/static/images/mask-mirror/03-will_6.gif)
+
+
+
+## Documentations:
+
 For future development for this project, here's few things on how can my project improve further and develop:
 
-Scalability - the current capturing system and the database structure is for local machine only. Could there be way to store the data (tracked positions and image) and saved in the cloud. Can this project grow?
-UX issues on the project. It is very difficult to know when the tracked face is fully captured and ready to be used. There had been feedbacks on offering users some kind of notifications.
+* Scalability - the current capturing system and the database structure is for local machine only. Could there be way to store the data (tracked positions and image) and saved in the cloud. Can this project grow?
+* UX issues on the project. It is very difficult to know when the tracked face is fully captured and ready to be used. There had been feedbacks on offering users some kind of notifications.
+
 Since this project has initiative to embody a creative idea, I've received few feedback from the audience:
 
-The current project looks a lot like a tech demo. We have the technical skill for the project working - it seems like now its the time to implement the proven technology with more conceptual meaning.
-Thoughts on deepfakes, AI and machine learning and directing the image to reflect more deeper messages.
-Possibility on using the physical hardware to offer more effective expression on the concept of a mirror.
+* The current project looks a lot like a tech demo. We have the technical skill for the project working - it seems like now its the time to implement the proven technology with more conceptual meaning.
+* Thoughts on deepfakes, AI and machine learning and directing the image to reflect more deeper messages.
+* Possibility on using the physical hardware to offer more effective expression on the concept of a mirror.
+
 In addition, few interesting (and important) questions were brought up:
 
-If this was more geared towards into product realm, what impact of the reflecting the user with the camera would do to the user? Would the user accept having a possibly constantly watching camera in private areas?
-What does it mean to give life to the reflected self (or copied self) in the mirror?
-Is wearing a someone else's face with Mask Mirror tell us? What other way can I express this?
-Conclusion
+* If this was more geared towards into product realm, what impact of the reflecting the user with the camera would do to the user? Would the user accept having a possibly constantly watching camera in private areas?
+* What does it mean to give life to the reflected self (or copied self) in the mirror? 
+* Is wearing a someone else's face with Mask Mirror tell us? What other way can I express this?
+
+
+
+## Conclusion
+
 Overall, the project definitely have allowed me to explore deeply about the technical skills by forcing me to look into the black box of tracking algorithms and be able to reimplement it into more interesting use. I am glad with the final result for the project with the fact that mainly the technical aspect of the project has definitely have pulled off - while having space for improvements on the conceptual and meaning side. I want to see where this project can bring me into, perhaps one way or more yet it definitely would be something that I will be passionate about.

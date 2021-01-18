@@ -8,25 +8,44 @@ category: 'code'
 
 While there are many other hosting / publishing methods to host a website, one of my favorite is using GitHub Pages to host my project.
 
-You can also read in more detail about deployment in React documentation.
+You can also read in more detail about deployment in React [documentation](https://create-react-app.dev/docs/deployment).
 
-GitHub Pages
-Step 01: Update package.json
-Add this code to package.json
+### Step 01: Update `package.json`
 
+Add this code to `package.json`
+
+```json
 "homepage": "https://myusername.github.io/my-app"
+```
+
 It is important to know that we need to use the url generated with GitHub pages.
 
-Step 02: Install dependency: gh-pages & add deploy scripts in package.json
-While the React documentation uses npm, you could also use yarn to run the deployment.
+![](/static/images/deploying-react-project-to-github-pages/screen-shot-2019-08-13-at-1.53.16-am.png)
 
+
+
+### Step 02: Install dependency: `gh-pages` & add deploy scripts in `package.json`
+
+While the React documentation uses `npm`, you could also use `yarn` to run the deployment.
+
+```bash
 yarn add gh-pages
-After installing the dependencies, you also need to update the package.json:
+```
 
-"scripts": { "predeploy": "npm run build", "deploy": "gh-pages -d build",}
-Note that the predeploy script will run automatically before deploy script is run.
+After installing the dependencies, you also need to update the `package.json`:
 
-Step 03: Run yarn deploy
+```json
+"scripts": {  "predeploy": "npm run build",  "deploy": "gh-pages -d build",}
+```
+
+Note that the `predeploy` script will run automatically before `deploy` script is run.
+
+
+
+### Step 03: Run `yarn deploy`
+
 You are ready. Simply run:
 
+```bash
 yarn deploy
+```

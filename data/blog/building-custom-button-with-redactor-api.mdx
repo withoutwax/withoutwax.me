@@ -6,14 +6,14 @@ image: ''
 category: 'code'
 ---
 
-Inside the config/plugin/customPlugin/customPlugin.js you can add and set your own plugin with Redactor API.
+Inside the `config/plugin/customPlugin/customPlugin.js` you can add and set your own plugin with Redactor API.
 
 I added my own custom link with unique button styling.
 
-```javascript
+```JavaScript
 (function($R) {
 
-$R.add('plugin', 'customButton', {
+  $R.add('plugin', 'customButton', {
 
     modals: {
       'customButton': '<form action="">'
@@ -32,7 +32,7 @@ $R.add('plugin', 'customButton', {
     onmodal: {
       customButton: {
         opened: function($modal, $form)
-        {
+        { 
           let selectedText = this.selection.getText();
 
           $form.getField('url').focus();
@@ -117,14 +117,19 @@ $R.add('plugin', 'customButton', {
       this.app.inline.format({ tag: 'a', class: 'uppercase flex items-center custom-bg-color-lighter-green rounded-full p-2 pr-6 my-6 font-semibold text-sm' })
     }
 
-});
+    
+  });
 
+  
 })(Redactor);
-You also need to update and use Standard.json in the config/redactor folder:
+```
 
+You also need to update and use `Standard.json` in the `config/redactor` folder:
+
+```JSON
 {
-"buttons": ["html", "formatting", "bold", "italic", "unorderedlist", "orderedlist", "link", "image", "video"],
-"plugins": ["fullscreen", "video", "customButton"],
-"linkNewTab": true
+  "buttons": ["html", "formatting", "bold", "italic", "unorderedlist", "orderedlist", "link", "image", "video"],
+  "plugins": ["fullscreen", "video", "customButton"],
+  "linkNewTab": true
 }
 ```

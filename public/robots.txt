@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://withoutwax.me/sitemap.xml
