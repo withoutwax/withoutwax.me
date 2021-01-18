@@ -29,6 +29,11 @@ html {
   min-height: 100vh;
 }
 
+.navbar {
+  backdrop-filter: saturate(180%) blur(20px);
+  transition: background-color 0.1 ease-in-out;
+}
+
 .prose pre {
   @apply bg-gray-50 dark:bg-gray-900;
 }

@@ -12,44 +12,44 @@ export default function Container({ children }) {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="grid grid-cols-12">{/* bg-white dark:bg-black */}
-      <nav className="col-start-1 col-end-4 w-full sticky top-0 flex flex-col justify-between h-screen items-end px-8 py-16 my-0">{/* bg-white dark:bg-black bg-opacity-60 */}
-        <div className="flex flex-col">
+    <div className="bg-white dark:bg-black md:bg-transparent md:grid md:grid-cols-12">{/* */}
+      <nav className="navbar z-10 bg-white dark:bg-black bg-opacity-50 md:col-start-1 md:col-end-4 w-full sticky top-0 flex md:flex-col justify-between md:h-screen items-center md:items-end px-8 py-8 md:py-16 my-0">{/*  */}
+        <div className="order-1 md:order-0 flex md:flex-col">
           {/* <NextLink href="/dashboard">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="p-1 smr:p-4 text-gray-900 dark:text-gray-100">
               Dashboard
             </a>
           </NextLink> */}
           <NextLink href="/">
-            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="text-xl p-1 sm:p-4 mr-6 md:mr-0 text-gray-900 dark:text-gray-100">
               <span role="img" aria-label="home">
                 🏡
               </span>
             </a>
           </NextLink>
           <NextLink href="/blog">
-            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="text-xl p-1 sm:p-4 mr-6 md:mr-0 text-gray-900 dark:text-gray-100">
               <span role="img" aria-label="thoughts">
                 💭
               </span>
             </a>
           </NextLink>
           <NextLink href="/code">
-            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="text-xl p-1 sm:p-4 mr-6 md:mr-0 text-gray-900 dark:text-gray-100">
               <span role="img" aria-label="code">
                 💻
               </span>
             </a>
           </NextLink>
           <NextLink href="/project">
-            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="text-xl p-1 sm:p-4 mr-6 md:mr-0 text-gray-900 dark:text-gray-100">
               <span role="img" aria-label="project">
                 🕹
               </span>
             </a>
           </NextLink>
           <NextLink href="/about">
-            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="text-xl p-1 sm:p-4 mr-6 md:mr-0 text-gray-900 dark:text-gray-100">
               <span role="img" aria-label="profile">
                 👨🏻‍💻
               </span>
@@ -57,9 +57,9 @@ export default function Container({ children }) {
           </NextLink>
         </div>
 
-        <div className="flex flex-col">
+        <div className="order-0 md:order-1 flex md:flex-col items-center">
           <NextLink href="/contact">
-            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+            <a className="order-1 md:order-0 text-xl p-1 sm:p-4 mr-6 md:mr-0 text-gray-900 dark:text-gray-100">
               <span role="img" aria-label="mail">
                 📬
               </span>
@@ -68,7 +68,7 @@ export default function Container({ children }) {
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="bg-gray-200 dark:bg-gray-800 rounded m-2 p-3 h-10 w-10"
+            className="order-0 md:order-1 bg-gray-200 dark:bg-gray-800 rounded mr-6 md:m-2 p-3 h-10 w-10"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
             {mounted && (
@@ -99,7 +99,7 @@ export default function Container({ children }) {
           </button>
         </div>
       </nav>
-      <main className="col-start-4 col-end-10 flex flex-col bg-white dark:bg-black p-8 mt-8 mb-8">
+      <main className="md:col-start-4 md:col-end-10 flex flex-col bg-white dark:bg-black p-8 md:mt-8 mb-8">
         {children}
         <Footer />
       </main>
