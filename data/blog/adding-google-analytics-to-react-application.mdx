@@ -1,0 +1,26 @@
+---
+title: 'Adding Google Analytics to React Application'
+publishedAt: '2019-09-29'
+summary: 'A simple way to add google analytics code to React App.'
+image: ''
+category: 'code'
+---
+
+The steps are pretty simple:
+
+Install react-ga package, which is a wrapper for Google Analytics script.
+
+```bash
+# Yarn
+
+yarn add react-ga
+Import and Add react-ga code in App.js.
+import ReactGoogleAnalytics from 'react-ga'
+```
+
+...
+
+```javascript
+ReactGoogleAnalytics.initialize('UA-XXXXXXXXX-X'); // Google Analytics ID
+ReactGoogleAnalytics.pageview('/');
+```

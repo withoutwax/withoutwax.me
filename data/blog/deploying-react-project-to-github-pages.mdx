@@ -1,0 +1,32 @@
+---
+title: 'Deploying React project to GitHub Pages'
+publishedAt: '2019-08-13'
+summary: 'Documentation of how to publish React ⚛︎ project to GitHub Pages 🖥'
+image: ''
+category: 'code'
+---
+
+While there are many other hosting / publishing methods to host a website, one of my favorite is using GitHub Pages to host my project.
+
+You can also read in more detail about deployment in React documentation.
+
+GitHub Pages
+Step 01: Update package.json
+Add this code to package.json
+
+"homepage": "https://myusername.github.io/my-app"
+It is important to know that we need to use the url generated with GitHub pages.
+
+Step 02: Install dependency: gh-pages & add deploy scripts in package.json
+While the React documentation uses npm, you could also use yarn to run the deployment.
+
+yarn add gh-pages
+After installing the dependencies, you also need to update the package.json:
+
+"scripts": { "predeploy": "npm run build", "deploy": "gh-pages -d build",}
+Note that the predeploy script will run automatically before deploy script is run.
+
+Step 03: Run yarn deploy
+You are ready. Simply run:
+
+yarn deploy

@@ -1,0 +1,36 @@
+---
+title: 'Installing ngrok on MacOS'
+publishedAt: '2019-10-02'
+summary: 'Instructions on installing ngrok to MacOS'
+image: ''
+category: 'code'
+---
+
+When I was first introduced with ngrok software, I was skeptical at first, but I soon realized the power and potential that it has. Ngrok is a software where it allows other people to access your local machine's environment through an internet connection. For example, if I host my localhost:3000 server on my machine and use ngrok, ngrok gives me a url where I can share to other people so that they can visit and view my localhost:3000.
+
+1. Download ngrok.
+   Downloading can be done in this site.
+
+2.Unzip the zip file that is downloaded.
+It is said that you can unzip the file using this script if you are a Linux or Mac users:
+
+$ unzip /path/to/ngrok.zip 3. Place the ngrok.exe file into the Application folder
+~/Applications/
+
+Now, here's a part where it becomes slightly tricky where I actually used a script to install the ngrok into my Mac:
+
+# cd into your local bin directory
+
+$ cd /usr/local/bin
+
+# create symlink
+
+$ ln -s /Applications/ngrok ngrok
+If this doesn't install ngrok, then you can also install by using brew:
+
+$ brew cask install ngrok 4. Start using ngrok
+You can start using ngrok by using:
+
+# For port localhost:3000, you can insert the port number with ngrok:
+
+$ ngrok http 3000

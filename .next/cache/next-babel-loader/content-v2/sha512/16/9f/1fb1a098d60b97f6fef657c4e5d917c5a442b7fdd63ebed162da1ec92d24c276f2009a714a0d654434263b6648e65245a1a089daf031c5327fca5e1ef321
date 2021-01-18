@@ -1,0 +1,1 @@
+{"ast":null,"code":"import db from '@/lib/firebase';\nexport default (async (_, res) => {\n  const snapshot = await db.ref('views').once('value');\n  const views = snapshot.val();\n  const allViews = Object.values(views).reduce((total, value) => total + value);\n  return res.status(200).json({\n    total: allViews\n  });\n});","map":null,"metadata":{},"sourceType":"module"}
