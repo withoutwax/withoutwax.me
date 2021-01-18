@@ -1,9 +1,31 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1918004b-2059-4143-9e83-0b8c9555e1f5/deploy-status)](https://app.netlify.com/sites/withoutwax-me/deploys)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%withoutwax%withoutwax.me)
 
-# Website
-A simple blog website built with [Gatsby + Netlify CMS](https://github.com/netlify-templates/gatsby-starter-netlify-cms).
+# withoutwax.me
 
-### Start a development server
+My website has transformed over the years - from a static HTML site, to Jekyll, to Hugo, and finally to Next.js/React/MDX.  
+
+This website template is from an amazing developer: [Lee Robison](https://leerob.io/)
+
+## Overview
+
+- `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction)
+- `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
+- `pages/*` - All other static pages.
+
+## Running Locally
+
+```bash
+$ git clone https://github.com/withoutwax/withoutwax.me.git
+$ cd withoutwax.me
+$ yarn
+$ yarn dev
 ```
-yarn start
-```
+
+Create a `.env.local` file similar to [`.env.example`](https://github.com/withoutwax/withoutwax.me/blob/master/.env.example).
+
+## Built Using
+
+- [Next.js](https://nextjs.org/)
+- [Vercel](https://vercel.com)
+- [MDX](https://github.com/mdx-js/mdx)
+- [Tailwind CSS](https://tailwindcss.com/)
