@@ -22,6 +22,18 @@ export default function Home() {
           The current page is still in WIP, more features will be added soon!
         </p>
 
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
+          Blender
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 w-full">
+          For anyone who came from this <a href="https://www.youtube.com/user/Calibre097/featured">YouTube channel</a>, a lof of things changed: I kept following my passion, and now I am a Software Developer. If you are interested in my story, I've shared my story
+          <NextLink href="/blog/my-story">
+            <a className="text-xl p-1 sm:p-4 text-gray-900 dark:text-gray-100">
+              here
+            </a>
+          </NextLink>
+        </p>
+
         {/* <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
           Latest Posts
         </h3>
