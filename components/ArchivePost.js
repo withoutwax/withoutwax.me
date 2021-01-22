@@ -10,7 +10,7 @@ const BlogPost = ({ title, summary, slug }) => {
 
   return (
     <Link href={`/archive/${slug}`}>
-      <a className="w-full hover:bg-gray-100 p-4 rounded-md">
+      <a className="w-full hover:bg-gray-100 dark:hover:bg-gray-900 p-4 rounded-md">
         <div className="mb-4 w-full">
           <div className="flex flex-col md:flex-row justify-between">
             <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">

@@ -12,7 +12,7 @@ const AllPost = ({ title, summary, category, slug }) => {
 
   return (
     <Link href={`/all/${slug}`}>
-      <a className="w-full hover:bg-gray-100 p-4 rounded-md">
+      <a className="w-full hover:bg-gray-100 dark:hover:bg-gray-900 p-4 rounded-md">
         <div className="mb-4 w-full">
           <Category category={category}></Category>
           <div className="flex flex-col md:flex-row justify-between">
