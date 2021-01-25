@@ -51,7 +51,7 @@ export default function BlogLayout({ children, frontMatter }) {
             {/* <ViewCounter slug={frontMatter.slug} /> */}
           </p>
         </div>
-        <div className="prose dark:prose-dark max-w-none w-full">
+        <div className="prose dark:prose-dark w-full">
           {children}
         </div>
       </article>
