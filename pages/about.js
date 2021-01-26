@@ -17,15 +17,12 @@ export default function About() {
         <h1 className="font-bold text-2xl md:text-5xl tracking-tight mb-10 text-black dark:text-white">
           About 👨🏻‍💻
         </h1>
-        <h3 className="font-bold text-2xl tracking-tight mt-6 mb-4 text-black dark:text-white">
-          Hi. 🙌🏼, This is Will.
-        </h3>
         <p className="text-gray-600 dark:text-gray-400 mb-6 w-full">Welcome to my about page! I saw you were wondering who I am. Well, let me introduce myself! 😊</p>
 
         <h3 className="font-bold text-2xl tracking-tight mt-6 mb-4 text-black dark:text-white">
           Who are you? 👨🏻‍💻
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-6 w-full">I am a Software Engineer 💻 based in Chicago with background in Art and Design 🎨. I attended School of the Art Institute of Chicago for my Bachelors degree 🎓</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-6 w-full">I am a Software Engineer 💻 based in South Korea with background in Art and Design 🎨. I attended School of the Art Institute of Chicago for my Bachelors degree 🎓</p>
         
         <h3 className="font-bold text-2xl tracking-tight mt-6 mb-4 text-black dark:text-white">
           How did you start 💻 coding?
