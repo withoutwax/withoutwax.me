@@ -1,0 +1,21 @@
+---
+title: 'How to remove files that are in .gitignore but still in the git repository'
+publishedAt: '2021-01-27'
+summary: 'Removing those pesky files that I forgot to remove from the repository but are already in GitHub.'
+image: ''
+category: 'code'
+---
+
+There are numerous times where we either forgot to remove some unnecessary files but are commited and pushed to master branch in GitHub. In these situation, the following code which I found in [StackOverflow](https://stackoverflow.com/a/13541721/8762354) helped removing the files from the master branch:
+
+```bash
+git rm --cached `git ls-files -i --exclude-from=.gitignore`
+```
+
+If you are on windows, you can try:
+
+```bash
+git ls-files -i -z --exclude-from=.gitignore | xargs -0 git rm --cached
+```
+
+One thing I think is important is to update the .gitignore file before running the code in order to properly work.
