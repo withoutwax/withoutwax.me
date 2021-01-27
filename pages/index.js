@@ -37,34 +37,6 @@ export default function Home() {
           .
         </p>
 
-        {/* <h2 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
-          Latest Posts
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 w-full">
-          This is a Posts.
-        </p> */}
-
-        {/* <h2 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
-          Dashboard
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 w-full">
-          This is a dashboard.
-        </p> */}
-
-        {/* <h2 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
-          Timeline
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 w-full">
-          This is a timeline.
-        </p> */}
-
-        {/* <h2 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
-          Music
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 w-full">
-          Show what's on my playlist.
-        </p> */}
-
         <section className="w-full flex flex-col">
           <h2 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-8 text-black dark:text-white w-full">
             Archive
