@@ -37,7 +37,7 @@ class MyDocument extends Document {
             type="image/png"
           />
           <link
-            color="#4a9885"
+            color="#d4d3d3"
             href="/static/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
           />
