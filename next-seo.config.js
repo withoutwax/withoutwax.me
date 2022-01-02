@@ -1,6 +1,5 @@
 const title = 'Will Kim';
-const description =
-  'Front-end developer';
+const description = 'Front-end developer';
 
 const SEO = {
   title,
@@ -22,8 +21,8 @@ const SEO = {
     ]
   },
   twitter: {
-    handle: '@leeerob',
-    site: '@leeerob',
+    handle: '@_withoutwax',
+    site: '@_withoutwax',
     cardType: 'summary_large_image'
   }
 };

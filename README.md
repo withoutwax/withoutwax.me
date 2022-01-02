@@ -2,10 +2,6 @@
 
 # withoutwax.me
 
-My website has transformed over the years - from a static HTML site, to Jekyll, to Hugo, and finally to Next.js/React/MDX.  
-
-This website template is from an amazing developer: [Lee Robison](https://leerob.io/)
-
 ## Overview
 
 - `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction)
