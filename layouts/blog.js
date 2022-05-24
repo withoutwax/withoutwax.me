@@ -21,7 +21,7 @@ export default function BlogLayout({ children, frontMatter }) {
         url={`https://withoutwax.me/blog/${frontMatter.slug}`}
         {...frontMatter}
       />
-      <article className="flex flex-col justify-center max-w-2xl mx-auto items-start mb-16">
+      <article className="flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           {frontMatter.title}
         </h1>
@@ -41,8 +41,8 @@ export default function BlogLayout({ children, frontMatter }) {
               {frontMatter.by}
               {/* {'Will Kim / '} */}
               {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-              <span className="mx-2"> • </span> 
-              <Category category={frontMatter.category}/>
+              <span className="mx-2"> • </span>
+              <Category category={frontMatter.category} />
             </p>
           </div>
           <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
@@ -51,9 +51,7 @@ export default function BlogLayout({ children, frontMatter }) {
             {/* <ViewCounter slug={frontMatter.slug} /> */}
           </p>
         </div>
-        <div className="prose dark:prose-dark w-full">
-          {children}
-        </div>
+        <div className="prose dark:prose-dark w-full">{children}</div>
       </article>
     </Container>
   );

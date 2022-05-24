@@ -7,8 +7,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 const url = 'https://withoutwax.me/archive';
 const title = 'Archive – Will Kim';
-const description =
-  'All the posts and projects from the past.';
+const description = 'All the posts and projects from the past.';
 
 export default function Blog({ posts }) {
   const [searchValue, setSearchValue] = useState('');
@@ -20,9 +19,7 @@ export default function Blog({ posts }) {
     .filter((frontMatter) =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     )
-    .filter((frontMatter) => 
-      frontMatter.category == 'archive'
-    );
+    .filter((frontMatter) => frontMatter.category == 'archive');
 
   return (
     <Container>
@@ -43,10 +40,12 @@ export default function Blog({ posts }) {
         <p className="text-gray-600 dark:text-gray-400 mb-12">
           {`Leave things from the past. And move on. `}
         </p>
-        {!filteredArchivePosts.length && 'No posts found.'}
-        {filteredArchivePosts.map((frontMatter) => (
-          <ArchivePost key={frontMatter.title} {...frontMatter} />
-        ))}
+        <div className="grid grid-cols-1 gap-4">
+          {!filteredArchivePosts.length && 'No posts found.'}
+          {filteredArchivePosts.map((frontMatter) => (
+            <ArchivePost key={frontMatter.title} {...frontMatter} />
+          ))}
+        </div>
       </div>
     </Container>
   );

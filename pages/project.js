@@ -17,12 +17,10 @@ export default function Blog({ posts }) {
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
     )
-    .filter((frontMatter) => 
+    .filter((frontMatter) =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     )
-    .filter((frontMatter) => 
-      frontMatter.category == 'project'
-    );
+    .filter((frontMatter) => frontMatter.category == 'project');
 
   return (
     <Container>
@@ -66,7 +64,7 @@ export default function Blog({ posts }) {
             />
           </svg>
         </div> */}
-        <div className="flex flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {!filteredProjectPosts.length && 'No posts found.'}
           {filteredProjectPosts.map((frontMatter) => (
             <ProjectPost key={frontMatter.title} {...frontMatter} />

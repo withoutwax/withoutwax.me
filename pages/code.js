@@ -17,12 +17,10 @@ export default function Blog({ posts }) {
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
     )
-    .filter((frontMatter) => 
+    .filter((frontMatter) =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     )
-    .filter((frontMatter) => 
-      frontMatter.category == 'code'
-    );
+    .filter((frontMatter) => frontMatter.category == 'code');
 
   return (
     <Container>
@@ -66,10 +64,12 @@ export default function Blog({ posts }) {
             />
           </svg>
         </div> */}
-        {!filteredCodePosts.length && 'No posts found.'}
-        {filteredCodePosts.map((frontMatter) => (
-          <CodePost key={frontMatter.title} {...frontMatter} />
-        ))}
+        <div className="grid grid-cols-1 gap-4">
+          {!filteredCodePosts.length && 'No posts found.'}
+          {filteredCodePosts.map((frontMatter) => (
+            <CodePost key={frontMatter.title} {...frontMatter} />
+          ))}
+        </div>
       </div>
     </Container>
   );

@@ -12,8 +12,8 @@ export default function Container({ children }) {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="flex flex-col md:flex-row mx-auto bg-white dark:bg-black md:bg-transparent max-w-6xl">{/* */}
-      <nav className="navbar z-10 bg-white dark:bg-black bg-opacity-50 sticky top-0 flex md:flex-col justify-between md:h-screen items-center md:items-end px-8 py-8 md:py-16 my-0">{/*  */}
+    <div className="flex flex-col md:flex-row mx-auto bg-white dark:bg-black md:bg-transparent w-full md:w-auto max-w-6xl">
+      <nav className="navbar z-10 bg-white dark:bg-black bg-opacity-50 sticky top-0 flex md:flex-col justify-between md:h-screen items-center md:items-end px-8 py-8 md:py-16 my-0">
         <div className="order-1 md:order-0 flex md:flex-col">
           {/* <NextLink href="/dashboard">
             <a className="p-1 smr:p-4 text-gray-900 dark:text-gray-100">
@@ -99,7 +99,7 @@ export default function Container({ children }) {
           </button>
         </div>
       </nav>
-      <main className="flex flex-col max-w-3xl mx-auto bg-white dark:bg-black p-8 md:mt-8 mb-8">
+      <main className="flex flex-col max-w-3xl bg-white dark:bg-black p-8 md:mt-8 mb-8">
         {children}
         <Footer />
       </main>

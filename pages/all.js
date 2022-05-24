@@ -7,8 +7,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 const url = 'https://withoutwax.me/all';
 const title = 'All – Will Kim';
-const description =
-  'List of all the posts in the site.';
+const description = 'List of all the posts in the site.';
 
 export default function Blog({ posts }) {
   const [searchValue, setSearchValue] = useState('');
@@ -17,7 +16,7 @@ export default function Blog({ posts }) {
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
     )
-    .filter((frontMatter) => 
+    .filter((frontMatter) =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     );
 
@@ -63,10 +62,12 @@ export default function Blog({ posts }) {
             />
           </svg>
         </div>
-        {!filteredAllPosts.length && 'No posts found.'}
-        {filteredAllPosts.map((frontMatter) => (
-          <AllPost key={frontMatter.title} {...frontMatter} />
-        ))}
+        <div className="grid grid-cols-1 gap-4">
+          {!filteredAllPosts.length && 'No posts found.'}
+          {filteredAllPosts.map((frontMatter) => (
+            <AllPost key={frontMatter.title} {...frontMatter} />
+          ))}
+        </div>
       </div>
     </Container>
   );
