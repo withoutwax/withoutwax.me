@@ -1,4 +1,4 @@
-import '@/styles/global.css';
+import '@/styles/app.scss';
 
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'next-themes';
