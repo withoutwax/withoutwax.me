@@ -1,5 +1,5 @@
 const Category = ({category}) => {
-  let displayCategory = 'Thoughts 💭';
+  let displayCategory = '';
   switch (category) {
     case 'code':
       displayCategory = 'Code 💻';
@@ -9,6 +9,18 @@ const Category = ({category}) => {
       break;
     case 'archive':
       displayCategory = 'Archived 📦';
+      break;
+    case 'thoughts':
+      displayCategory = 'Thoughts 💭';
+      break;
+    case 'faith':
+      displayCategory = 'Faith 🤲🏼';
+      break;
+    case 'life':
+      displayCategory = 'Life 🏝';
+      break;
+    case 'idea':
+      displayCategory = 'Idea 💡';
       break;
     default:
       displayCategory = 'Thoughts 💭';

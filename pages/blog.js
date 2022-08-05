@@ -19,7 +19,7 @@ export default function Blog({ posts }) {
     .filter((frontMatter) =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     )
-    .filter((frontMatter) => frontMatter.category == 'thoughts');
+    // .filter((frontMatter) => frontMatter.category == 'thoughts');
 
   return (
     <Container>
