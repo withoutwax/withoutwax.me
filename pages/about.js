@@ -13,7 +13,7 @@ export default function About() {
           title: 'About Me – Will Kim'
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col justify-center items-start max-w-2xl w-full mx-auto mb-16">
         <h1 className="font-bold text-2xl md:text-5xl tracking-tight mb-10 text-black dark:text-white">
           About 👨🏻‍💻
         </h1>
