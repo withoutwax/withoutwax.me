@@ -1,0 +1,17 @@
+---
+title: 'Path to node package module'
+publishedAt: '2022-08-04'
+summary: 'A simple and clean way to direct with a path to a package from node module.'
+image: ''
+category: 'code'
+---
+
+When using some node packages (e.g. - using a Hamburger menu library, by Jonathan Suh) it requires for the developer to link a file which exist in the node module that the package is installed.  
+
+In such cases, by simply adding `~package-name/` will link directly to the package instead of finding the path with `/node_modules/...`.
+
+```scss
+// Hamburger Menu - [https://jonsuh.com/hamburgers/](https://jonsuh.com/hamburgers/)
+@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
+// @import "../../node_modules/hamburgers/_sass/hamburgers.scss";
+```

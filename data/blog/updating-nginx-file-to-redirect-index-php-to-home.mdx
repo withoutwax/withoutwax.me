@@ -1,0 +1,16 @@
+---
+title: 'Updating nginx file to redirect index.php to /'
+publishedAt: '2021-11-17'
+summary: 'Redirect index.php to home'
+image: ''
+category: 'code'
+---
+
+Add this to nginx:
+
+```php
+# Redirect url with /index.php to /
+if ($request_uri ~* "^/index\.php(/?)(.*)") {
+    return 301 "/";
+}
+```
