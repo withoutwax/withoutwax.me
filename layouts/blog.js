@@ -16,7 +16,7 @@ export default function BlogLayout({ children, frontMatter }) {
   // const hasMounted = reHydrationCheck();
 
   // if (!hasMounted) {
-  //   return null;
+  //   return <></>;
   // }
 
   return (
@@ -41,13 +41,13 @@ export default function BlogLayout({ children, frontMatter }) {
               src="/avatar.jpg"
               className="rounded-full"
             /> */}
-            <p className="text-sm text-gray-700 dark:text-gray-300 flex">
+            <div className="text-sm text-gray-700 dark:text-gray-300 flex">
               {frontMatter.by}
               {/* {'Will Kim / '} */}
               {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
               <span className="mx-2"> • </span>
               <Category category={frontMatter.category} />
-            </p>
+            </div>
           </div>
           <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
             {frontMatter.readingTime.text}
@@ -65,6 +65,7 @@ export default function BlogLayout({ children, frontMatter }) {
 
 const reHydrationCheck = () => {
   const [hasMounted, setHasMounted] = useState(false);
+
   useEffect(() => setHasMounted(true), []);
 
   return hasMounted;

@@ -5,7 +5,7 @@ import ProjectLayout from '@/layouts/blog';
 import MDXComponents from '@/components/MDXComponents';
 
 export default function Blog({ mdxSource, frontMatter }) {
-  return <ProjectLayout frontMatter={frontMatter}><MDXRemote {...mdxSource} components={MDXComponents} /></ProjectLayout>;
+  return <ProjectLayout frontMatter={frontMatter}><MDXRemote {...mdxSource} components={MDXComponents} lazy /></ProjectLayout>;
 }
 
 export async function getStaticPaths() {
