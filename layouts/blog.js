@@ -13,11 +13,11 @@ import Category from '@/components/Category';
 //   )}`;
 
 export default function BlogLayout({ children, frontMatter }) {
-  const hasMounted = reHydrationCheck();
+  // const hasMounted = reHydrationCheck();
 
-  if (!hasMounted) {
-    return null;
-  }
+  // if (!hasMounted) {
+  //   return null;
+  // }
 
   return (
     <Container>
