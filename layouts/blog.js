@@ -1,13 +1,11 @@
 // import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
-import { MDXRemote } from 'next-mdx-remote'
 
 import Container from '@/components/Container';
 // import Subscribe from '@/components/Subscribe';
 // import ViewCounter from '@/components/ViewCounter';
 import BlogSeo from '@/components/BlogSeo';
 import Category from '@/components/Category';
-import MDXComponents from '@/components/MDXComponents';
 
 // const editUrl = (slug) =>
 //   `https://github.com/withoutwax/withoutwax.me/edit/master/data/blog/${slug}.mdx`;
