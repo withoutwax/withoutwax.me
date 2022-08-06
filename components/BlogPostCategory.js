@@ -15,7 +15,7 @@ const filterCategory = (category) => {
 
 const BlogPostCategory = ({ category }) => {
   return (
-    <p className="flex text-sm capitalize text-gray-500">
+    <p className="flex text-sm capitalize text-gray-500 dark:text-gray-400">
       <span className="mr-1">{filterCategory(category)}</span>
       {category}
     </p>
