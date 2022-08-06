@@ -1,9 +1,7 @@
-// import Image from 'next/image';
+import { useEffect, useState } from 'react'
 import { parseISO, format } from 'date-fns';
 
 import Container from '@/components/Container';
-// import Subscribe from '@/components/Subscribe';
-// import ViewCounter from '@/components/ViewCounter';
 import BlogSeo from '@/components/BlogSeo';
 import Category from '@/components/Category';
 
@@ -15,6 +13,12 @@ import Category from '@/components/Category';
 //   )}`;
 
 export default function BlogLayout({ children, frontMatter }) {
+  const hasMounted = reHydrationCheck();
+
+  if (!hasMounted) {
+    return null;
+  }
+
   return (
     <Container>
       <BlogSeo
@@ -52,10 +56,16 @@ export default function BlogLayout({ children, frontMatter }) {
           </p>
         </div>
         <div className="prose dark:prose-dark w-full">
-          {/* <MDXRemote {...children} components={MDXComponents} /> */}
           {children}
         </div>
       </article>
     </Container>
   );
+}
+
+const reHydrationCheck = () => {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => setHasMounted(true), []);
+
+  return hasMounted;
 }

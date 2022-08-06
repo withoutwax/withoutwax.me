@@ -1,6 +1,5 @@
 import NextLink from 'next/link';
 
-// import Timeline from '../components/Timeline';
 import Container from '../components/Container';
 // import BlogPost from '../components/BlogPost';
 // import Subscribe from '../components/Subscribe';
@@ -54,7 +53,6 @@ export default function Home() {
             </span>
           </p>
         </section>
-        {/* <Timeline /> */}
       </div>
     </Container>
   );
