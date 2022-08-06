@@ -3,7 +3,7 @@
 
 const ExternalLink = ({ href, children }) => (
   <a
-    className="text-sm text-gray-500 hover:text-gray-600 transition"
+    className="text-sm text-gray-500 hover:text-gray-600 transition-all"
     target="_blank"
     rel="noopener noreferrer"
     href={href}
