@@ -3,7 +3,7 @@
 
 const ExternalLink = ({ href, children }) => (
   <a
-    className="text-sm text-gray-500 hover:text-gray-600 transition-all"
+    className="text-sm text-gray-500 transition-all hover:text-gray-600"
     target="_blank"
     rel="noopener noreferrer"
     href={href}
@@ -15,10 +15,10 @@ const ExternalLink = ({ href, children }) => (
 export default function Footer() {
   // let currentYear = new Date().getFullYear();
   return (
-    <footer className="flex flex-col items-center mb-8">
+    <footer className="mb-8 flex flex-col items-center">
       {/* <div className="flex space-x-4 mb-4">
       </div> */}
-      <div className="space-x-3 text-gray-500 flex flex-col justify-center">
+      <div className="flex flex-col justify-center space-x-3 text-gray-500">
         {/* <p className="text-center">Copyright &copy; {currentYear} Will Kim</p> */}
         <p className="text-center">Invely's</p>
       </div>

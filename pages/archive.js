@@ -33,11 +33,11 @@ export default function Blog({ posts }) {
           description
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl w-full mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
           Archive 🗄
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-12">
+        <p className="mb-12 text-gray-600 dark:text-gray-400">
           {`Leave things from the past. And move on. `}
         </p>
         <div className="grid grid-cols-1 gap-4">

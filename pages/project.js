@@ -34,11 +34,11 @@ export default function Blog({ posts }) {
           description
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl w-full mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
           Project 🕹
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-10">
+        <p className="mb-10 text-gray-600 dark:text-gray-400">
           {`Things that I tinker on my spare time.`}
         </p>
         {/* <div className="relative w-full mb-4">
@@ -64,7 +64,7 @@ export default function Blog({ posts }) {
             />
           </svg>
         </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {!filteredProjectPosts.length && 'No posts found.'}
           {filteredProjectPosts.map((frontMatter) => (
             <ProjectPost key={frontMatter.title} {...frontMatter} />
