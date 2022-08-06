@@ -1,4 +1,4 @@
-import hydrate from 'next-mdx-remote/hydrate';
+import { hydrate } from 'next-mdx-remote'
 
 import { getFiles, getFileBySlug } from '@/lib/mdx';
 import BlogLayout from '@/layouts/blog';
