@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 
@@ -6,11 +6,11 @@ import Footer from '@/components/Footer';
 import DarkModeButton from './DarkModeButton';
 
 export default function Container({ children }) {
-  // const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   // After mounting, we have access to the theme
-  // useEffect(() => setMounted(true), []);
+  useEffect(() => setMounted(true), []);
 
   return (
     <>
