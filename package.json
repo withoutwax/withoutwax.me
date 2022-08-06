@@ -13,6 +13,7 @@
     "url": "git+https://github.com/withoutwax/withoutwax.me.git"
   },
   "scripts": {
+    "lint": "next lint",
     "build": "next build",
     "dev": "next",
     "start": "next start"
