@@ -5,7 +5,11 @@ import CodeLayout from '@/layouts/blog';
 import MDXComponents from '@/components/MDXComponents';
 
 export default function Blog({ mdxSource, frontMatter }) {
-  return <CodeLayout frontMatter={frontMatter}><MDXRemote {...mdxSource} components={MDXComponents} lazy /></CodeLayout>;
+  return (
+    <CodeLayout frontMatter={frontMatter}>
+      <MDXRemote {...mdxSource} components={MDXComponents} lazy />
+    </CodeLayout>
+  );
 }
 
 export async function getStaticPaths() {

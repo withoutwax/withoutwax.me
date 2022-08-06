@@ -63,10 +63,10 @@ export default function BlogLayout({ children, frontMatter }) {
   );
 }
 
-const reHydrationCheck = () => {
-  const [hasMounted, setHasMounted] = useState(false);
+// const reHydrationCheck = () => {
+//   const [hasMounted, setHasMounted] = useState(false);
 
-  useEffect(() => setHasMounted(true), []);
+//   useEffect(() => setHasMounted(true), []);
 
-  return hasMounted;
-}
+//   return hasMounted;
+// }

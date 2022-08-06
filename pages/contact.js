@@ -13,23 +13,23 @@ export default function Contact() {
           title: 'Contact – Will Kim'
         }}
       />
-      <h2 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white text-center">
+      <h2 className="mb-4 text-center text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
         Contact 📬
       </h2>
-      <div className="flex flex-col justify-center items-center max-w-2xl mx-auto mb-16 prose">
-        <h3 className="text-center font-bold text-2xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="prose mx-auto mb-16 flex max-w-2xl flex-col items-center justify-center">
+        <h3 className="mb-4 text-center text-2xl font-bold tracking-tight text-black dark:text-white">
           If you wish to contact me, reach me with the email below:
         </h3>
 
-        <a className="mailto text-center my-8" href="mailto:w@withoutwax.me">
+        <a className="mailto my-8 text-center" href="mailto:w@withoutwax.me">
           w@withoutwax.me
         </a>
 
-        <p className="text-gray-600 dark:text-gray-400 mb-6 w-full text-center">
+        <p className="mb-6 w-full text-center text-gray-600 dark:text-gray-400">
           I'm currently not open to work, or freelancing. For such emails, I may
           not respond back.
         </p>
-        <p className="text-gray-600 dark:text-gray-400 mb-6 w-full text-center">
+        <p className="mb-6 w-full text-center text-gray-600 dark:text-gray-400">
           For other enquiries, if I do not get back to you please do not be
           offended. I am either in a situation where I cannot check my mail and
           I will do my best to reply back you.
