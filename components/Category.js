@@ -1,4 +1,4 @@
-const Category = ({category}) => {
+const Category = ({ category }) => {
   let displayCategory = '';
   switch (category) {
     case 'code':
@@ -27,11 +27,9 @@ const Category = ({category}) => {
   }
   return (
     <div>
-      <p className="rounded-full text-gray-700 mb-2">
-        {displayCategory}
-      </p>
+      <p className="mb-2 rounded-full text-gray-700">{displayCategory}</p>
     </div>
   );
-}
+};
 
 export default Category;

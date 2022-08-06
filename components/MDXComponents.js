@@ -27,7 +27,7 @@ const MDXComponents = {
   // Analytics,
   ConsCard,
   ProsCard,
-  Step,
+  Step
 };
 
 export default MDXComponents;

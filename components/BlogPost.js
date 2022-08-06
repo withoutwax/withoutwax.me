@@ -6,16 +6,16 @@ const BlogPost = ({ title, summary, category, slug }) => {
 
   return (
     <Link href={`/blog/${slug}`}>
-      <a className="w-full hover:bg-gray-50 dark:hover:bg-gray-900 p-4 rounded-md border hover:border-gray-300 dark:border-gray-800 transition-all">
+      <a className="w-full rounded-md border p-4 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900">
         <div className="w-full">
           {/* <Category category={category}></Category> */}
-          <div className="flex flex-col md:flex-row justify-between">
+          <div className="flex flex-col justify-between md:flex-row">
             {/* <p className="text-gray-500">{category}</p> */}
-            
-            <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
+
+            <h4 className="mb-2 w-full text-lg font-medium text-gray-900 dark:text-gray-100 md:text-xl">
               {title}
             </h4>
-            <p className="text-gray-500 text-left md:text-right w-32 mb-4 md:mb-0">
+            <p className="mb-4 w-32 text-left text-gray-500 md:mb-0 md:text-right">
               {/* {`${views ? format(views) : '–––'} views`} */}
             </p>
           </div>

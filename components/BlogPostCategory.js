@@ -1,4 +1,3 @@
-
 const filterCategory = (category) => {
   switch (category) {
     case 'faith':
@@ -12,14 +11,15 @@ const filterCategory = (category) => {
     default:
       return;
   }
-}
-
+};
 
 const BlogPostCategory = ({ category }) => {
   return (
-    <p className="text-gray-500 capitalize flex text-sm"><span className="mr-1">{ filterCategory(category) }</span>{category}</p>
+    <p className="flex text-sm capitalize text-gray-500">
+      <span className="mr-1">{filterCategory(category)}</span>
+      {category}
+    </p>
   );
 };
-
 
 export default BlogPostCategory;
