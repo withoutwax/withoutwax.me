@@ -27,7 +27,9 @@ const Category = ({ category }) => {
   }
   return (
     <div>
-      <p className="mb-2 rounded-full text-gray-700">{displayCategory}</p>
+      <p className="mb-2 rounded-full text-gray-700 dark:text-gray-300">
+        {displayCategory}
+      </p>
     </div>
   );
 };
