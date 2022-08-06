@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './base';
+@import './components';
+@import './utilities';
+
 @import './font';
 @import './next-config';
 @import './global';
