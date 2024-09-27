@@ -24,9 +24,10 @@ export default function About() {
         </h3>
         <p className="mb-6 w-full text-gray-600 dark:text-gray-400">
           During my Sophomore year, there was an opening for a class called
-          'Object Oriented Programming.' I was curious to know what the class
-          was and took it - and it changed my life. Since then, I've been coding
-          and diving deeper into the world of programming. Now I am here!
+          &apos;Object Oriented Programming.&apos; I was curious to know what
+          the class was and took it - and it changed my life. Since then,
+          I&apos;ve been coding and diving deeper into the world of programming.
+          Now I am here!
         </p>
 
         <h3 className="mt-6 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white">

@@ -20,7 +20,7 @@ export default function Footer() {
       </div> */}
       <div className="flex flex-col justify-center space-x-3 text-gray-500">
         {/* <p className="text-center">Copyright &copy; {currentYear} Will Kim</p> */}
-        <p className="text-center">Invely's</p>
+        <p className="text-center">Invely&apos;s</p>
       </div>
     </footer>
   );

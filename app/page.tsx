@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -33,8 +32,8 @@ export default function Home() {
           YouTube channel
         </a>
         , a lot of things have changed: I kept following my passion, and now I
-        am a Software Developer. If you are interested in my story, I've shared
-        my story
+        am a Software Developer. If you are interested in my story, I&apos;ve
+        shared my story
         <Link
           href="/blog/my-story"
           className="ml-1 text-gray-900 underline hover:text-gray-500 dark:text-gray-100"

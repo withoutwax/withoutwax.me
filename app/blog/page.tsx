@@ -11,7 +11,7 @@ export default function Blog() {
     const fetchPosts = async () => {
       try {
         const postsData = await getTestDatabase();
-        console.log("posts", postsData);
+        console.log("postsData", postsData);
         setPosts(postsData);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -20,6 +20,8 @@ export default function Blog() {
 
     fetchPosts();
   }, []);
+
+  console.log("posts", posts);
 
   return (
     <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">

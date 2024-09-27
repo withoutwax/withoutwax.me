@@ -14,8 +14,8 @@ export default function Contact() {
         </a>
 
         <p className="mb-6 w-full text-center text-gray-600 dark:text-gray-400">
-          I'm currently not open to work, or freelancing. For such emails, I may
-          not respond back.
+          I&apos;m currently not open to work, or freelancing. For such emails,
+          I may not respond back.
         </p>
         <p className="mb-6 w-full text-center text-gray-600 dark:text-gray-400">
           For other enquiries, if I do not get back to you please do not be
