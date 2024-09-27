@@ -1,4 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { getTestDatabase } from "@/lib/notion";
+
 export default function Blog() {
+  const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postsData = await getTestDatabase();
+        console.log("posts", postsData);
+        setPosts(postsData);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
