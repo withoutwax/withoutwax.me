@@ -54,7 +54,7 @@ export default function RootLayout({
                   </span>
                 </Link>
                 <Link
-                  href="/code"
+                  href="/engineering"
                   className="p-1 text-center text-xl text-gray-900 dark:text-gray-100 sm:p-4"
                 >
                   <span role="img" aria-label="code">
