@@ -26,6 +26,7 @@
     "notion-client": "^6.16.0",
     "postcss": "^8",
     "react-notion-x": "^6.16.0",
+    "sass": "^1.79.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

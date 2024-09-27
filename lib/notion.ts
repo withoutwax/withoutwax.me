@@ -1,3 +1,5 @@
+"use server";
+
 import { Client } from "@notionhq/client";
 import { NOTION_TOKEN, NOTION_TEST_BLOG_ID } from "@/lib/constant";
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";

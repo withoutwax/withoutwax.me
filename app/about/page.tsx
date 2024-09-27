@@ -5,7 +5,7 @@ export default function About() {
         <h1 className="mb-10 text-2xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
           About 👨🏻‍💻
         </h1>
-        <p className="mb-6 w-full text-gray-600 dark:text-gray-400">
+        <p className="mb-6 w-full text-gray-600 dark:text-gray-400 font-cursive">
           Welcome to my about page! I saw you were wondering who I am. Well, let
           me introduce myself! 😊
         </p>

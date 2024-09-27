@@ -1,8 +1,8 @@
 // Assuming the token is stored in local storage under 'token'
-export const fetcher = async (url: string, token: string) => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_CAIOS_URL}${url}`, {
+export const fetcher = async (url: string) => {
+  const response = await fetch(`${url}`, {
     headers: {
-      Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+      Authorization: `Bearer ${"secret_7184EERuNiX4dBYA0bP4grJLM9yXOGkyyGRIUCSbDRa"}`, // Include the token in the Authorization header
       Accept: "application/json",
     },
   });

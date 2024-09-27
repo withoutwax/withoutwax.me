@@ -9,7 +9,10 @@ export default function Contact() {
           If you wish to contact me, reach me with the email below:
         </h3>
 
-        <a className="mailto my-8 text-center" href="mailto:w@withoutwax.me">
+        <a
+          className="mailto my-8 text-center font-sans"
+          href="mailto:w@withoutwax.me"
+        >
           w@withoutwax.me
         </a>
 

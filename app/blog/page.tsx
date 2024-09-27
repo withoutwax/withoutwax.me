@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { getTestDatabase } from "@/lib/notion";
+import BlogPostListCard from "@/components/BlogPostListCard";
 
 export default function Blog() {
   const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
@@ -55,7 +56,11 @@ export default function Blog() {
           </svg>
         </div> */}
       <div className="grid grid-cols-1 gap-4">
+        {posts.map((post) => (
+          <BlogPostListCard data={post} />
+        ))}
         {/* {!filteredBlogPosts.length && "No posts found."}
+        {}
         {filteredBlogPosts.map((frontMatter) => (
           <BlogPost key={frontMatter.title} {...frontMatter} />
         ))} */}
