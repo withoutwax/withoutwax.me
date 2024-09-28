@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import BlogPostCategory from '@/components/BlogPostCategory';
+import BlogPostCategory from "@/components/BlogPostCategory";
 const BlogPostListCard = ({ data }: { data: any }) => {
   // const { data } = useSWR(`/api/views/${slug}`, fetcher);
   // const views = data?.total;
@@ -16,7 +16,8 @@ const BlogPostListCard = ({ data }: { data: any }) => {
         <div className="flex flex-col justify-between md:flex-row">
           {/* <p className="text-gray-500">{category}</p> */}
 
-          <h4 className="mb-2 w-full text-lg font-medium text-gray-900 dark:text-gray-100 md:text-xl">
+          <h4 className="mb-2 w-full text-lg font-medium text-gray-900 dark:text-gray-100 md:text-xl ">
+            <span className="mr-1">{data.icon && data.icon.emoji}</span>
             {data.properties["Name"] && data.properties["Name"].title.length > 0
               ? data.properties["Name"].title[0].text.content
               : null}
@@ -34,7 +35,7 @@ const BlogPostListCard = ({ data }: { data: any }) => {
             : null}
         </p>
         <div className="mt-4">
-          {/* <BlogPostCategory category={category} /> */}
+          <BlogPostCategory data={data.properties["분류"]} />
         </div>
       </div>
     </Link>
