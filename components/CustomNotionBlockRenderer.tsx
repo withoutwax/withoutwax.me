@@ -67,6 +67,9 @@ export default function CustomNotionBlockRenderer({
       case "code":
         returnElement.push(<Code block={block} />);
         break;
+      case "quote":
+        returnElement.push(<Quote block={block} />);
+        break;
       default:
         returnElement.push(<></>);
         break;
@@ -77,6 +80,20 @@ export default function CustomNotionBlockRenderer({
 
   return <div className="space-y-3">{element}</div>;
 }
+
+const Quote = (block: any) => {
+  console.log("Quote Block", block);
+  const elements = block.block.quote.rich_text.map((element: any) => {
+    return <Text {...element} />;
+  });
+  return (
+    <blockquote
+      className={`border-l-4 border-black dark:border-white pl-4 py-1.5`}
+    >
+      {elements.length > 0 ? elements : <></>}
+    </blockquote>
+  );
+};
 
 const ListElement = (block: any) => {
   console.log("List Element", block);
