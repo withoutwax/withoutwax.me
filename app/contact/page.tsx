@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Will's Blog | Contact",
+  description: "Reach out! 📬",
+};
+
 export default function Contact() {
   return (
     <>
