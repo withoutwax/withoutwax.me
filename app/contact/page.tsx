@@ -1,9 +1,11 @@
 export default function Contact() {
   return (
     <>
-      <h2 className="mb-4 text-center text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-        Contact 📬
-      </h2>
+      <div className="flex max-w-2xl flex-col items-center justify-center w-full">
+        <h2 className="mb-4 text-center text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
+          Contact 📬
+        </h2>
+      </div>
       <div className="prose mx-auto mb-16 flex max-w-2xl flex-col items-center justify-center">
         <h3 className="mb-4 text-center text-2xl font-bold tracking-tight text-black dark:text-white">
           If you wish to contact me, reach me with the email below:

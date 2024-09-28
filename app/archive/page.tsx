@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { getBlogs } from "@/lib/notion";
+import { getArchives } from "@/lib/notion";
 import BlogPostListCard from "@/components/BlogPostListCard";
 
-export default function Blog() {
+export default function Archive() {
   const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsData = await getBlogs();
+        const postsData = await getArchives();
         console.log("postsData", postsData);
         setPosts(postsData);
       } catch (error) {
@@ -22,22 +22,22 @@ export default function Blog() {
     fetchPosts();
   }, []);
 
-  console.log("Blog Posts", posts);
+  console.log("Archive Posts", posts);
 
   return (
     <>
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-        Blog 💭
+        Archive 🗄
       </h1>
       <p className="mb-10 text-gray-600 dark:text-gray-400">
-        {`A place where I share my thoughts and life.`}
+        {`Leave things from the past. And move on.`}
       </p>
       {/* <div className="relative w-full mb-12">
           <input
             aria-label="Search articles"
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Search blog"
+            placeholder="Search code"
             className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
           />
           <svg
@@ -59,7 +59,7 @@ export default function Blog() {
         {!posts.length
           ? "Loading..."
           : posts.map((post) => (
-              <BlogPostListCard data={post} route={"blog"} />
+              <BlogPostListCard data={post} route={"code"} />
             ))}
       </div>
     </>

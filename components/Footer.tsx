@@ -15,9 +15,7 @@
 export default function Footer() {
   // let currentYear = new Date().getFullYear();
   return (
-    <footer className="mb-8 flex flex-col items-center">
-      {/* <div className="flex space-x-4 mb-4">
-      </div> */}
+    <footer className="mb-8 w-full flex flex-col items-center">
       <div className="flex flex-col justify-center space-x-3 text-gray-500">
         {/* <p className="text-center">Copyright &copy; {currentYear} Will Kim</p> */}
         <p className="text-center">Invely&apos;s</p>

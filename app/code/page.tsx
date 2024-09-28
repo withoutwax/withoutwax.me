@@ -25,7 +25,7 @@ export default function Code() {
   console.log("Code Posts", posts);
 
   return (
-    <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
+    <>
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
         Code 💻
       </h1>
@@ -62,6 +62,6 @@ export default function Code() {
               <BlogPostListCard data={post} route={"code"} />
             ))}
       </div>
-    </div>
+    </>
   );
 }

@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <head>
         {/* Font files */}
         <link rel="preconnect" href="https://rsms.me/" />
@@ -31,9 +31,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light">
-          <div className="w-full dark:bg-black">
-            <div className="mx-auto flex w-full max-w-[900px] flex-col bg-white  md:flex-row md:bg-transparent">
-              <nav className="navbar sticky top-0 z-10 my-0 flex w-full flex-wrap items-center justify-between gap-8 bg-white bg-opacity-50 px-8 py-8 dark:bg-black md:h-screen md:w-2/12 md:flex-col md:gap-0 md:py-16">
+          <div className="w-full justify-center dark:bg-black">
+            <div className="mx-auto flex w-full max-w-[900px] flex-col bg-white md:flex-row md:bg-transparent">
+              <nav className="navbar sticky top-0 z-10 my-0 flex w-full md:w-auto flex-wrap items-center justify-between gap-8 bg-white bg-opacity-50 px-8 py-8 dark:bg-black md:h-screen md:flex-col md:gap-0 md:py-16">
                 <div className="md:order-0 order-1 flex w-full justify-between md:flex-col">
                   <Link
                     href="/"
@@ -90,8 +90,10 @@ export default function RootLayout({
                   <DarkModeButton />
                 </div>
               </nav>
-              <main className="mb-8 flex w-full flex-col bg-white p-8 dark:bg-black md:mt-8 md:w-10/12">
-                {children}
+              <main className="mb-8 flex w-full flex-col bg-white p-8 dark:bg-black md:mt-8 flex-1">
+                <div className="max-w-2xl mx-auto mb-16 flex w-full flex-col items-start justify-center">
+                  {children}
+                </div>
                 <Footer />
               </main>
             </div>
