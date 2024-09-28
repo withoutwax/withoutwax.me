@@ -1,6 +1,8 @@
 import { JSX, useState } from "react";
 import Image from "next/image";
 import { extractIdFromYouTubeUrl } from "@/lib/utils";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface Block {
   type: string;
@@ -175,13 +177,17 @@ const Code = (block: any) => {
   console.log("Code Block", block);
   const elements = block.block.code.rich_text.map((element: any) => {
     return (
-      <div className="prose">
-        <pre className="relative ">
-          <code>{element.text.content}</code>
-          {/* <p className="absolute right-4 text-gray-400">
-            {block.block.code.language}
-          </p> */}
-        </pre>
+      <div className="prose" key={element.id}>
+        <SyntaxHighlighter
+          language={block.block.code.language || "text"}
+          useInlineStyles={false}
+          customStyle={{
+            fontFamily: "SF Mono",
+          }}
+          // style={coy}
+        >
+          {element.text.content}
+        </SyntaxHighlighter>
       </div>
     );
   });
@@ -274,7 +280,7 @@ const Text = (element: any) => {
         element.annotations.underline && "underline"
       } ${
         element.annotations.code &&
-        "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
+        "font-mono font-semibold text-[14px] text-gray-600 dark:text-gray-200 px-1 py-0.5 rounded-md bg-gray-100 dark:bg-gray-900"
       } 
       ${
         element.annotations.color &&

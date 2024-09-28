@@ -79,8 +79,12 @@
   font-style: italic;
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
+code {
+  font-family: inherit !important;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
   @apply text-gray-600 dark:text-gray-50;
 }
 

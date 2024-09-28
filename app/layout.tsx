@@ -28,8 +28,12 @@ export default function RootLayout({
         {/* Font files */}
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/sf-mono-webfont@1.0.0/stylesheet.min.css"
+        ></link>
       </head>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} `}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <div className="w-full justify-center dark:bg-black">
             <div className="mx-auto flex w-full max-w-[900px] flex-col bg-white md:flex-row md:bg-transparent">

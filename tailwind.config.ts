@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
+        mono: ["SF Mono", ...fontFamily.mono],
       },
       typography: (theme: any) => ({
         DEFAULT: {
