@@ -36,7 +36,7 @@ export default function Project() {
         {!posts.length
           ? "Loading..."
           : posts.map((post) => (
-              <BlogPostListCard data={post} route={"blog"} />
+              <BlogPostListCard key={post.id} data={post} route={"blog"} />
             ))}
       </div>
     </>

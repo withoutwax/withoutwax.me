@@ -1,31 +1,56 @@
-import { JSX, useState } from "react";
+import { JSX } from "react";
 import Image from "next/image";
 import { extractIdFromYouTubeUrl } from "@/lib/utils";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
-
-interface Block {
-  type: string;
-  properties: {
-    title?: string;
-    [key: string]: any;
-  };
-  [key: string]: any;
-}
-
-interface CustomNotionBlockRendererProps {
-  blockMap: Block[];
-}
+import {
+  BlockObjectResponse,
+  ParagraphBlockObjectResponse,
+  Heading1BlockObjectResponse,
+  Heading2BlockObjectResponse,
+  Heading3BlockObjectResponse,
+  BulletedListItemBlockObjectResponse,
+  NumberedListItemBlockObjectResponse,
+  QuoteBlockObjectResponse,
+  CodeBlockObjectResponse,
+  ImageBlockObjectResponse,
+  VideoBlockObjectResponse,
+  RichTextItemResponse,
+  // ToDoBlockObjectResponse,
+  // ToggleBlockObjectResponse,
+  // TemplateBlockObjectResponse,
+  // SyncedBlockBlockObjectResponse,
+  // ChildPageBlockObjectResponse,
+  // ChildDatabaseBlockObjectResponse,
+  // EquationBlockObjectResponse,
+  // CalloutBlockObjectResponse,
+  // DividerBlockObjectResponse,
+  // BreadcrumbBlockObjectResponse,
+  // TableOfContentsBlockObjectResponse,
+  // ColumnListBlockObjectResponse,
+  // ColumnBlockObjectResponse,
+  // LinkToPageBlockObjectResponse,
+  // TableBlockObjectResponse,
+  // TableRowBlockObjectResponse,
+  // EmbedBlockObjectResponse,
+  // BookmarkBlockObjectResponse,
+  // PdfBlockObjectResponse,
+  // FileBlockObjectResponse,
+  // AudioBlockObjectResponse,
+  // LinkPreviewBlockObjectResponse,
+  // UnsupportedBlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 
 export default function CustomNotionBlockRenderer({
   blockMap,
-}: CustomNotionBlockRendererProps) {
+}: {
+  blockMap: Array<BlockObjectResponse>;
+}) {
   console.log("Block Map", blockMap);
   let olList: JSX.Element[] = [];
   let ulList: JSX.Element[] = [];
 
-  const element = blockMap.map((block, index) => {
-    let returnElement: JSX.Element[] = [];
+  const element = blockMap.map((block: BlockObjectResponse, index: number) => {
+    const returnElement: JSX.Element[] = [];
 
     if (block.type !== "numbered_list_item" && olList.length > 0) {
       const list = olList;
@@ -90,9 +115,13 @@ export default function CustomNotionBlockRenderer({
   return <div className="space-y-3">{element}</div>;
 }
 
-const Video = (block: any) => {
-  console.log("Video Block", block, block.block.video.external.url);
-  const id = extractIdFromYouTubeUrl(block.block.video.external.url);
+const Video = ({ block }: { block: VideoBlockObjectResponse }) => {
+  console.log("Video Block", block);
+  const videoUrl =
+    block.video.type === "external"
+      ? block.video.external.url
+      : block.video.file.url;
+  const id = extractIdFromYouTubeUrl(videoUrl);
   return (
     <div className="relative aspect-video">
       <iframe
@@ -116,11 +145,13 @@ const Divider = () => {
   return <hr className="my-3" />;
 };
 
-const Quote = (block: any) => {
+const Quote = ({ block }: { block: QuoteBlockObjectResponse }) => {
   console.log("Quote Block", block);
-  const elements = block.block.quote.rich_text.map((element: any) => {
-    return <Text {...element} />;
-  });
+  const elements = block.quote.rich_text.map(
+    (element: RichTextItemResponse, index: number) => {
+      return <Text {...element} key={index} />;
+    }
+  );
   return (
     <blockquote
       className={`border-l-4 border-black dark:border-white pl-4 py-1.5`}
@@ -130,15 +161,21 @@ const Quote = (block: any) => {
   );
 };
 
-const ListElement = (block: any) => {
+const ListElement = ({
+  block,
+}: {
+  block:
+    | NumberedListItemBlockObjectResponse
+    | BulletedListItemBlockObjectResponse;
+}) => {
   console.log("List Element", block);
   const lists =
-    block.block.type === "numbered_list_item"
-      ? block.block.numbered_list_item.rich_text
-      : block.block.bulleted_list_item.rich_text;
-  const elements = lists.map((element: any) => {
+    block.type === "numbered_list_item"
+      ? block.numbered_list_item.rich_text
+      : block.bulleted_list_item.rich_text;
+  const elements = lists.map((element: RichTextItemResponse, index: number) => {
     return (
-      <li key={element.id}>
+      <li key={index}>
         <Text {...element} />
       </li>
     );
@@ -146,19 +183,25 @@ const ListElement = (block: any) => {
   return elements.length > 0 ? elements : <></>;
 };
 
-const ImageBlock = (block: any) => {
+const ImageBlock = ({ block }: { block: ImageBlockObjectResponse }) => {
   console.log("Image block", block);
-  const caption = block.block.image.caption.map((element: any) => {
-    return (
-      <p className="text-gray-600 dark:text-gray-400 text-xs">
-        {element.text.content}
-      </p>
-    );
-  });
+  const caption = block.image.caption.map(
+    (element: RichTextItemResponse, index: number) => {
+      return (
+        <p key={index} className="text-gray-600 dark:text-gray-400 text-xs">
+          {"text" in element ? element.text.content : ""}
+        </p>
+      );
+    }
+  );
   return (
     <div>
       <Image
-        src={block.block.image.file.url}
+        src={
+          block.image.type === "file"
+            ? block.image.file.url
+            : block.image.external.url
+        }
         // alt={block.block.image.caption[0].text.content}
         alt={``}
         width={700}
@@ -173,31 +216,35 @@ const ImageBlock = (block: any) => {
   );
 };
 
-const Code = (block: any) => {
+const Code = ({ block }: { block: CodeBlockObjectResponse }) => {
   console.log("Code Block", block);
-  const elements = block.block.code.rich_text.map((element: any) => {
-    return (
-      <div className="prose" key={element.id}>
-        <SyntaxHighlighter
-          language={block.block.code.language || "text"}
-          useInlineStyles={false}
-          customStyle={{
-            fontFamily: "SF Mono",
-          }}
-          // style={coy}
-        >
-          {element.text.content}
-        </SyntaxHighlighter>
-      </div>
-    );
-  });
-  const caption = block.block.code.caption.map((element: any) => {
-    return (
-      <p className="text-gray-600 dark:text-gray-400 text-xs">
-        {element.text.content}
-      </p>
-    );
-  });
+  const elements = block.code.rich_text.map(
+    (element: RichTextItemResponse, index: number) => {
+      return (
+        <div key={index}>
+          <SyntaxHighlighter
+            language={block.code.language || "text"}
+            useInlineStyles={false}
+            customStyle={{
+              fontFamily: "SF Mono",
+            }}
+            // style={coy}
+          >
+            {"text" in element ? element.text.content : ""}
+          </SyntaxHighlighter>
+        </div>
+      );
+    }
+  );
+  const caption = block.code.caption.map(
+    (element: RichTextItemResponse, index: number) => {
+      return (
+        <p key={index} className="text-gray-600 dark:text-gray-400 text-xs">
+          {"text" in element ? element.text.content : ""}
+        </p>
+      );
+    }
+  );
   return (
     <>
       {elements.length > 0 ? (
@@ -212,11 +259,13 @@ const Code = (block: any) => {
   );
 };
 
-const Heading1 = (block: any) => {
+const Heading1 = ({ block }: { block: Heading1BlockObjectResponse }) => {
   // console.log("Heading 1", block);
-  const elements = block.block.heading_1.rich_text.map((element: any) => {
-    return <Text {...element} />;
-  });
+  const elements = block.heading_1.rich_text.map(
+    (element: RichTextItemResponse, index: number) => {
+      return <Text {...element} key={index} />;
+    }
+  );
   return (
     <h1 className="font-bold text-4xl">
       {elements.length > 0 ? elements : <></>}
@@ -224,11 +273,13 @@ const Heading1 = (block: any) => {
   );
 };
 
-const Heading2 = (block: any) => {
+const Heading2 = ({ block }: { block: Heading2BlockObjectResponse }) => {
   // console.log("Heading 2", block);
-  const elements = block.block.heading_2.rich_text.map((element: any) => {
-    return <Text {...element} />;
-  });
+  const elements = block.heading_2.rich_text.map(
+    (element: RichTextItemResponse, index: number) => {
+      return <Text {...element} key={index} />;
+    }
+  );
   return (
     <h2 className="font-bold text-3xl">
       {elements.length > 0 ? elements : <></>}
@@ -236,11 +287,13 @@ const Heading2 = (block: any) => {
   );
 };
 
-const Heading3 = (block: any) => {
+const Heading3 = ({ block }: { block: Heading3BlockObjectResponse }) => {
   // console.log("Heading 3", block);
-  const elements = block.block.heading_3.rich_text.map((element: any) => {
-    return <Text {...element} />;
-  });
+  const elements = block.heading_3.rich_text.map(
+    (element: RichTextItemResponse, index: number) => {
+      return <Text {...element} key={index} />;
+    }
+  );
   return (
     <h3 className="font-bold text-xl">
       {elements.length > 0 ? elements : <></>}
@@ -248,26 +301,29 @@ const Heading3 = (block: any) => {
   );
 };
 
-const Paragraph = (block: any) => {
+const Paragraph = ({ block }: { block: ParagraphBlockObjectResponse }) => {
   // console.log("Paragraph Block", block.block);
-  const elements = block.block.paragraph.rich_text.map((element: any) => {
-    return <Text {...element} />;
-  });
+  const elements = block.paragraph.rich_text.map(
+    (element: RichTextItemResponse, index: number) => {
+      return <Text {...element} key={index} />;
+    }
+  );
 
   return <p>{elements.length > 0 ? elements : <></>}</p>;
 };
 
-const Text = (element: any) => {
+const Text = (element: RichTextItemResponse) => {
   if (element.href) {
     return (
       <a
-        href={element.text.link.url}
+        href={
+          "text" in element && element.text.link ? element.text.link.url : ""
+        }
         className={`text-blue-500 underline`}
         target="_blank"
         rel="noreferrer noopener"
-        key={element.id}
       >
-        {element.text.content}
+        {"text" in element ? element.text.content : ""}
       </a>
     );
   }
@@ -288,9 +344,8 @@ const Text = (element: any) => {
       }
       ${element.annotations.color && notionTextColor(element.annotations.color)}
       `}
-      key={element.id}
     >
-      {element.text.content}
+      {"text" in element ? element.text.content : ""}
     </span>
   );
 };

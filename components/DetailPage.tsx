@@ -1,42 +1,50 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  getPageProperties,
-  getPageContentReactNotionX,
-  getPageContentV1,
-} from "@/lib/notion";
+import { getPageProperties, getPageContentV1 } from "@/lib/notion";
 import { DateTime } from "luxon";
-import { ExtendedRecordMap } from "notion-types";
 import "react-notion-x/src/styles.css";
-import ExtendedNotionRenderer from "@/components/ExtendedNotionRenderer";
 import CustomNotionBlockRenderer from "@/components/CustomNotionBlockRenderer";
-import { text } from "stream/consumers";
+import {
+  PageObjectResponse,
+  TextRichTextItemResponse,
+  BlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 
 export default function DetailPage({ id }: { id: string }) {
-  const [pageProperties, setProperties] = useState<any>({});
+  const [pageProperties, setProperties] = useState<PageObjectResponse | null>(
+    null
+  );
   // const [recordMap, setRecordMap] = useState<ExtendedRecordMap>();
-  const [pageBlockChildren, setPageBlockChildren] = useState<any[]>([]);
+  const [pageBlockChildren, setPageBlockChildren] = useState<
+    Array<BlockObjectResponse>
+  >([]);
 
   useEffect(() => {
     const fetchPageContentV1 = async () => {
       try {
         const blockData = await getPageContentV1(id);
         console.log("blockData", blockData);
-        setPageBlockChildren(blockData.results);
+        setPageBlockChildren(blockData.results as Array<BlockObjectResponse>);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
     };
+
     const fetchPageProperties = async () => {
       try {
         const pagePropertyData = await getPageProperties(id);
         console.log("pagePropertyData", pagePropertyData);
-        setProperties(pagePropertyData);
+        if ("properties" in pagePropertyData) {
+          setProperties(pagePropertyData as PageObjectResponse);
+        } else {
+          console.error("Received partial page object response");
+        }
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
     };
+
     // const fetchPageContent = async () => {
     //   try {
     //     const recordMapData = await getPageContentReactNotionX(id);
@@ -48,9 +56,9 @@ export default function DetailPage({ id }: { id: string }) {
     // };
 
     fetchPageProperties();
-    // fetchPageContent();
     fetchPageContentV1();
-  }, []);
+    // fetchPageContent();
+  }, [id]);
 
   if (!pageProperties) return <></>;
 
@@ -59,27 +67,34 @@ export default function DetailPage({ id }: { id: string }) {
   // console.log("Page Content", recordMap);
 
   return (
-    <div className="prose flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
+    <div className="prose dark:prose-dark flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
         {/* <span>{pageProperties.icon.emoji}</span> */}
-        {pageProperties.properties?.Name &&
+        {pageProperties.properties?.Name?.type === "title" &&
         pageProperties.properties?.Name.title.length > 0
-          ? pageProperties.properties?.Name.title.map(
-              (text: any) => text.plain_text
-            )
+          ? pageProperties.properties?.Name.title
+              .filter(
+                (text): text is TextRichTextItemResponse => text.type === "text"
+              )
+              .map((text) => (text as TextRichTextItemResponse).plain_text)
           : ""}
-        {pageProperties.properties?.이름 &&
+        {pageProperties.properties?.이름?.type === "title" &&
         pageProperties.properties?.이름.title.length > 0
-          ? pageProperties.properties?.이름.title.map(
-              (text: any) => text.plain_text
-            )
+          ? pageProperties.properties?.이름.title
+              .filter(
+                (text): text is TextRichTextItemResponse => text.type === "text"
+              )
+              .map((text) => text.plain_text)
           : ""}
       </h1>
       <h3 className="font-bold text-xl md:text-3xl text-gray-300 mb-4 dark:text-white mt-2">
-        {pageProperties.properties?.설명.rich_text.length > 0
-          ? pageProperties.properties?.설명.rich_text.map(
-              (text: any) => text.text.content
-            )
+        {pageProperties.properties?.설명?.type === "rich_text" &&
+        pageProperties.properties?.설명.rich_text.length > 0
+          ? pageProperties.properties?.설명.rich_text
+              .filter(
+                (text): text is TextRichTextItemResponse => text.type === "text"
+              )
+              .map((text) => text.text.content)
           : ""}
       </h3>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
@@ -100,16 +115,24 @@ export default function DetailPage({ id }: { id: string }) {
               })}
 
             {pageProperties.properties?.분류 &&
+            pageProperties.properties?.분류.type === "select" &&
             pageProperties.properties?.분류.select
               ? [
-                  <span className="mx-2"> • </span>,
+                  <span className="mx-2" key={`category-1`}>
+                    {" "}
+                    •{" "}
+                  </span>,
                   pageProperties.properties?.분류.select.name,
                 ]
               : ""}
             {pageProperties.properties?.프로젝트 &&
+            pageProperties.properties?.프로젝트.type === "select" &&
             pageProperties.properties?.프로젝트.select
               ? [
-                  <span className="mx-2"> • </span>,
+                  <span className="mx-2" key={`category-2`}>
+                    {" "}
+                    •{" "}
+                  </span>,
                   pageProperties.properties?.프로젝트.select.name,
                 ]
               : ""}

@@ -59,7 +59,7 @@ export default function Code() {
         {!posts.length
           ? "Loading..."
           : posts.map((post) => (
-              <BlogPostListCard data={post} route={"code"} />
+              <BlogPostListCard key={post.id} data={post} route={"code"} />
             ))}
       </div>
     </>

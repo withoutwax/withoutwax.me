@@ -10,10 +10,15 @@ import {
   NOTION_BLOG_ID,
   NOTION_ACTIVE_USER,
 } from "@/lib/constant";
-import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  DatabaseObjectResponse,
+  ListBlockChildrenResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 import { NotionAPI } from "notion-client";
 
-export async function getPageContentV1(id: string) {
+export async function getPageContentV1(
+  id: string
+): Promise<ListBlockChildrenResponse> {
   if (!NOTION_TOKEN) {
     throw new Error("NOTION_TOKEN is not defined");
   }

@@ -1,25 +1,18 @@
-const filterCategory = (category: string) => {
-  switch (category) {
-    case "faith":
-      return "🤲🏼";
-    case "thoughts":
-      return "💭";
-    case "life":
-      return "🏝";
-    case "idea":
-      return "💡";
-    default:
-      return;
-  }
-};
+interface BlogPostCategoryProps {
+  data: {
+    select: {
+      name: string;
+    };
+  };
+}
 
-const BlogPostCategory = (data: any) => {
-  if (!data.data || data.data.select.name === "개발 💻") {
+const BlogPostCategory = ({ data }: BlogPostCategoryProps) => {
+  if (!data || data.select.name === "개발 💻") {
     return <></>;
   }
   return (
     <p className="flex text-sm capitalize text-gray-600 dark:text-gray-200">
-      {data.data.select.name}
+      {data.select.name}
     </p>
   );
 };
