@@ -11,6 +11,7 @@ import { ExtendedRecordMap } from "notion-types";
 import "react-notion-x/src/styles.css";
 import ExtendedNotionRenderer from "@/components/ExtendedNotionRenderer";
 import CustomNotionBlockRenderer from "@/components/CustomNotionBlockRenderer";
+import { text } from "stream/consumers";
 
 export default function Page({ params }: { params: { id: string } }) {
   const [pageProperties, setProperties] = useState<any>({});
@@ -54,17 +55,25 @@ export default function Page({ params }: { params: { id: string } }) {
   if (!pageProperties) return <></>;
 
   console.log("Page Properties", pageProperties);
-  // console.log("Page Content", recordMap);
   console.log("Page Content V1 - Block Children", pageBlockChildren);
+  // console.log("Page Content", recordMap);
 
   return (
     <div className="flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
         {/* <span>{pageProperties.icon.emoji}</span> */}
-        {pageProperties.properties?.Name.title[0].plain_text}
+        {pageProperties.properties?.Name.title.length > 0
+          ? pageProperties.properties?.Name.title.map(
+              (text: any) => text.plain_text
+            )
+          : ""}
       </h1>
       <h3 className="font-bold text-xl md:text-3xl text-gray-300 mb-4 dark:text-white">
-        {pageProperties.properties?.설명.rich_text[0].plain_text}
+        {pageProperties.properties?.설명.rich_text.length > 0
+          ? pageProperties.properties?.설명.rich_text.map(
+              (text: any) => text.text.content
+            )
+          : ""}
       </h3>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
         <div className="flex items-center">
