@@ -70,6 +70,9 @@ export default function CustomNotionBlockRenderer({
       case "quote":
         returnElement.push(<Quote block={block} />);
         break;
+      case "divider":
+        returnElement.push(<Divider />);
+        break;
       default:
         returnElement.push(<></>);
         break;
@@ -80,6 +83,9 @@ export default function CustomNotionBlockRenderer({
 
   return <div className="space-y-3">{element}</div>;
 }
+const Divider = () => {
+  return <hr className="my-3" />;
+};
 
 const Quote = (block: any) => {
   console.log("Quote Block", block);
