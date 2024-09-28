@@ -1,4 +1,29 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { getProjects } from "@/lib/notion";
+import BlogPostListCard from "@/components/BlogPostListCard";
+
 export default function Project() {
+  const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postsData = await getProjects();
+        console.log("postsData", postsData);
+        setPosts(postsData);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  console.log("Project Posts", posts);
+
   return (
     <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
@@ -31,10 +56,9 @@ export default function Project() {
           </svg>
         </div> */}
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-        {/* {!filteredProjectPosts.length && 'No posts found.'}
-          {filteredProjectPosts.map((frontMatter) => (
-            <ProjectPost key={frontMatter.title} {...frontMatter} />
-          ))} */}
+        {!posts.length
+          ? "No posts found."
+          : posts.map((post) => <BlogPostListCard data={post} />)}
       </div>
     </div>
   );

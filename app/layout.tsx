@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Font files */}
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
@@ -51,7 +52,7 @@ export default function RootLayout({
                     </span>
                   </Link>
                   <Link
-                    href="/engineering"
+                    href="/code"
                     className="p-1 text-center text-xl text-gray-900 dark:text-gray-100 sm:p-4"
                   >
                     <span role="img" aria-label="code">

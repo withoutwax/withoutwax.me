@@ -1,8 +1,33 @@
-export default function Engineering() {
+"use client";
+
+import { useEffect, useState } from "react";
+import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { getCodes } from "@/lib/notion";
+import BlogPostListCard from "@/components/BlogPostListCard";
+
+export default function Code() {
+  const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postsData = await getCodes();
+        console.log("postsData", postsData);
+        setPosts(postsData);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  console.log("Code Posts", posts);
+
   return (
     <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-        Engineering 💻
+        Code 💻
       </h1>
       <p className="mb-10 text-gray-600 dark:text-gray-400">
         {`Tips 💡 and snippets of code that I found useful.`}
@@ -31,10 +56,9 @@ export default function Engineering() {
           </svg>
         </div> */}
       <div className="grid grid-cols-1 gap-4">
-        {/* {!filteredCodePosts.length && 'No posts found.'}
-          {filteredCodePosts.map((frontMatter) => (
-            <CodePost key={frontMatter.title} {...frontMatter} />
-          ))} */}
+        {!posts.length
+          ? "No posts found."
+          : posts.map((post) => <BlogPostListCard data={post} />)}
       </div>
     </div>
   );

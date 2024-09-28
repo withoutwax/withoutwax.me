@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { getTestDatabase } from "@/lib/notion";
+import { getBlogs } from "@/lib/notion";
 import BlogPostListCard from "@/components/BlogPostListCard";
 
 export default function Blog() {
@@ -11,7 +11,7 @@ export default function Blog() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsData = await getTestDatabase();
+        const postsData = await getBlogs();
         console.log("postsData", postsData);
         setPosts(postsData);
       } catch (error) {
@@ -22,7 +22,7 @@ export default function Blog() {
     fetchPosts();
   }, []);
 
-  console.log("posts", posts);
+  console.log("Blog Posts", posts);
 
   return (
     <div className="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center">
@@ -56,14 +56,9 @@ export default function Blog() {
           </svg>
         </div> */}
       <div className="grid grid-cols-1 gap-4">
-        {posts.map((post) => (
-          <BlogPostListCard data={post} />
-        ))}
-        {/* {!filteredBlogPosts.length && "No posts found."}
-        {}
-        {filteredBlogPosts.map((frontMatter) => (
-          <BlogPost key={frontMatter.title} {...frontMatter} />
-        ))} */}
+        {!posts.length
+          ? "No posts found."
+          : posts.map((post) => <BlogPostListCard data={post} />)}
       </div>
     </div>
   );
