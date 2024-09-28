@@ -87,25 +87,7 @@ const ListElement = (block: any) => {
   const elements = lists.map((element: any) => {
     return (
       <li key={element.id}>
-        <span
-          className={`${element.annotations.bold && "font-bold"} ${
-            element.annotations.italic && "italic"
-          } ${element.annotations.strikethrough && "line-through"} ${
-            element.annotations.underline && "underline"
-          } ${
-            element.annotations.code &&
-            "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
-          } ${
-            element.annotations.color &&
-            notionBackgroundColor(element.annotations.color)
-          } ${
-            element.annotations.color &&
-            notionTextColor(element.annotations.color)
-          }`}
-          key={element.id}
-        >
-          {element.text.content}
-        </span>
+        <Text {...element} />
       </li>
     );
   });
@@ -177,166 +159,72 @@ const Code = (block: any) => {
 const Heading1 = (block: any) => {
   // console.log("Heading 1", block);
   const elements = block.block.heading_1.rich_text.map((element: any) => {
-    if (element.href) {
-      return (
-        <a
-          href={element.text.link.url}
-          className={`text-blue-500 underline`}
-          target="_blank"
-          rel="noreferrer noopener"
-          key={element.id}
-        >
-          <h3 className={`text-4xl font-bold`}>{element.text.content}</h3>
-        </a>
-      );
-    }
-    return (
-      <h3
-        className={`text-4xl font-bold ${
-          element.annotations.bold && "font-bold"
-        } ${element.annotations.italic && "italic"} ${
-          element.annotations.strikethrough && "line-through"
-        } ${element.annotations.underline && "underline"} ${
-          element.annotations.code &&
-          "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
-        } ${
-          element.annotations.color &&
-          notionBackgroundColor(element.annotations.color)
-        } ${
-          element.annotations.color &&
-          notionTextColor(element.annotations.color)
-        }`}
-      >
-        {element.text.content}
-      </h3>
-    );
+    return <Text {...element} />;
   });
-  return <>{elements.length > 0 ? elements : <h3></h3>}</>;
+  return <h1>{elements.length > 0 ? elements : <></>}</h1>;
 };
+
 const Heading2 = (block: any) => {
   // console.log("Heading 2", block);
   const elements = block.block.heading_2.rich_text.map((element: any) => {
-    if (element.href) {
-      return (
-        <a
-          href={element.text.link.url}
-          className={`text-blue-500 underline`}
-          target="_blank"
-          rel="noreferrer noopener"
-          key={element.id}
-        >
-          <h3 className={`text-3xl font-bold`}>{element.text.content}</h3>
-        </a>
-      );
-    }
-    return (
-      <h3
-        className={`text-3xl font-bold ${
-          element.annotations.bold && "font-bold"
-        } ${element.annotations.italic && "italic"} ${
-          element.annotations.strikethrough && "line-through"
-        } ${element.annotations.underline && "underline"} ${
-          element.annotations.code &&
-          "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
-        } ${
-          element.annotations.color &&
-          notionBackgroundColor(element.annotations.color)
-        } ${
-          element.annotations.color &&
-          notionTextColor(element.annotations.color)
-        }`}
-      >
-        {element.text.content}
-      </h3>
-    );
+    return <Text {...element} />;
   });
-  return <>{elements.length > 0 ? elements : <h3></h3>}</>;
+  return <h2>{elements.length > 0 ? elements : <></>}</h2>;
 };
+
 const Heading3 = (block: any) => {
   // console.log("Heading 3", block);
   const elements = block.block.heading_3.rich_text.map((element: any) => {
-    if (element.href) {
-      return (
-        <a
-          href={element.text.link.url}
-          className={`text-blue-500 underline`}
-          target="_blank"
-          rel="noreferrer noopener"
-          key={element.id}
-        >
-          <h3 className={`text-xl font-bold`}>{element.text.content}</h3>
-        </a>
-      );
-    }
-    return (
-      <h3
-        className={`text-xl font-bold ${
-          element.annotations.bold && "font-bold"
-        } ${element.annotations.italic && "italic"} ${
-          element.annotations.strikethrough && "line-through"
-        } ${element.annotations.underline && "underline"} ${
-          element.annotations.code &&
-          "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
-        } ${
-          element.annotations.color &&
-          notionBackgroundColor(element.annotations.color)
-        } ${
-          element.annotations.color &&
-          notionTextColor(element.annotations.color)
-        }`}
-      >
-        {element.text.content}
-      </h3>
-    );
+    return <Text {...element} />;
   });
-  return <>{elements.length > 0 ? elements : <h3></h3>}</>;
+  return <h3>{elements.length > 0 ? elements : <></>}</h3>;
 };
 
 const Paragraph = (block: any) => {
   // console.log("Paragraph Block", block.block);
   const elements = block.block.paragraph.rich_text.map((element: any) => {
-    // console.log("Element", element);
-    if (element.href) {
-      return (
-        <a
-          href={element.text.link.url}
-          className={`text-blue-500 underline`}
-          target="_blank"
-          rel="noreferrer noopener"
-          key={element.id}
-        >
-          {element.text.content}
-        </a>
-      );
-    }
+    return <Text {...element} />;
+  });
 
+  return <p>{elements.length > 0 ? elements : <></>}</p>;
+};
+
+const Text = (element: any) => {
+  if (element.href) {
     return (
-      <span
-        className={`${element.annotations.bold && "font-bold"} ${
-          element.annotations.italic && "italic"
-        } ${element.annotations.strikethrough && "line-through"} ${
-          element.annotations.underline && "underline"
-        } ${
-          element.annotations.code &&
-          "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
-        } 
-        ${
-          element.annotations.color &&
-          notionBackgroundColor(element.annotations.color)
-        }
-        ${
-          element.annotations.color &&
-          notionTextColor(element.annotations.color)
-        }
-        `}
+      <a
+        href={element.text.link.url}
+        className={`text-blue-500 underline`}
+        target="_blank"
+        rel="noreferrer noopener"
         key={element.id}
       >
         {element.text.content}
-      </span>
+      </a>
     );
-  });
+  }
 
-  return <p>{elements.length > 0 ? elements : <p></p>}</p>;
+  return (
+    <span
+      className={`${element.annotations.bold && "font-bold"} ${
+        element.annotations.italic && "italic"
+      } ${element.annotations.strikethrough && "line-through"} ${
+        element.annotations.underline && "underline"
+      } ${
+        element.annotations.code &&
+        "font-mono text-red-500 bg-[#eeeeec] dark:bg-gray-800 px-1 rounded-sm"
+      } 
+      ${
+        element.annotations.color &&
+        notionBackgroundColor(element.annotations.color)
+      }
+      ${element.annotations.color && notionTextColor(element.annotations.color)}
+      `}
+      key={element.id}
+    >
+      {element.text.content}
+    </span>
+  );
 };
 
 const notionBackgroundColor = (color: string) => {
