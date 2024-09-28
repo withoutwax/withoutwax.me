@@ -59,7 +59,7 @@ export default function DetailPage({ id }: { id: string }) {
   // console.log("Page Content", recordMap);
 
   return (
-    <div className="flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
+    <div className="prose flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
         {/* <span>{pageProperties.icon.emoji}</span> */}
         {pageProperties.properties?.Name &&

@@ -26,12 +26,16 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head>
         {/* Font files */}
+        {/* <link
+          rel="stylesheet"
+          href="https://unpkg.com/@tailwindcss/typography@0.4.x/dist/typography.min.css"
+        /> */}
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/sf-mono-webfont@1.0.0/stylesheet.min.css"
-        ></link>
+        />
       </head>
       <body className={`${inter.variable} `}>
         <ThemeProvider attribute="class" defaultTheme="light">
