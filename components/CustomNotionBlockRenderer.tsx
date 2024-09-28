@@ -1,5 +1,6 @@
 import { JSX, useState } from "react";
 import Image from "next/image";
+import { extractIdFromYouTubeUrl } from "@/lib/utils";
 
 interface Block {
   type: string;
@@ -88,16 +89,23 @@ export default function CustomNotionBlockRenderer({
 }
 
 const Video = (block: any) => {
-  console.log("Video Block", block);
+  console.log("Video Block", block, block.block.video.external.url);
+  const id = extractIdFromYouTubeUrl(block.block.video.external.url);
   return (
-    <div className="relative h-0 pb-9/16">
+    <div className="relative aspect-video">
       <iframe
-        src={block.block.video.url}
-        className="absolute inset-0 w-full h-full"
+        id="ytplayer"
+        width="100%"
+        height="400"
+        src={`https://www.youtube.com/embed/${id}?autoplay=0&controls=1&rel=1&fullscreen=1`}
+      ></iframe>
+      {/* <iframe
+        src={block.block.video.external.url}
+        className="w-full h-full border border-red-500"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      ></iframe>
+      ></iframe> */}
     </div>
   );
 };
