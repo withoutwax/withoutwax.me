@@ -58,7 +58,9 @@ export default function Blog() {
       <div className="grid grid-cols-1 gap-4">
         {!posts.length
           ? "No posts found."
-          : posts.map((post) => <BlogPostListCard data={post} />)}
+          : posts.map((post) => (
+              <BlogPostListCard data={post} route={"blog"} />
+            ))}
       </div>
     </div>
   );

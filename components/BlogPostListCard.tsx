@@ -1,6 +1,6 @@
 import Link from "next/link";
 import BlogPostCategory from "@/components/BlogPostCategory";
-const BlogPostListCard = ({ data }: { data: any }) => {
+const BlogPostListCard = ({ data, route }: { data: any; route: string }) => {
   // const { data } = useSWR(`/api/views/${slug}`, fetcher);
   // const views = data?.total;
 
@@ -8,7 +8,7 @@ const BlogPostListCard = ({ data }: { data: any }) => {
 
   return (
     <Link
-      href={`/blog/${data.id}`}
+      href={`/${route}/${data.id}`}
       className="w-full rounded-md border p-4 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900"
     >
       <div className="w-full">

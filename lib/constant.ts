@@ -1,5 +1,7 @@
 export const NOTION_TOKEN = process.env.NEXT_PUBLIC_NOTION_API_KEY;
+export const NOTION_TOKEN_V2 = process.env.NEXT_PUBLIC_NOTION_TOKEN_V2;
 export const NOTION_TEST_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_TEST_BLOG_ID;
 export const NOTION_PROJECT_ID = process.env.NEXT_PUBLIC_NOTION_PROJECT_ID;
 export const NOTION_CODE_ID = process.env.NEXT_PUBLIC_NOTION_CODE_ID;
 export const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID;
+export const NOTION_ACTIVE_USER = process.env.NEXT_PUBLIC_NOTION_USER_KEY;
