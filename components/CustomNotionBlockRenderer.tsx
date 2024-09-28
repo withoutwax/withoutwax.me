@@ -73,6 +73,9 @@ export default function CustomNotionBlockRenderer({
       case "divider":
         returnElement.push(<Divider />);
         break;
+      case "video":
+        returnElement.push(<Video block={block} />);
+        break;
       default:
         returnElement.push(<></>);
         break;
@@ -83,6 +86,22 @@ export default function CustomNotionBlockRenderer({
 
   return <div className="space-y-3">{element}</div>;
 }
+
+const Video = (block: any) => {
+  console.log("Video Block", block);
+  return (
+    <div className="relative h-0 pb-9/16">
+      <iframe
+        src={block.block.video.url}
+        className="absolute inset-0 w-full h-full"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
+
 const Divider = () => {
   return <hr className="my-3" />;
 };
@@ -184,7 +203,11 @@ const Heading1 = (block: any) => {
   const elements = block.block.heading_1.rich_text.map((element: any) => {
     return <Text {...element} />;
   });
-  return <h1>{elements.length > 0 ? elements : <></>}</h1>;
+  return (
+    <h1 className="font-bold text-4xl">
+      {elements.length > 0 ? elements : <></>}
+    </h1>
+  );
 };
 
 const Heading2 = (block: any) => {
@@ -192,7 +215,11 @@ const Heading2 = (block: any) => {
   const elements = block.block.heading_2.rich_text.map((element: any) => {
     return <Text {...element} />;
   });
-  return <h2>{elements.length > 0 ? elements : <></>}</h2>;
+  return (
+    <h2 className="font-bold text-3xl">
+      {elements.length > 0 ? elements : <></>}
+    </h2>
+  );
 };
 
 const Heading3 = (block: any) => {
@@ -200,7 +227,11 @@ const Heading3 = (block: any) => {
   const elements = block.block.heading_3.rich_text.map((element: any) => {
     return <Text {...element} />;
   });
-  return <h3>{elements.length > 0 ? elements : <></>}</h3>;
+  return (
+    <h3 className="font-bold text-xl">
+      {elements.length > 0 ? elements : <></>}
+    </h3>
+  );
 };
 
 const Paragraph = (block: any) => {
