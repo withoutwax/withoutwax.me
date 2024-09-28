@@ -75,7 +75,7 @@ export default function DetailPage({ id }: { id: string }) {
             )
           : ""}
       </h1>
-      <h3 className="font-bold text-xl md:text-3xl text-gray-300 mb-4 dark:text-white">
+      <h3 className="font-bold text-xl md:text-3xl text-gray-300 mb-4 dark:text-white mt-2">
         {pageProperties.properties?.설명.rich_text.length > 0
           ? pageProperties.properties?.설명.rich_text.map(
               (text: any) => text.text.content
