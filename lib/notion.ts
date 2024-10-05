@@ -100,7 +100,7 @@ export const getBlogs = cache(async () => {
           {
             property: "분류",
             select: {
-              does_not_equal: "개발 💻",
+              does_not_equal: "Code",
             },
           },
         ],
@@ -141,7 +141,7 @@ export const getCodes = cache(async () => {
           {
             property: "분류",
             select: {
-              equals: "개발 💻",
+              equals: "Code",
             },
           },
         ],

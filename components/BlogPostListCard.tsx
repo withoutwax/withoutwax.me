@@ -1,6 +1,8 @@
 import Link from "next/link";
 import BlogPostCategory from "@/components/BlogPostCategory";
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { formatNotionDate } from "@/lib/utils";
+import { DateTime } from "luxon";
 
 const BlogPostListCard = ({
   data,
@@ -14,7 +16,7 @@ const BlogPostListCard = ({
   return (
     <Link
       href={`/${route}/${data.id}`}
-      className="w-full rounded-md border p-4 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900"
+      className="flex flex-col justify-between w-full rounded-md border p-4 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-900"
     >
       <div className="w-full">
         <div className="flex flex-col justify-between md:flex-row">
@@ -49,17 +51,31 @@ const BlogPostListCard = ({
               ).text.content
             : null}
         </p>
-        <div className="mt-4">
-          {data.properties.분류 ? (
+      </div>
+      <div className="mt-4 flex justify-start items-center">
+        <span className="text-sm text-gray-500">
+          {data.properties.날짜 &&
+          data.properties.날짜.type === "date" &&
+          data.properties.날짜.date
+            ? DateTime.fromISO(data.properties.날짜.date.start).toFormat(
+                "yyyy.MM.dd"
+              )
+            : DateTime.fromISO(data.created_time).toFormat("yyyy.MM.dd")}
+        </span>
+        {data.properties.분류 &&
+        data.properties.분류.type === "select" &&
+        data.properties.분류.select ? (
+          <>
+            <span className="text-sm text-gray-500 ml-2">•</span>
             <BlogPostCategory
               data={
                 data.properties.분류 as unknown as {
-                  select: { name: string };
+                  select: { id: string; name: string; color: string };
                 }
               }
             />
-          ) : null}
-        </div>
+          </>
+        ) : null}
       </div>
     </Link>
   );
