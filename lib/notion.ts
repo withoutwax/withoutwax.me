@@ -107,7 +107,7 @@ export const getBlogs = cache(async () => {
       },
       sorts: [
         {
-          property: "블로그 개시일",
+          property: "날짜",
           direction: "descending",
         },
       ],
@@ -148,7 +148,7 @@ export const getCodes = cache(async () => {
       },
       sorts: [
         {
-          property: "블로그 개시일",
+          property: "날짜",
           direction: "descending",
         },
       ],
@@ -179,7 +179,7 @@ export const getProjects = cache(async () => {
       },
       sorts: [
         {
-          property: "블로그 개시일",
+          property: "날짜",
           direction: "descending",
         },
       ],
@@ -221,7 +221,7 @@ export const getArchives = cache(async () => {
       },
       sorts: [
         {
-          property: "블로그 개시일",
+          property: "날짜",
           direction: "descending",
         },
       ],

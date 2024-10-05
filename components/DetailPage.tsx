@@ -1,5 +1,5 @@
 import { getPageProperties, getPageContentV1 } from "@/lib/notion";
-import { DateTime } from "luxon";
+// import { DateTime } from "luxon";
 import "react-notion-x/src/styles.css";
 import CustomNotionBlockRenderer from "@/components/CustomNotionBlockRenderer";
 import { TextRichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
@@ -7,6 +7,7 @@ import {
   ListBlockChildrenResponse,
   PageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+import { formatNotionDate } from "@/lib/utils";
 
 export default async function DetailPage({ id }: { id: string }) {
   const pageProperties = (await getPageProperties(id)) as PageObjectResponse;
@@ -14,7 +15,7 @@ export default async function DetailPage({ id }: { id: string }) {
     id
   )) as ListBlockChildrenResponse;
 
-  console.log("Page Properties", pageProperties);
+  console.log("Page Properties", pageProperties, pageProperties.properties);
   console.log("Page Content V1 - Block Children", pageBlockChildren);
   // console.log("Page Content", recordMap);
 
@@ -59,12 +60,11 @@ export default async function DetailPage({ id }: { id: string }) {
           className="rounded-full"
         /> */}
           <div className="text-sm text-gray-700 dark:text-gray-300 flex">
-            {pageProperties.created_time &&
-              DateTime.fromISO(pageProperties.created_time).toLocaleString({
-                month: "long",
-                day: "2-digit",
-                year: "numeric",
-              })}
+            {pageProperties.properties.날짜 &&
+            pageProperties.properties.날짜.type === "date" &&
+            pageProperties.properties.날짜.date
+              ? formatNotionDate(pageProperties.properties.날짜)
+              : formatNotionDate(pageProperties.created_time)}
 
             {pageProperties.properties?.분류 &&
             pageProperties.properties?.분류.type === "select" &&
