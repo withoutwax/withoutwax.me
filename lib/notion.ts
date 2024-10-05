@@ -1,5 +1,6 @@
 "use server";
 
+import { cache } from "react";
 import { Client } from "@notionhq/client";
 import {
   NOTION_TOKEN,
@@ -13,30 +14,31 @@ import {
 import {
   DatabaseObjectResponse,
   ListBlockChildrenResponse,
+  GetPageResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import { NotionAPI } from "notion-client";
 
-export async function getPageContentV1(
-  id: string
-): Promise<ListBlockChildrenResponse> {
-  if (!NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN is not defined");
-  }
+export const getPageContentV1 = cache(
+  async (id: string): Promise<ListBlockChildrenResponse> => {
+    if (!NOTION_TOKEN) {
+      throw new Error("NOTION_TOKEN is not defined");
+    }
 
-  try {
-    const notion = new Client({
-      auth: NOTION_TOKEN,
-    });
-    const response = await notion.blocks.children.list({
-      block_id: id,
-      page_size: 50,
-    });
-    console.log("getPageContentV1", response);
-    return response;
-  } catch {
-    throw new Error("There's an error fetching the Notion page");
+    try {
+      const notion = new Client({
+        auth: NOTION_TOKEN,
+      });
+      const response = await notion.blocks.children.list({
+        block_id: id,
+        page_size: 50,
+      });
+      console.log("getPageContentV1", response);
+      return response;
+    } catch {
+      throw new Error("There's an error fetching the Notion page");
+    }
   }
-}
+);
 
 export async function getPageContentReactNotionX(id: string) {
   if (!NOTION_TOKEN) {
@@ -55,26 +57,28 @@ export async function getPageContentReactNotionX(id: string) {
   }
 }
 
-export async function getPageProperties(id: string) {
-  if (!NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN is not defined");
+export const getPageProperties = cache(
+  async (id: string): Promise<GetPageResponse> => {
+    if (!NOTION_TOKEN) {
+      throw new Error("NOTION_TOKEN is not defined");
+    }
+
+    try {
+      const notion = new Client({
+        auth: NOTION_TOKEN,
+      });
+      const response = await notion.pages.retrieve({
+        page_id: id as string,
+      });
+
+      return response;
+    } catch {
+      throw new Error("There's an error fetching the Notion database");
+    }
   }
+);
 
-  try {
-    const notion = new Client({
-      auth: NOTION_TOKEN,
-    });
-    const response = await notion.pages.retrieve({
-      page_id: id as string,
-    });
-
-    return response;
-  } catch {
-    throw new Error("There's an error fetching the Notion database");
-  }
-}
-
-export async function getBlogs() {
+export const getBlogs = cache(async () => {
   if (!NOTION_BLOG_ID || !NOTION_TOKEN) {
     throw new Error("NOTION_TOKEN or NOTION_BLOG_ID is not defined");
   }
@@ -113,9 +117,9 @@ export async function getBlogs() {
   } catch {
     throw new Error("There's an error fetching the Notion database");
   }
-}
+});
 
-export async function getCodes() {
+export const getCodes = cache(async () => {
   if (!NOTION_CODE_ID || !NOTION_TOKEN) {
     throw new Error("NOTION_TOKEN or NOTION_CODE_ID is not defined");
   }
@@ -154,9 +158,9 @@ export async function getCodes() {
   } catch {
     throw new Error("There's an error fetching the Notion database");
   }
-}
+});
 
-export async function getProjects() {
+export const getProjects = cache(async () => {
   if (!NOTION_PROJECT_ID || !NOTION_TOKEN) {
     throw new Error("NOTION_TOKEN or NOTION_PROJECT_ID is not defined");
   }
@@ -185,9 +189,9 @@ export async function getProjects() {
   } catch {
     throw new Error("There's an error fetching the Notion database");
   }
-}
+});
 
-export async function getArchives() {
+export const getArchives = cache(async () => {
   if (!NOTION_PROJECT_ID || !NOTION_TOKEN) {
     throw new Error("NOTION_TOKEN or NOTION_PROJECT_ID is not defined");
   }
@@ -227,7 +231,7 @@ export async function getArchives() {
   } catch {
     throw new Error("There's an error fetching the Notion database");
   }
-}
+});
 
 export async function getTestDatabase() {
   if (!NOTION_TEST_BLOG_ID) {

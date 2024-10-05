@@ -15,6 +15,8 @@ import {
   ImageBlockObjectResponse,
   VideoBlockObjectResponse,
   RichTextItemResponse,
+  ListBlockChildrenResponse,
+  PartialBlockObjectResponse,
   // ToDoBlockObjectResponse,
   // ToggleBlockObjectResponse,
   // TemplateBlockObjectResponse,
@@ -43,74 +45,83 @@ import {
 export default function CustomNotionBlockRenderer({
   blockMap,
 }: {
-  blockMap: Array<BlockObjectResponse>;
+  blockMap: ListBlockChildrenResponse;
 }) {
   console.log("Block Map", blockMap);
   let olList: JSX.Element[] = [];
   let ulList: JSX.Element[] = [];
 
-  const element = blockMap.map((block: BlockObjectResponse, index: number) => {
-    const returnElement: JSX.Element[] = [];
+  const element = blockMap.results.map(
+    (
+      block: PartialBlockObjectResponse | BlockObjectResponse,
+      index: number
+    ) => {
+      const returnElement: JSX.Element[] = [];
 
-    if (block.type !== "numbered_list_item" && olList.length > 0) {
-      const list = olList;
-      olList = [];
-      returnElement.push(
-        <ol key={index} className="list-decimal list-inside space-y-1 ml-3">
-          {list}
-        </ol>
-      );
-    } else if (block.type !== "bulleted_list_item" && ulList.length > 0) {
-      const list = ulList;
-      ulList = [];
-      returnElement.push(
-        <ul key={index} className="list-disc list-inside space-y-1 ml-3">
-          {list}
-        </ul>
-      );
+      if ("type" in block === false) {
+        return returnElement;
+      }
+
+      if (block.type !== "numbered_list_item" && olList.length > 0) {
+        const list = olList;
+        olList = [];
+        returnElement.push(
+          <ol key={index} className="list-decimal list-inside space-y-1 ml-3">
+            {list}
+          </ol>
+        );
+      } else if (block.type !== "bulleted_list_item" && ulList.length > 0) {
+        const list = ulList;
+        ulList = [];
+        returnElement.push(
+          <ul key={index} className="list-disc list-inside space-y-1 ml-3">
+            {list}
+          </ul>
+        );
+      }
+
+      switch (block.type) {
+        case "heading_1":
+          returnElement.push(<Heading1 block={block} />);
+          break;
+        case "heading_2":
+          returnElement.push(<Heading2 block={block} />);
+          break;
+        case "heading_3":
+          returnElement.push(<Heading3 block={block} />);
+          break;
+        case "paragraph":
+          returnElement.push(<Paragraph block={block} />);
+          break;
+        case "numbered_list_item":
+          olList.push(<ListElement block={block} />);
+          break;
+        case "bulleted_list_item":
+          ulList.push(<ListElement block={block} />);
+          break;
+        case "image":
+          returnElement.push(<ImageBlock block={block} />);
+          break;
+        case "code":
+          returnElement.push(<Code block={block} />);
+          break;
+        case "quote":
+          returnElement.push(<Quote block={block} />);
+          break;
+        case "divider":
+          returnElement.push(<Divider />);
+          break;
+        case "video":
+          returnElement.push(<Video block={block} />);
+          break;
+        default:
+          returnElement.push(<></>);
+          break;
+      }
+
+      return [...returnElement];
     }
-
-    switch (block.type) {
-      case "heading_1":
-        returnElement.push(<Heading1 block={block} />);
-        break;
-      case "heading_2":
-        returnElement.push(<Heading2 block={block} />);
-        break;
-      case "heading_3":
-        returnElement.push(<Heading3 block={block} />);
-        break;
-      case "paragraph":
-        returnElement.push(<Paragraph block={block} />);
-        break;
-      case "numbered_list_item":
-        olList.push(<ListElement block={block} />);
-        break;
-      case "bulleted_list_item":
-        ulList.push(<ListElement block={block} />);
-        break;
-      case "image":
-        returnElement.push(<ImageBlock block={block} />);
-        break;
-      case "code":
-        returnElement.push(<Code block={block} />);
-        break;
-      case "quote":
-        returnElement.push(<Quote block={block} />);
-        break;
-      case "divider":
-        returnElement.push(<Divider />);
-        break;
-      case "video":
-        returnElement.push(<Video block={block} />);
-        break;
-      default:
-        returnElement.push(<></>);
-        break;
-    }
-
-    return [...returnElement];
-  });
+  );
 
   return <div className="space-y-3">{element}</div>;
 }

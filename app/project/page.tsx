@@ -1,27 +1,8 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { getProjects } from "@/lib/notion";
 import BlogPostListCard from "@/components/BlogPostListCard";
 
-export default function Project() {
-  const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsData = await getProjects();
-        console.log("postsData", postsData);
-        setPosts(postsData);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
+export default async function Project() {
+  const posts = await getProjects();
   console.log("Project Posts", posts);
 
   return (

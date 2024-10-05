@@ -50,13 +50,13 @@ const BlogPostListCard = ({
             : null}
         </p>
         <div className="mt-4">
-          {"select" in data.properties.분류 ? (
+          {/* {"select" in data.properties.분류 ? (
             <BlogPostCategory
               data={
                 data.properties.분류 as unknown as { select: { name: string } }
               }
             />
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     </Link>

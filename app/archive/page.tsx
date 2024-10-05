@@ -1,27 +1,8 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { getArchives } from "@/lib/notion";
 import BlogPostListCard from "@/components/BlogPostListCard";
 
-export default function Archive() {
-  const [posts, setPosts] = useState<DatabaseObjectResponse[]>([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsData = await getArchives();
-        console.log("postsData", postsData);
-        setPosts(postsData);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
+export default async function Archive() {
+  const posts = await getArchives();
   console.log("Archive Posts", posts);
 
   return (

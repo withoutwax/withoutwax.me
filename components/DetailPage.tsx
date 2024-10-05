@@ -1,66 +1,18 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { getPageProperties, getPageContentV1 } from "@/lib/notion";
 import { DateTime } from "luxon";
 import "react-notion-x/src/styles.css";
 import CustomNotionBlockRenderer from "@/components/CustomNotionBlockRenderer";
+import { TextRichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
 import {
+  ListBlockChildrenResponse,
   PageObjectResponse,
-  TextRichTextItemResponse,
-  BlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
-export default function DetailPage({ id }: { id: string }) {
-  const [pageProperties, setProperties] = useState<PageObjectResponse | null>(
-    null
-  );
-  // const [recordMap, setRecordMap] = useState<ExtendedRecordMap>();
-  const [pageBlockChildren, setPageBlockChildren] = useState<
-    Array<BlockObjectResponse>
-  >([]);
-
-  useEffect(() => {
-    const fetchPageContentV1 = async () => {
-      try {
-        const blockData = await getPageContentV1(id);
-        console.log("blockData", blockData);
-        setPageBlockChildren(blockData.results as Array<BlockObjectResponse>);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    const fetchPageProperties = async () => {
-      try {
-        const pagePropertyData = await getPageProperties(id);
-        console.log("pagePropertyData", pagePropertyData);
-        if ("properties" in pagePropertyData) {
-          setProperties(pagePropertyData as PageObjectResponse);
-        } else {
-          console.error("Received partial page object response");
-        }
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    // const fetchPageContent = async () => {
-    //   try {
-    //     const recordMapData = await getPageContentReactNotionX(id);
-    //     console.log("recordMapData", recordMapData);
-    //     setRecordMap(recordMapData);
-    //   } catch (error) {
-    //     console.error("Error fetching posts");
-    //   }
-    // };
-
-    fetchPageProperties();
-    fetchPageContentV1();
-    // fetchPageContent();
-  }, [id]);
-
-  if (!pageProperties) return <></>;
+export default async function DetailPage({ id }: { id: string }) {
+  const pageProperties = (await getPageProperties(id)) as PageObjectResponse;
+  const pageBlockChildren = (await getPageContentV1(
+    id
+  )) as ListBlockChildrenResponse;
 
   console.log("Page Properties", pageProperties);
   console.log("Page Content V1 - Block Children", pageBlockChildren);
