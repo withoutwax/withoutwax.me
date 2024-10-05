@@ -8,9 +8,10 @@ interface BlogPostCategoryProps {
       color: string;
     };
   };
+  type: string;
 }
 
-const BlogPostCategory = ({ data }: BlogPostCategoryProps) => {
+const BlogPostCategory = ({ data, type }: BlogPostCategoryProps) => {
   console.log("Category Data", data);
   // if (!data || (data.select && data.select.name === "Code")) {
   //   return <></>;
@@ -18,10 +19,13 @@ const BlogPostCategory = ({ data }: BlogPostCategoryProps) => {
   return (
     <p
       className={`${
-        data.select && notionBackgroundColor(`${data.select.color}_background`)
+        type === "pill" &&
+        data.select &&
+        notionBackgroundColor(`${data.select.color}_background`)
       } ${
-        data.select && notionTextColor(data.select.color)
-      } flex text-sm capitalize px-1 py-0.5 rounded-md`}
+        type === "pill" && data.select && notionTextColor(data.select.color)
+      } ${type === "pill" && "px-2 py-1 rounded-full"}
+      flex text-sm capitalize`}
     >
       {data.select && data.select.name}
     </p>

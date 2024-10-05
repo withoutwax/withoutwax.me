@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import BlogPostCategory from "@/components/BlogPostCategory";
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { formatNotionDate } from "@/lib/utils";
 import { DateTime } from "luxon";
+import { usePathname } from "next/navigation";
 
 const BlogPostListCard = ({
   data,
@@ -11,7 +13,9 @@ const BlogPostListCard = ({
   data: DatabaseObjectResponse;
   route: string;
 }) => {
+  const pathname = usePathname();
   console.log("Card Data", data);
+  console.log("pathname", pathname);
 
   return (
     <Link
@@ -52,7 +56,7 @@ const BlogPostListCard = ({
             : null}
         </p>
       </div>
-      <div className="mt-4 flex justify-start items-center">
+      <div className="mt-4 flex justify-start items-center space-x-2">
         <span className="text-sm text-gray-500">
           {data.properties.날짜 &&
           data.properties.날짜.type === "date" &&
@@ -64,15 +68,17 @@ const BlogPostListCard = ({
         </span>
         {data.properties.분류 &&
         data.properties.분류.type === "select" &&
-        data.properties.분류.select ? (
+        data.properties.분류.select &&
+        pathname !== "/code" ? (
           <>
-            <span className="text-sm text-gray-500 ml-2">•</span>
+            <span className="text-sm text-gray-500">•</span>
             <BlogPostCategory
               data={
                 data.properties.분류 as unknown as {
                   select: { id: string; name: string; color: string };
                 }
               }
+              type={pathname === "/project" ? "pill" : ""}
             />
           </>
         ) : null}
