@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import Footer from "@/components/Footer";
 import DarkModeButton from "@/components/DarkModeButton";
 import Link from "next/link";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { GOOGLE_ANALYTICS_ID } from "@/lib/constant";
 
 const inter = localFont({
   src: "./fonts/inter-var-latin.woff2",
@@ -36,6 +38,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/sf-mono-webfont@1.0.0/stylesheet.min.css"
         />
+        {GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />}
       </head>
       <body className={`${inter.variable} `}>
         <ThemeProvider attribute="class" defaultTheme="light">

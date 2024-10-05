@@ -5,3 +5,4 @@ export const NOTION_PROJECT_ID = process.env.NEXT_PUBLIC_NOTION_PROJECT_ID;
 export const NOTION_CODE_ID = process.env.NEXT_PUBLIC_NOTION_CODE_ID;
 export const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID;
 export const NOTION_ACTIVE_USER = process.env.NEXT_PUBLIC_NOTION_USER_KEY;
+export const GOOGLE_ANALYTICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
