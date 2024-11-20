@@ -23,7 +23,7 @@
     "@payloadcms/storage-s3": "^3.0.1",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
-    "next": "15.0.0",
+    "next": "^15.0.3",
     "payload": "latest",
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
