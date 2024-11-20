@@ -6,6 +6,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
 import { buildConfig } from 'payload'
 import { Users } from '@/collections/Users'
 import { Media } from '@/collections/Media' // Importing Media collection
+import { Test } from '@/collections/Test' // Importing Media collection
 import { s3Storage } from '@payloadcms/storage-s3' // Importing S3 storage plugin
 
 const filename = fileURLToPath(import.meta.url)
@@ -15,7 +16,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media], // Add the media collection here
+  collections: [Users, Media, Test], // Add the media collection here
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

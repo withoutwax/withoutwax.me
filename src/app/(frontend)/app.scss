@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./scss/base";
+@import "./scss/components";
+@import "./scss/utilities";
+
+@import "./scss/next-config";
+@import "./scss/global";
+
+@import "./scss/navbar";
+@import "./scss/highlight";

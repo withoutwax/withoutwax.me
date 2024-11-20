@@ -30,12 +30,22 @@
     "sharp": "0.32.6"
   },
   "devDependencies": {
-    "@types/node": "^22.5.4",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@tailwindcss/typography": "^0.5.15",
+    "@next/third-parties": "^15.0.3",
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.9.1",
+    "@types/react": "^19.0.0-rc.1",
+    "@types/react-dom": "^19.0.0-rc.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^9.15.0",
-    "eslint-config-next": "15.0.0",
-    "typescript": "5.6.3"
+    "eslint-config-next": "^15.0.3",
+    "luxon": "^3.5.0",
+    "next-themes": "^0.4.3",
+    "postcss": "^8.4.49",
+    "sass": "^1.81.0",
+    "swr": "^2.2.5",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
