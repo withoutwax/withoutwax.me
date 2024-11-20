@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",
@@ -23,10 +24,10 @@
     ],
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ],
-      "@next/third-parties/google": [
-        "./node_modules/@next/third-parties/dist/google"
+      "@payload-config": [
+        "./src/payload.config.ts"
       ]
     },
     "target": "ES2017"
@@ -38,8 +39,6 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "_",
-    "_notion_sample"
+    "node_modules"
   ]
 }
