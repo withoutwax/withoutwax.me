@@ -6,11 +6,11 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'; // editor-import
 import { buildConfig } from 'payload';
 import { Users } from '@/collections/Users';
 import { Media } from '@/collections/Media'; // Importing Media collection
-import { Test } from '@/collections/Test'; // Importing Media collection
-import { Pages } from '@/collections/Pages';
 import { Tags } from '@/collections/Tags';
 import { Categories } from '@/collections/Categories';
 import { Blogs } from '@/collections/Blogs';
+import { Codes } from '@/collections/Codes';
+import { Projects } from '@/collections/Projects';
 import { Home } from '@/globals/Home';
 import { About } from '@/globals/About';
 import { Contact } from '@/globals/Contact';
@@ -23,7 +23,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Test, Pages, Blogs, Tags, Categories], // Add the media collection here
+  collections: [Users, Media, Tags, Categories, Blogs, Codes, Projects], // Add the media collection here
   globals: [Home, About, Contact],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',

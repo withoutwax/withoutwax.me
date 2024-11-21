@@ -5,14 +5,10 @@ import config from '@payload-config';
 export default async function Project() {
   const payload = await getPayload({ config });
   const data = await payload.find({
-    collection: 'blogs',
+    collection: 'projects',
   });
 
   console.log('data', data);
-
-  const posts = data.docs.filter((post: any) => {
-    return post.categories.title == 'Project';
-  });
 
   return (
     <>
@@ -25,7 +21,9 @@ export default async function Project() {
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {!data.docs.length
           ? 'Loading...'
-          : posts.map((post) => <BlogPostListCard key={post.id} data={post} route={'project'} />)}
+          : data.docs.map((post) => (
+              <BlogPostListCard key={post.id} data={post} route={'project'} />
+            ))}
       </div>
     </>
   );

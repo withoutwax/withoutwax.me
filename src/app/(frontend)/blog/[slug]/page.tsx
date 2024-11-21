@@ -40,7 +40,7 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />;
 
   return (
-    <article className="pt-16 pb-16">
+    <article className="pt-4 pb-16 w-full">
       <PostHero post={post} />
       <RichText className="" content={post.content} enableGutter={false} />
     </article>

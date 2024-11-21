@@ -5,14 +5,10 @@ import config from '@payload-config';
 export default async function Code() {
   const payload = await getPayload({ config });
   const data = await payload.find({
-    collection: 'blogs',
+    collection: 'codes',
   });
 
   console.log('data', data);
-
-  const posts = data.docs.filter((post: any) => {
-    return post.categories.title == 'Code';
-  });
 
   return (
     <>
@@ -25,7 +21,7 @@ export default async function Code() {
       <div className="flex flex-col gap-4 w-full">
         {!data.docs.length
           ? 'Loading...'
-          : posts.map((post) => <BlogPostListCard key={post.id} data={post} route={'code'} />)}
+          : data.docs.map((post) => <BlogPostListCard key={post.id} data={post} route={'code'} />)}
       </div>
     </>
   );

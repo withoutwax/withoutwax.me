@@ -37,7 +37,7 @@ export const PostHero: React.FC<{
           <div className="text-sm text-gray-700 dark:text-gray-300 flex">
             {publishedAt ? formatDateTime(publishedAt) : ''}
 
-            {categories && categories.length > 0 ? (
+            {/* {categories && categories.length > 0 ? (
               <>
                 <span className="mx-2" key={`category-1`}>
                   {' '}
@@ -47,7 +47,7 @@ export const PostHero: React.FC<{
               </>
             ) : (
               ''
-            )}
+            )} */}
             {/* {pageProperties.properties?.프로젝트 &&
             pageProperties.properties?.프로젝트.type === 'select' &&
             pageProperties.properties?.프로젝트.select

@@ -11,7 +11,7 @@ import { generateMeta } from '@/utils/generateMeta';
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });
   const posts = await payload.find({
-    collection: 'blogs',
+    collection: 'codes',
     draft: false,
     limit: 1000,
     overrideAccess: false,
@@ -40,9 +40,9 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />;
 
   return (
-    <article className="pt-16 pb-16">
+    <article className="pt-4 pb-16 w-full">
       <PostHero post={post} />
-      <RichText className="" content={post.content} enableGutter={false} />
+      <RichText className="w-full" content={post.content} enableGutter={false} />
     </article>
   );
 }
@@ -60,7 +60,7 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
   const payload = await getPayload({ config: configPromise });
 
   const result = await payload.find({
-    collection: 'blogs',
+    collection: 'codes',
     draft,
     limit: 1,
     overrideAccess: draft,
