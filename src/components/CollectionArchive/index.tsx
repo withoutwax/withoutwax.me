@@ -1,12 +1,12 @@
 import { cn } from 'src/utils/cn';
 import React from 'react';
 
-import type { Post } from '@/payload-types';
+import type { Blog, Code, Project, Archive } from '@/payload-types';
 
 import { Card } from '@/components/Card';
 
 export type Props = {
-  posts: Post[];
+  posts: Blog[] | Code[] | Project[] | Archive[];
 };
 
 export const CollectionArchive: React.FC<Props> = (props) => {

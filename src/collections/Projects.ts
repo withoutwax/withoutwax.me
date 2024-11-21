@@ -20,8 +20,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields';
-import { slugField } from '@/fields/slug';
-import { populateAuthors } from '@/hooks/populateAuthors';
+// import { slugField } from '@/fields/slug';
 import { revalidatePost } from '@/hooks/revalidatePost';
 
 export const Projects: CollectionConfig = {
@@ -190,11 +189,18 @@ export const Projects: CollectionConfig = {
         },
       ],
     },
-    ...slugField(),
+    {
+      name: 'slug',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+      required: true,
+      unique: true,
+    },
   ],
   hooks: {
     afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
   },
   versions: {
     drafts: {

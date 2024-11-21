@@ -1,12 +1,12 @@
 import { formatDateTime } from 'src/utils/formatDateTime';
 import React from 'react';
 
-import type { Blog } from '@/payload-types';
+import type { Blog, Code, Project, Archive } from '@/payload-types';
 
 import { Media } from '@/components/Media';
 
 export const PostHero: React.FC<{
-  post: Blog;
+  post: Blog | Code | Project | Archive;
 }> = ({ post }) => {
   const {
     categories,

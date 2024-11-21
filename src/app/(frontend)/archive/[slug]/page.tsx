@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { PayloadRedirects } from '@/components/PayloadRedirects';
 import configPromise from '@payload-config';
 import { getPayload } from 'payload';
 import { draftMode } from 'next/headers';
@@ -36,8 +35,6 @@ export default async function Post({ params: paramsPromise }: Args) {
   const post = await queryPostBySlug({ slug });
 
   console.log('Post', post, url);
-
-  if (!post) return <PayloadRedirects url={url} />;
 
   return (
     <article className="pt-4 pb-16 w-full">

@@ -20,8 +20,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields';
-import { slugField } from '@/fields/slug';
-import { populateAuthors } from '@/hooks/populateAuthors';
 import { revalidatePost } from '@/hooks/revalidatePost';
 
 export const Archives: CollectionConfig = {
@@ -190,11 +188,18 @@ export const Archives: CollectionConfig = {
         },
       ],
     },
-    ...slugField(),
+    {
+      name: 'slug',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+      required: true,
+      unique: true,
+    },
   ],
   hooks: {
     afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
   },
   versions: {
     drafts: {
