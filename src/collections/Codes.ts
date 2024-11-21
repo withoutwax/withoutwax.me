@@ -198,9 +198,9 @@ export const Codes: CollectionConfig = {
       unique: true,
     },
   ],
-  hooks: {
-    afterChange: [revalidatePost],
-  },
+  // hooks: {
+  //   afterChange: [revalidatePost],
+  // },
   versions: {
     drafts: {
       autosave: {

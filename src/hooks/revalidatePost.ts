@@ -1,34 +1,16 @@
-import type { CollectionAfterChangeHook } from 'payload';
+import type { Payload } from 'payload';
+import { revalidate } from '@/utils/revalidate';
 
-import { revalidatePath } from 'next/cache';
-
-import type { Blog, Code, Project, Archive } from '@/payload-types';
-
-export const revalidatePost: CollectionAfterChangeHook<Blog | Code | Project | Archive> = ({
+export const revalidatePost = async ({
   doc,
-  previousDoc,
-  req: { payload },
-}) => {
+  collection,
+  payload,
+}: {
+  doc: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  collection: string;
+  payload: Payload;
+}): Promise<void> => {
   if (doc._status === 'published') {
-    const path = `/archive/${doc.slug}`;
-
-    console.log('revalidatePost', doc, previousDoc, path);
-
-    payload.logger.info(`Revalidating post at path: ${path}`);
-
-    revalidatePath(path, 'page');
+    revalidate({ payload, collection, slug: doc.slug });
   }
-
-  // If the post was previously published, we need to revalidate the old path
-  if (previousDoc._status === 'published' && doc._status !== 'published') {
-    const oldPath = `/archive/${previousDoc.slug}`;
-
-    payload.logger.info(`Revalidating old post at path: ${oldPath}`);
-
-    revalidatePath(oldPath, 'page');
-  }
-
-  revalidatePath('/archive', 'page');
-
-  return doc;
 };
