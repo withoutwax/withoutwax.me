@@ -1,6 +1,6 @@
 import type { CollectionAfterChangeHook } from 'payload';
 
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 
 import type { Blog, Code, Project, Archive } from '@/payload-types';
 
@@ -16,7 +16,7 @@ export const revalidatePost: CollectionAfterChangeHook<Blog | Code | Project | A
 
     payload.logger.info(`Revalidating post at path: ${path}`);
 
-    revalidateTag(path);
+    revalidatePath(path, 'page');
   }
 
   // If the post was previously published, we need to revalidate the old path
@@ -25,10 +25,10 @@ export const revalidatePost: CollectionAfterChangeHook<Blog | Code | Project | A
 
     payload.logger.info(`Revalidating old post at path: ${oldPath}`);
 
-    revalidateTag(oldPath);
+    revalidatePath(oldPath, 'page');
   }
 
-  revalidateTag('/archive');
+  revalidatePath('/archive', 'page');
 
   return doc;
 };
