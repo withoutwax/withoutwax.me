@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 
 export async function GET(req: NextRequest) {
+  'use server';
   try {
     console.log('Revalidating /');
     await revalidatePath('/');
