@@ -1,7 +1,11 @@
 import type { GlobalAfterChangeHook } from 'payload';
 import { revalidatePath } from 'next/cache';
 
-export const revalidatePage: GlobalAfterChangeHook = ({ doc, previousDoc, req: { payload } }) => {
+export const revalidatePage: GlobalAfterChangeHook = async ({
+  doc,
+  previousDoc,
+  req: { payload },
+}) => {
   'use server';
 
   if (JSON.stringify(doc) !== JSON.stringify(previousDoc)) {
