@@ -11,6 +11,7 @@ import { Categories } from '@/collections/Categories';
 import { Blogs } from '@/collections/Blogs';
 import { Codes } from '@/collections/Codes';
 import { Projects } from '@/collections/Projects';
+import { Archives } from '@/collections/Archives';
 import { Home } from '@/globals/Home';
 import { About } from '@/globals/About';
 import { Contact } from '@/globals/Contact';
@@ -23,7 +24,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Tags, Categories, Blogs, Codes, Projects], // Add the media collection here
+  collections: [Users, Media, Tags, Categories, Blogs, Codes, Projects, Archives], // Add the media collection here
   globals: [Home, About, Contact],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
