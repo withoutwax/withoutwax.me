@@ -198,19 +198,8 @@ export const Archives: CollectionConfig = {
       unique: true,
     },
   ],
-  // hooks: {
-  //   afterChange: [revalidatePost],
-  // },
   hooks: {
-    afterChange: [
-      ({ req: { payload }, doc }) => {
-        revalidatePost({
-          payload,
-          collection: 'archives',
-          doc,
-        });
-      },
-    ],
+    afterChange: [revalidatePost],
   },
   versions: {
     drafts: {
