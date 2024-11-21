@@ -13,4 +13,5 @@ export const POST = async (request: Request) => {
       status: 400,
     });
   }
+  return new Response('Revalidation successful');
 };
