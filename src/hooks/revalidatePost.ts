@@ -9,6 +9,8 @@ export const revalidatePost: CollectionAfterChangeHook<Blog | Code | Project | A
   previousDoc,
   req: { payload },
 }) => {
+  revalidatePath('/archive', 'layout');
+
   if (doc._status === 'published') {
     const path = `/archive/${doc.slug}`;
 
@@ -28,8 +30,6 @@ export const revalidatePost: CollectionAfterChangeHook<Blog | Code | Project | A
 
     revalidatePath(oldPath, 'layout');
   }
-
-  revalidatePath('/archive', 'layout');
 
   return doc;
 };
