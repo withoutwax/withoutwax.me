@@ -17,7 +17,7 @@ const getCachedData = unstable_cache(
     });
   },
   ['about'],
-  { revalidate: 3600, tags: ['about'] },
+  { revalidate: 60, tags: ['about'] },
 );
 
 export default async function About() {
