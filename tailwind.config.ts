@@ -1,12 +1,12 @@
-import type { Config } from 'tailwindcss'
-import { spacing, fontFamily } from 'tailwindcss/defaultTheme'
+import type { Config } from 'tailwindcss';
+import { spacing, fontFamily } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/utils/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: 'class',
   theme: {
@@ -81,6 +81,6 @@ const config: Config = {
     typography: ['dark'],
   },
   plugins: [require('@tailwindcss/typography')],
-}
+};
 
-export default config
+export default config;

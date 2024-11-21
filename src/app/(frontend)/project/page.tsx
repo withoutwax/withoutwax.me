@@ -1,9 +1,18 @@
-import { getProjects } from "@/lib/notion";
-import BlogPostListCard from "@/components/BlogPostListCard";
+import BlogPostListCard from '@/components/BlogPostListCard';
+import { getPayload } from 'payload';
+import config from '@payload-config';
 
 export default async function Project() {
-  const posts = await getProjects();
-  console.log("Project Posts", posts);
+  const payload = await getPayload({ config });
+  const data = await payload.find({
+    collection: 'blogs',
+  });
+
+  console.log('data', data);
+
+  const posts = data.docs.filter((post: any) => {
+    return post.categories.title == 'Project';
+  });
 
   return (
     <>
@@ -14,11 +23,9 @@ export default async function Project() {
         {`Things that I tinker on my spare time.`}
       </p>
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-        {!posts.length
-          ? "Loading..."
-          : posts.map((post) => (
-              <BlogPostListCard key={post.id} data={post} route={"blog"} />
-            ))}
+        {!data.docs.length
+          ? 'Loading...'
+          : posts.map((post) => <BlogPostListCard key={post.id} data={post} route={'project'} />)}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
-"use server";
+'use server';
 
-import { cache } from "react";
-import { Client } from "@notionhq/client";
+import { cache } from 'react';
+import { Client } from '@notionhq/client';
 import {
   NOTION_TOKEN,
   NOTION_TOKEN_V2,
@@ -10,39 +10,37 @@ import {
   NOTION_CODE_ID,
   NOTION_BLOG_ID,
   NOTION_ACTIVE_USER,
-} from "@/lib/constant";
+} from '@/utils/constant';
 import {
   DatabaseObjectResponse,
   ListBlockChildrenResponse,
   GetPageResponse,
-} from "@notionhq/client/build/src/api-endpoints";
-import { NotionAPI } from "notion-client";
+} from '@notionhq/client/build/src/api-endpoints';
+import { NotionAPI } from 'notion-client';
 
-export const getPageContentV1 = cache(
-  async (id: string): Promise<ListBlockChildrenResponse> => {
-    if (!NOTION_TOKEN) {
-      throw new Error("NOTION_TOKEN is not defined");
-    }
-
-    try {
-      const notion = new Client({
-        auth: NOTION_TOKEN,
-      });
-      const response = await notion.blocks.children.list({
-        block_id: id,
-        page_size: 50,
-      });
-      console.log("getPageContentV1", response);
-      return response;
-    } catch {
-      throw new Error("There's an error fetching the Notion page");
-    }
+export const getPageContentV1 = cache(async (id: string): Promise<ListBlockChildrenResponse> => {
+  if (!NOTION_TOKEN) {
+    throw new Error('NOTION_TOKEN is not defined');
   }
-);
+
+  try {
+    const notion = new Client({
+      auth: NOTION_TOKEN,
+    });
+    const response = await notion.blocks.children.list({
+      block_id: id,
+      page_size: 50,
+    });
+    console.log('getPageContentV1', response);
+    return response;
+  } catch {
+    throw new Error("There's an error fetching the Notion page");
+  }
+});
 
 export async function getPageContentReactNotionX(id: string) {
   if (!NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN is not defined");
+    throw new Error('NOTION_TOKEN is not defined');
   }
 
   try {
@@ -57,30 +55,28 @@ export async function getPageContentReactNotionX(id: string) {
   }
 }
 
-export const getPageProperties = cache(
-  async (id: string): Promise<GetPageResponse> => {
-    if (!NOTION_TOKEN) {
-      throw new Error("NOTION_TOKEN is not defined");
-    }
-
-    try {
-      const notion = new Client({
-        auth: NOTION_TOKEN,
-      });
-      const response = await notion.pages.retrieve({
-        page_id: id as string,
-      });
-
-      return response;
-    } catch {
-      throw new Error("There's an error fetching the Notion database");
-    }
+export const getPageProperties = cache(async (id: string): Promise<GetPageResponse> => {
+  if (!NOTION_TOKEN) {
+    throw new Error('NOTION_TOKEN is not defined');
   }
-);
+
+  try {
+    const notion = new Client({
+      auth: NOTION_TOKEN,
+    });
+    const response = await notion.pages.retrieve({
+      page_id: id as string,
+    });
+
+    return response;
+  } catch {
+    throw new Error("There's an error fetching the Notion database");
+  }
+});
 
 export const getBlogs = cache(async () => {
   if (!NOTION_BLOG_ID || !NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN or NOTION_BLOG_ID is not defined");
+    throw new Error('NOTION_TOKEN or NOTION_BLOG_ID is not defined');
   }
 
   try {
@@ -92,23 +88,23 @@ export const getBlogs = cache(async () => {
       filter: {
         and: [
           {
-            property: "블로그",
+            property: '블로그',
             status: {
-              equals: "공개",
+              equals: '공개',
             },
           },
           {
-            property: "분류",
+            property: '분류',
             select: {
-              does_not_equal: "Code",
+              does_not_equal: 'Code',
             },
           },
         ],
       },
       sorts: [
         {
-          property: "날짜",
-          direction: "descending",
+          property: '날짜',
+          direction: 'descending',
         },
       ],
     });
@@ -121,7 +117,7 @@ export const getBlogs = cache(async () => {
 
 export const getCodes = cache(async () => {
   if (!NOTION_CODE_ID || !NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN or NOTION_CODE_ID is not defined");
+    throw new Error('NOTION_TOKEN or NOTION_CODE_ID is not defined');
   }
 
   try {
@@ -133,23 +129,23 @@ export const getCodes = cache(async () => {
       filter: {
         and: [
           {
-            property: "블로그",
+            property: '블로그',
             status: {
-              equals: "공개",
+              equals: '공개',
             },
           },
           {
-            property: "분류",
+            property: '분류',
             select: {
-              equals: "Code",
+              equals: 'Code',
             },
           },
         ],
       },
       sorts: [
         {
-          property: "날짜",
-          direction: "descending",
+          property: '날짜',
+          direction: 'descending',
         },
       ],
     });
@@ -162,7 +158,7 @@ export const getCodes = cache(async () => {
 
 export const getProjects = cache(async () => {
   if (!NOTION_PROJECT_ID || !NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN or NOTION_PROJECT_ID is not defined");
+    throw new Error('NOTION_TOKEN or NOTION_PROJECT_ID is not defined');
   }
 
   try {
@@ -172,15 +168,15 @@ export const getProjects = cache(async () => {
     const response = await notion.databases.query({
       database_id: NOTION_PROJECT_ID as string,
       filter: {
-        property: "블로그",
+        property: '블로그',
         status: {
-          equals: "공개",
+          equals: '공개',
         },
       },
       sorts: [
         {
-          property: "날짜",
-          direction: "descending",
+          property: '날짜',
+          direction: 'descending',
         },
       ],
     });
@@ -193,7 +189,7 @@ export const getProjects = cache(async () => {
 
 export const getArchives = cache(async () => {
   if (!NOTION_PROJECT_ID || !NOTION_TOKEN) {
-    throw new Error("NOTION_TOKEN or NOTION_PROJECT_ID is not defined");
+    throw new Error('NOTION_TOKEN or NOTION_PROJECT_ID is not defined');
   }
 
   try {
@@ -206,23 +202,23 @@ export const getArchives = cache(async () => {
       filter: {
         and: [
           {
-            property: "블로그",
+            property: '블로그',
             status: {
-              equals: "공개",
+              equals: '공개',
             },
           },
           {
-            property: "상태",
+            property: '상태',
             status: {
-              equals: "아카이브",
+              equals: '아카이브',
             },
           },
         ],
       },
       sorts: [
         {
-          property: "날짜",
-          direction: "descending",
+          property: '날짜',
+          direction: 'descending',
         },
       ],
     });
@@ -235,7 +231,7 @@ export const getArchives = cache(async () => {
 
 export async function getTestDatabase() {
   if (!NOTION_TEST_BLOG_ID) {
-    throw new Error("NOTION_TOKEN or NOTION_TEST_BLOG_ID is not defined");
+    throw new Error('NOTION_TOKEN or NOTION_TEST_BLOG_ID is not defined');
   }
 
   try {
@@ -245,15 +241,15 @@ export async function getTestDatabase() {
     const response = await notion.databases.query({
       database_id: NOTION_TEST_BLOG_ID as string,
       filter: {
-        property: "상태",
+        property: '상태',
         status: {
-          equals: "공개",
+          equals: '공개',
         },
       },
       sorts: [
         {
-          property: "게시일",
-          direction: "descending",
+          property: '게시일',
+          direction: 'descending',
         },
       ],
     });

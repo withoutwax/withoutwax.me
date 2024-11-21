@@ -1,22 +1,30 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
-import { postgresAdapter } from '@payloadcms/db-postgres' // database-adapter-import
-import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
-import { buildConfig } from 'payload'
-import { Users } from '@/collections/Users'
-import { Media } from '@/collections/Media' // Importing Media collection
-import { Test } from '@/collections/Test' // Importing Media collection
-import { s3Storage } from '@payloadcms/storage-s3' // Importing S3 storage plugin
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
+import { postgresAdapter } from '@payloadcms/db-postgres'; // database-adapter-import
+import { lexicalEditor } from '@payloadcms/richtext-lexical'; // editor-import
+import { buildConfig } from 'payload';
+import { Users } from '@/collections/Users';
+import { Media } from '@/collections/Media'; // Importing Media collection
+import { Test } from '@/collections/Test'; // Importing Media collection
+import { Pages } from '@/collections/Pages';
+import { Tags } from '@/collections/Tags';
+import { Categories } from '@/collections/Categories';
+import { Blogs } from '@/collections/Blogs';
+import { Home } from '@/globals/Home';
+import { About } from '@/globals/About';
+import { Contact } from '@/globals/Contact';
+import { s3Storage } from '@payloadcms/storage-s3'; // Importing S3 storage plugin
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Test], // Add the media collection here
+  collections: [Users, Media, Test, Pages, Blogs, Tags, Categories], // Add the media collection here
+  globals: [Home, About, Contact],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -46,4 +54,4 @@ export default buildConfig({
       },
     }),
   ],
-})
+});

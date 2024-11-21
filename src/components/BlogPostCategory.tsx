@@ -1,35 +1,12 @@
-import { notionBackgroundColor, notionTextColor } from "@/lib/utils";
+import { notionBackgroundColor, notionTextColor } from '@/utils/utils';
+import { BlogPostCategoryProps } from '@/types';
 
-interface BlogPostCategoryProps {
-  data: {
-    select: {
-      id: string;
-      name: string;
-      color: string;
-    };
-  };
-  type: string;
-}
-
-const BlogPostCategory = ({ data, type }: BlogPostCategoryProps) => {
-  console.log("Category Data", data);
+const BlogPostCategory = ({ data }: any) => {
+  console.log('Category Data', data);
   // if (!data || (data.select && data.select.name === "Code")) {
   //   return <></>;
   // }
-  return (
-    <p
-      className={`${
-        type === "pill" &&
-        data.select &&
-        notionBackgroundColor(`${data.select.color}_background`)
-      } ${
-        type === "pill" && data.select && notionTextColor(data.select.color)
-      } ${type === "pill" && "px-2 py-1 rounded-full"}
-      flex text-sm capitalize`}
-    >
-      {data.select && data.select.name}
-    </p>
-  );
+  return <p className={`flex text-sm capitalize`}>{data.title}</p>;
 };
 
 export default BlogPostCategory;

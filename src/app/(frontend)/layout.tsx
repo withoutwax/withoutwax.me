@@ -1,22 +1,22 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./app.scss";
-import { ThemeProvider } from "next-themes";
-import Footer from "@/components/Footer";
-import DarkModeButton from "@/components/DarkModeButton";
-import Link from "next/link";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { GOOGLE_ANALYTICS_ID } from "@/lib/constant";
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import './app.scss';
+import { ThemeProvider } from 'next-themes';
+import Footer from '@/components/Footer';
+import DarkModeButton from '@/components/DarkModeButton';
+import Link from 'next/link';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { GOOGLE_ANALYTICS_ID } from '@/utils/constant';
 
 const inter = localFont({
-  src: "./fonts/inter-var-latin.woff2",
-  variable: "--font-inter",
-  weight: "100 900",
+  src: './fonts/inter-var-latin.woff2',
+  variable: '--font-inter',
+  weight: '100 900',
 });
 
 export const metadata: Metadata = {
   title: "Will's Blog",
-  description: "A place where I share my life, thoughts and code.",
+  description: 'A place where I share my life, thoughts and code.',
 };
 
 export default function RootLayout({

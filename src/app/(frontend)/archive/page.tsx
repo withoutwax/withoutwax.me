@@ -1,9 +1,9 @@
-import { getArchives } from "@/lib/notion";
-import BlogPostListCard from "@/components/BlogPostListCard";
+import { getArchives } from '@/utils/notion';
+import BlogPostListCard from '@/components/BlogPostListCard';
 
 export default async function Archive() {
   const posts = await getArchives();
-  console.log("Archive Posts", posts);
+  console.log('Archive Posts', posts);
 
   return (
     <>
@@ -38,10 +38,8 @@ export default async function Archive() {
         </div> */}
       <div className="grid grid-cols-1 gap-4">
         {!posts.length
-          ? "Loading..."
-          : posts.map((post) => (
-              <BlogPostListCard key={post.id} data={post} route={"code"} />
-            ))}
+          ? 'Loading...'
+          : posts.map((post) => <BlogPostListCard key={post.id} data={post} route={'code'} />)}
       </div>
     </>
   );
