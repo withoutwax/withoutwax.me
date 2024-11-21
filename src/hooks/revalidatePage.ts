@@ -6,15 +6,22 @@ export const revalidatePage: GlobalAfterChangeHook = async ({
   previousDoc,
   req: { payload },
 }) => {
-  'use server';
-
   if (JSON.stringify(doc) !== JSON.stringify(previousDoc)) {
-    // const path = `/${previousDoc.globalType}`;
-    const path = `/`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`;
 
-    payload.logger.info(`Revalidating post at path: ${path}`);
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+      });
 
-    revalidatePath(path);
+      if (!response.ok) {
+        throw new Error(`Failed to revalidate: ${response.statusText}`);
+      }
+
+      payload.logger.info(`Revalidation successful for path: ${apiUrl}`);
+    } catch (error) {
+      payload.logger.error(`Revalidation failed: ${error}`);
+    }
   }
 
   return doc;
