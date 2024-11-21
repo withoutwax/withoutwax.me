@@ -3,7 +3,8 @@ import { revalidatePath } from 'next/cache';
 
 export const revalidatePage: GlobalAfterChangeHook = ({ doc, previousDoc, req: { payload } }) => {
   if (JSON.stringify(doc) !== JSON.stringify(previousDoc)) {
-    const path = `/${previousDoc.globalType}`;
+    // const path = `/${previousDoc.globalType}`;
+    const path = `/`;
 
     payload.logger.info(`Revalidating post at path: ${path}`);
 
