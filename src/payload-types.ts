@@ -774,7 +774,9 @@ export interface CodeBlock {
  */
 export interface MediaBlock {
   position?: ('default' | 'fullscreen') | null;
-  media: number | Media;
+  mediaType: 'imageOrVideo' | 'youtube';
+  media?: (number | null) | Media;
+  youtubeLink?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaBlock';

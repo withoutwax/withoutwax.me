@@ -20,10 +20,36 @@ export const MediaBlock: Block = {
       ],
     },
     {
+      name: 'mediaType',
+      type: 'select',
+      required: true,
+      options: [
+        {
+          label: 'Image / Video',
+          value: 'imageOrVideo',
+        },
+        {
+          label: 'YouTube Link',
+          value: 'youtube',
+        },
+      ],
+    },
+    {
       name: 'media',
       type: 'upload',
       relationTo: 'media',
       required: true,
+      admin: {
+        condition: (data) => data.mediaType === 'imageOrVideo',
+      },
+    },
+    {
+      name: 'youtubeLink',
+      type: 'text',
+      required: true,
+      admin: {
+        condition: (data) => data.mediaType === 'youtube',
+      },
     },
   ],
 };

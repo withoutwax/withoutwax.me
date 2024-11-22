@@ -16,7 +16,7 @@ export const Code: React.FC<Props> = ({ code, language = '' }) => {
     <div className="relative">
       <Highlight code={code} language={language} theme={customCodeTheme}>
         {({ getLineProps, getTokenProps, tokens }) => (
-          <pre className="bg-black py-12 px-4 border text-sm border-border rounded overflow-x-auto">
+          <pre className="bg-black py-12 px-4 border text-sm dark:border-gray-800 rounded overflow-x-auto">
             <p className="absolute top-2 left-2 text-xs text-gray-400">{language}</p>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ className: 'table-row', line })}>
