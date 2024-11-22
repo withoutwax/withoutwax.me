@@ -6,6 +6,9 @@
 .pnp.js
 .yarn/install-state.gz
 
+/.idea/*
+!/.idea/runConfigurations
+
 # testing
 /coverage
 
@@ -34,6 +37,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.env
+
+/media
 
 /_
 /_notion_sample

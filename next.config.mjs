@@ -1,12 +1,8 @@
+import { withPayload } from '@payloadcms/next/withPayload'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: [
-      "prod-files-secure.s3.us-west-2.amazonaws.com",
-      "localhost",
-      "youtube.com",
-    ],
-  },
-};
+  // Your Next.js config here
+}
 
-export default nextConfig;
+export default withPayload(nextConfig)
