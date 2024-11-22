@@ -42,7 +42,10 @@ const BlogPostListCard = ({ data, route }: { data: any; route: string }) => {
         {data.categories ? (
           <>
             <span className="text-sm text-gray-500">•</span>
-            <BlogPostCategory data={data.categories} type={pathname === '/project' ? 'pill' : ''} />
+            <BlogPostCategory
+              data={data.categories}
+              type={pathname === '/projects' ? 'pill' : ''}
+            />
           </>
         ) : null}
       </div>

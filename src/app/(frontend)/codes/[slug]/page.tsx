@@ -31,7 +31,7 @@ type Args = {
 
 export default async function Post({ params: paramsPromise }: Args) {
   const { slug = '' } = await paramsPromise;
-  const url = '/code/' + slug;
+  const url = '/codes/' + slug;
   const post = await queryPostBySlug({ slug });
 
   console.log('Post', post, url);
