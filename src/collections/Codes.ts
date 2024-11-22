@@ -20,7 +20,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields';
-import { revalidatePost } from '@/hooks/revalidatePost';
+import { revalidateBlogPost } from '@/hooks/revalidateBlogPost';
 
 export const Codes: CollectionConfig = {
   slug: 'codes',
@@ -198,9 +198,9 @@ export const Codes: CollectionConfig = {
       unique: true,
     },
   ],
-  // hooks: {
-  //   afterChange: [revalidatePost],
-  // },
+  hooks: {
+    afterChange: [revalidateBlogPost],
+  },
   versions: {
     drafts: {
       autosave: {

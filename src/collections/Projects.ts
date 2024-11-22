@@ -21,7 +21,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields';
 // import { slugField } from '@/fields/slug';
-import { revalidatePost } from '@/hooks/revalidatePost';
+import { revalidateBlogPost } from '@/hooks/revalidateBlogPost';
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
@@ -199,9 +199,9 @@ export const Projects: CollectionConfig = {
       unique: true,
     },
   ],
-  // hooks: {
-  //   afterChange: [revalidatePost],
-  // },
+  hooks: {
+    afterChange: [revalidateBlogPost],
+  },
   versions: {
     drafts: {
       autosave: {

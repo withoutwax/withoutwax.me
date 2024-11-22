@@ -20,7 +20,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields';
-import { revalidatePost } from '@/hooks/revalidatePost';
+import { revalidateBlogPost } from '@/hooks/revalidateBlogPost';
 
 export const Archives: CollectionConfig = {
   slug: 'archives',
@@ -199,7 +199,7 @@ export const Archives: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [revalidatePost],
+    afterChange: [revalidateBlogPost],
   },
   versions: {
     drafts: {

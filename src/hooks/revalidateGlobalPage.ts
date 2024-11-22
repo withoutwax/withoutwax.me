@@ -1,7 +1,7 @@
 import type { GlobalAfterChangeHook } from 'payload';
 import { revalidatePath } from 'next/cache';
 
-export const revalidatePage: GlobalAfterChangeHook = async ({
+export const revalidateGlobalPage: GlobalAfterChangeHook = async ({
   doc,
   previousDoc,
   req: { payload },

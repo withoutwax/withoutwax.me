@@ -1,4 +1,4 @@
-import { revalidatePage } from '@/hooks/revalidatePage';
+import { revalidateGlobalPage } from '@/hooks/revalidateGlobalPage';
 import { GlobalConfig } from 'payload';
 
 export const Contact: GlobalConfig = {
@@ -13,6 +13,6 @@ export const Contact: GlobalConfig = {
     },
   ],
   hooks: {
-    afterChange: [revalidatePage],
+    afterChange: [revalidateGlobalPage],
   },
 };
