@@ -74,7 +74,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
   );
 };
 
-const extractYouTubeId = (url: string) => {
+const extractYouTubeId = (url: string | null | undefined) => {
   if (!url) {
     return '';
   }
