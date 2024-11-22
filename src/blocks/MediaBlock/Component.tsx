@@ -51,11 +51,9 @@ export const MediaBlock: React.FC<Props> = (props) => {
       {mediaType === 'imageOrVideo' ? (
         <>
           {position === 'fullscreen' && (
-            <div className="relative">
-              <Media resource={media} src={staticImage} />
-            </div>
+            <div className="relative">{media && <Media resource={media} src={staticImage} />}</div>
           )}
-          {position === 'default' && (
+          {position === 'default' && media && (
             <Media imgClassName={cn('rounded', imgClassName)} resource={media} src={staticImage} />
           )}
         </>
