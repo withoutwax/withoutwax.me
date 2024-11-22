@@ -723,7 +723,46 @@ export interface BannerBlock {
  * via the `definition` "CodeBlock".
  */
 export interface CodeBlock {
-  language?: ('typescript' | 'javascript' | 'css') | null;
+  language?:
+    | (
+        | 'typescript'
+        | 'javascript'
+        | 'css'
+        | 'html'
+        | 'json'
+        | 'markdown'
+        | 'python'
+        | 'ruby'
+        | 'java'
+        | 'c'
+        | 'cpp'
+        | 'csharp'
+        | 'go'
+        | 'php'
+        | 'shell'
+        | 'swift'
+        | 'dart'
+        | 'kotlin'
+        | 'rust'
+        | 'scala'
+        | 'sql'
+        | 'yaml'
+        | 'bash'
+        | 'dockerfile'
+        | 'graphql'
+        | 'makefile'
+        | 'objectivec'
+        | 'perl'
+        | 'r'
+        | 'sass'
+        | 'scss'
+        | 'tex'
+        | 'vue'
+        | 'xml'
+        | 'other'
+        | 'jsx'
+      )
+    | null;
   code: string;
   id?: string | null;
   blockName?: string | null;

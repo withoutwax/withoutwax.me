@@ -90,6 +90,8 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 
         const serializedChildren = 'children' in node ? serializedChildrenFn(node) : '';
 
+        console.log('node', node);
+
         if (node.type === 'block') {
           const block = node.fields;
 
@@ -97,6 +99,22 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 
           if (!block || !blockType) {
             return null;
+          }
+
+          switch (blockType) {
+            case 'banner': {
+              return <BannerBlock key={index} {...(block as BannerBlockProps)} />;
+            }
+            case 'code': {
+              return <CodeBlock key={index} {...(block as CodeBlockProps)} />;
+            }
+            case 'mediaBlock': {
+              const fields = block as MediaBlockProps;
+
+              return <MediaBlock key={index} {...fields} />;
+            }
+            default:
+              return null;
           }
         } else {
           switch (node.type) {
@@ -131,14 +149,20 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                 return (
                   <li
                     aria-checked={node.checked ? 'true' : 'false'}
-                    className={` ${node.checked ? '' : ''}`}
+                    className={`space-x-2 list-none`}
                     key={index}
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
                     role="checkbox"
                     tabIndex={-1}
                     value={node?.value}
                   >
-                    {serializedChildren}
+                    <input
+                      type="checkbox"
+                      checked={node.checked}
+                      readOnly
+                      className="pointer-events-none w-4 h-4"
+                    />
+                    <span>{serializedChildren}</span>
                   </li>
                 );
               } else {
@@ -172,8 +196,40 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               );
             }
 
+            case 'upload': {
+              const fields = node.fields as MediaBlockProps;
+              return <MediaBlock key={index} {...fields} />;
+            }
+
+            case 'horizontalrule':
+              return <hr key={index} />;
+
+            case 'relationship':
+              return (
+                <a
+                  href={
+                    typeof node.value === 'object' && 'slug' in node.value
+                      ? `/${node.relationTo}/${node.value.slug}`
+                      : '#'
+                  }
+                  className="border py-4 px-6 flex flex-col items-start rounded-md border-border space-y-2 hover:bg-gray-100 transition-all"
+                  key={index}
+                >
+                  {typeof node?.value === 'object' && 'title' in node.value && (
+                    <h3 className="my-0 no-underline decoration-none">{node.value.title}</h3>
+                  )}
+                  {typeof node?.value === 'object' && 'description' in node.value && (
+                    <p className="my-0 no-underline decoration-none">{node.value.description}</p>
+                  )}
+                </a>
+              );
+
             default:
-              return null;
+              return (
+                <p>
+                  <i>{node.type} is missing</i>
+                </p>
+              );
           }
         }
       })}
