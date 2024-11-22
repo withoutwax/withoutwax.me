@@ -20,7 +20,7 @@ export default async function Archive() {
         {!data.docs.length
           ? 'Loading...'
           : data.docs.map((post) => (
-              <BlogPostListCard key={post.id} data={post} route={'archive'} />
+              <BlogPostListCard key={post.id} data={post} route={'archives'} />
             ))}
       </div>
     </>

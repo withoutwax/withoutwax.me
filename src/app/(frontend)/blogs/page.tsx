@@ -25,7 +25,7 @@ export default async function Blog() {
       <div className="flex flex-col gap-4 w-full">
         {!data.docs.length
           ? 'Loading...'
-          : posts.map((post) => <BlogPostListCard key={post.id} data={post} route={'blog'} />)}
+          : posts.map((post) => <BlogPostListCard key={post.id} data={post} route={'blogs'} />)}
       </div>
     </>
   );

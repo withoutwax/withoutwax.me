@@ -22,7 +22,7 @@ export default async function Project() {
         {!data.docs.length
           ? 'Loading...'
           : data.docs.map((post) => (
-              <BlogPostListCard key={post.id} data={post} route={'project'} />
+              <BlogPostListCard key={post.id} data={post} route={'projects'} />
             ))}
       </div>
     </>
