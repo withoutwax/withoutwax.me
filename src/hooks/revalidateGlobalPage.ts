@@ -7,8 +7,8 @@ export const revalidateGlobalPage: GlobalAfterChangeHook = async ({
   req: { payload },
 }) => {
   if (JSON.stringify(doc) !== JSON.stringify(previousDoc)) {
-    const path = `/${previousDoc.globalType}`;
-
+    const path = `/${previousDoc.globalType === 'home' ? '' : previousDoc.globalType}`;
+    console.log('revalidateGlobalPage', doc, previousDoc, previousDoc.globalType, path);
     payload.logger.info(`Revalidating post at path: ${path}`);
 
     revalidatePath(path);
