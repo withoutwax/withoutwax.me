@@ -7,6 +7,8 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/utils/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/heros/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/blocks/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: 'class',
   theme: {
@@ -28,6 +30,7 @@ const config: Config = {
             },
             'h2,h3,h4': {
               'scroll-margin-top': spacing[32],
+              color: theme('colors.gray.700'),
             },
             code: { color: theme('colors.pink.500') },
             'blockquote p:first-of-type::before': false,

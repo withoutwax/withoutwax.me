@@ -1,8 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
 import { postgresAdapter } from '@payloadcms/db-postgres'; // database-adapter-import
-import { lexicalEditor } from '@payloadcms/richtext-lexical'; // editor-import
 import { buildConfig } from 'payload';
 import { Users } from '@/collections/Users';
 import { Media } from '@/collections/Media'; // Importing Media collection
@@ -16,6 +14,8 @@ import { Home } from '@/globals/Home';
 import { About } from '@/globals/About';
 import { Contact } from '@/globals/Contact';
 import { s3Storage } from '@payloadcms/storage-s3'; // Importing S3 storage plugin
+// import { defaultLexical } from '@/fields/defaultLexical'; // Importing defaultLexical}
+import { lexicalEditor } from '@payloadcms/richtext-lexical'; // Importing defaultLexical
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,6 +27,7 @@ export default buildConfig({
   collections: [Users, Media, Tags, Categories, Blogs, Codes, Projects, Archives], // Add the media collection here
   globals: [Home, About, Contact],
   editor: lexicalEditor({}),
+  // editor: defaultLexical,
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

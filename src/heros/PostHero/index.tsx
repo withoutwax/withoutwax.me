@@ -1,4 +1,4 @@
-import { formatDateTime } from 'src/utils/formatDateTime';
+import { formatDateTimeWithWords } from 'src/utils/formatDateTime';
 import React from 'react';
 
 import type { Blog, Code, Project, Archive } from '@/payload-types';
@@ -18,14 +18,14 @@ export const PostHero: React.FC<{
   } = post;
 
   return (
-    <div className="prose dark:prose-dark flex flex-col justify-center w-full max-w-2xl mx-auto items-start mb-16">
-      <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+    <div className="flex flex-col justify-center w-full max-w-2xl mx-auto items-start">
+      <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-gray-700 dark:text-white">
         {title}
       </h1>
-      <h3 className="font-bold text-xl md:text-3xl text-gray-300 mb-4 dark:text-white mt-2">
+      <h2 className="font-bold text-xl md:text-3xl text-gray-300 mb-4 dark:text-white">
         {description}
-      </h3>
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
+      </h2>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mb-8">
         <div className="flex items-center">
           {/* <Image
           alt="Will Kim"
@@ -34,8 +34,8 @@ export const PostHero: React.FC<{
           src="/avatar.jpg"
           className="rounded-full"
         /> */}
-          <div className="text-sm text-gray-700 dark:text-gray-300 flex">
-            {publishedAt ? formatDateTime(publishedAt) : ''}
+          <div className="text-sm text-gray-600 dark:text-gray-300 flex">
+            {publishedAt ? formatDateTimeWithWords(publishedAt) : ''}
 
             {/* {categories && categories.length > 0 ? (
               <>

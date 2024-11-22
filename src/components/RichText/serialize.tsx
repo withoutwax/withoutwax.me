@@ -5,6 +5,9 @@ import React, { Fragment, JSX } from 'react';
 import { CMSLink } from '@/components/Link';
 import { DefaultNodeTypes, SerializedBlockNode } from '@payloadcms/richtext-lexical';
 import type { BannerBlock as BannerBlockProps } from '@/payload-types';
+import Image from 'next/image';
+import { Media } from '@/payload-types';
+import Link from 'next/link';
 
 import {
   IS_BOLD,
@@ -90,6 +93,8 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 
         const serializedChildren = 'children' in node ? serializedChildrenFn(node) : '';
 
+        console.log('node', node);
+
         if (node.type === 'block') {
           const block = node.fields;
 
@@ -97,6 +102,22 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 
           if (!block || !blockType) {
             return null;
+          }
+
+          switch (blockType) {
+            case 'banner': {
+              return <BannerBlock key={index} {...(block as BannerBlockProps)} />;
+            }
+            case 'code': {
+              return <CodeBlock key={index} {...(block as CodeBlockProps)} />;
+            }
+            case 'mediaBlock': {
+              const fields = block as MediaBlockProps;
+
+              return <MediaBlock key={index} {...fields} />;
+            }
+            default:
+              return null;
           }
         } else {
           switch (node.type) {
@@ -131,14 +152,20 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                 return (
                   <li
                     aria-checked={node.checked ? 'true' : 'false'}
-                    className={` ${node.checked ? '' : ''}`}
+                    className={`space-x-2 list-none`}
                     key={index}
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
                     role="checkbox"
                     tabIndex={-1}
                     value={node?.value}
                   >
-                    {serializedChildren}
+                    <input
+                      type="checkbox"
+                      checked={node.checked}
+                      readOnly
+                      className="pointer-events-none w-4 h-4"
+                    />
+                    <span>{serializedChildren}</span>
                   </li>
                 );
               } else {
@@ -172,8 +199,114 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               );
             }
 
+            case 'upload': {
+              const media = node.value as Media;
+              const mimeType = media?.mimeType;
+
+              if (mimeType?.startsWith('image/')) {
+                return (
+                  <Image
+                    alt={media?.alt}
+                    className="col-start-2"
+                    src={media?.url as string}
+                    key={index}
+                    width={media?.width as number}
+                    height={media?.height as number}
+                    loading="lazy"
+                  />
+                );
+              } else if (mimeType?.startsWith('video/')) {
+                return (
+                  <video
+                    className="col-start-2"
+                    src={media?.url as string}
+                    key={index}
+                    width={media?.width as number}
+                    height={media?.height as number}
+                    controls
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                );
+              } else if (mimeType?.startsWith('audio/')) {
+                return (
+                  <audio className="col-start-2" src={media?.url as string} key={index} controls>
+                    Your browser does not support the audio element.
+                  </audio>
+                );
+              } else {
+                return (
+                  <Link
+                    className="col-start-2 no-underline decoration-none flex items-center space-x-2 text-black hover:text-black hover:opacity-50 dark:text-white dark:hover:text-white transition-all"
+                    href={media?.url as string}
+                    key={index}
+                    download
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6 transition-all"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                      />
+                    </svg>
+                    <span>{media?.alt || 'file'}</span>
+                  </Link>
+                );
+              }
+            }
+
+            case 'horizontalrule':
+              return <hr key={index} />;
+
+            case 'relationship':
+              return (
+                <Link
+                  href={
+                    typeof node.value === 'object' && 'slug' in node.value
+                      ? `/${node.relationTo}/${node.value.slug}`
+                      : '#'
+                  }
+                  className="border border-gray-300 hover:border-gray-200 dark:border-gray-600 dark:hover:border-gray-600 py-4 px-6 flex flex-col items-start rounded-md border-border space-y-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all no-underline decoration-none"
+                  key={index}
+                >
+                  {typeof node?.value === 'object' && 'title' in node.value && (
+                    <div className="flex items-center space-x-2 text-gray-800 dark:text-white">
+                      <h3 className="my-0">{node.value.title}</h3>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="size-6 transition-all"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                  {typeof node?.value === 'object' && 'description' in node.value && (
+                    <p className="my-0 text-gray-600">{node.value.description}</p>
+                  )}
+                </Link>
+              );
+
             default:
-              return null;
+              return (
+                <p>
+                  <i>{node.type} is missing</i>
+                </p>
+              );
           }
         }
       })}

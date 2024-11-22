@@ -37,7 +37,7 @@ export default async function Post({ params: paramsPromise }: Args) {
   console.log('Post', post, url);
 
   return (
-    <article className="pt-4 pb-16 w-full">
+    <article className="pb-16 w-full">
       <PostHero post={post} />
       <RichText className="" content={post.content} enableGutter={false} />
     </article>

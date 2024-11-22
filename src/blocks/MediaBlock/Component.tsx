@@ -28,7 +28,15 @@ export const MediaBlock: React.FC<Props> = (props) => {
     position = 'default',
     staticImage,
     disableInnerContainer,
+    mediaType,
+    youtubeLink,
   } = props;
+
+  if ((mediaType === 'youtube' && !youtubeLink) || (mediaType === 'imageOrVideo' && !media)) {
+    return <></>;
+  }
+
+  console.log('mediaType', mediaType, 'youtubeLink', youtubeLink, 'media', media);
 
   return (
     <div
@@ -40,14 +48,41 @@ export const MediaBlock: React.FC<Props> = (props) => {
         className,
       )}
     >
-      {position === 'fullscreen' && (
-        <div className="relative">
-          <Media resource={media} src={staticImage} />
+      {mediaType === 'imageOrVideo' ? (
+        <>
+          {position === 'fullscreen' && (
+            <div className="relative">
+              <Media resource={media} src={staticImage} />
+            </div>
+          )}
+          {position === 'default' && (
+            <Media imgClassName={cn('rounded', imgClassName)} resource={media} src={staticImage} />
+          )}
+        </>
+      ) : (
+        <div className="relative aspect-video rounded-lg overflow-hidden">
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            frameBorder="0"
+            height="100%"
+            src={`https://www.youtube.com/embed/${extractYouTubeId(youtubeLink)}`}
+            title="YouTube video player"
+            width="100%"
+          />
         </div>
-      )}
-      {position === 'default' && (
-        <Media imgClassName={cn('rounded', imgClassName)} resource={media} src={staticImage} />
       )}
     </div>
   );
+};
+
+const extractYouTubeId = (url: string) => {
+  if (!url) {
+    return '';
+  }
+  console.log('url', url);
+  const match = url.match(
+    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/,
+  );
+  return match ? match[1] : '';
 };
