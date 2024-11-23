@@ -6,6 +6,7 @@ export default async function Project() {
   const payload = await getPayload({ config });
   const data = await payload.find({
     collection: 'projects',
+    sort: '-publishedAt',
   });
 
   console.log('data', data);

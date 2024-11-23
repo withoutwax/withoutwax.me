@@ -6,6 +6,7 @@ export default async function Code() {
   const payload = await getPayload({ config });
   const data = await payload.find({
     collection: 'codes',
+    sort: '-publishedAt',
   });
 
   console.log('data', data);

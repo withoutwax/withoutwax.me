@@ -6,6 +6,7 @@ export default async function Archive() {
   const payload = await getPayload({ config });
   const data = await payload.find({
     collection: 'archives',
+    sort: '-publishedAt',
   });
 
   return (
