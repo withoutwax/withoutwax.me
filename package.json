@@ -1,7 +1,7 @@
 {
-  "name": "payload-postgres-template",
-  "version": "1.0.0",
-  "description": "A blank template to get started with Payload 3.0",
+  "name": "withoutwax.me",
+  "version": "3.0.0",
+  "description": "A personal website where Will shares his thought",
   "license": "MIT",
   "type": "module",
   "scripts": {
