@@ -7,6 +7,7 @@ import DarkModeButton from '@/components/DarkModeButton';
 import Link from 'next/link';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { GOOGLE_ANALYTICS_ID } from '@/utils/constant';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = localFont({
   src: './fonts/inter-var-latin.woff2',
@@ -115,6 +116,7 @@ export default function RootLayout({
             </div>
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
