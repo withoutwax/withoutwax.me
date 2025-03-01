@@ -1,27 +1,27 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { ThemeProvider } from "next-themes";
-import Link from "next/link";
-import DarkModeButton from "@/components/DarkModeButton";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GOOGLE_ANALYTICS_ID } from "@/utils/constant";
-import Footer from "@/components/Footer";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from 'next-themes';
+import Link from 'next/link';
+// import DarkModeButton from "@/components/DarkModeButton";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GOOGLE_ANALYTICS_ID } from '@/utils/constant';
+import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://withoutwax.me"),
+  metadataBase: new URL('https://withoutwax.me'),
   alternates: {
-    canonical: "/",
+    canonical: '/',
   },
   title: {
-    default: "Will Kim",
-    template: "%s | Will Kim",
+    default: 'Will Kim',
+    template: '%s | Will Kim',
   },
-  description: "A place where I share my life, thoughts and code.",
+  description: 'A place where I share my life, thoughts and code.',
 };
 
 export default function RootLayout({
@@ -110,9 +110,7 @@ export default function RootLayout({
             </div>
 
             {/* Mobile - Dark Mode Button */}
-            <div className="fixed bottom-8 left-8 md:hidden">
-              {/* <DarkModeButton /> */}
-            </div>
+            <div className="fixed bottom-8 left-8 md:hidden">{/* <DarkModeButton /> */}</div>
           </div>
         </ThemeProvider>
         <Analytics />
