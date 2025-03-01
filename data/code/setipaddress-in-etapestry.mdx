@@ -1,10 +1,10 @@
----
-title: 'setIPAddress in eTapestry'
-publishedAt: '2020-01-16'
-summary: 'Using setIPAddress method for IP fraud check with eTapestry.'
-image: ''
-category: 'code'
----
+export const metadata = {
+  title: "setIPAddress in eTapestry",
+  publishedAt: "2020-01-16",
+  description: "Using setIPAddress method for IP fraud check with eTapestry.",
+  image: "",
+  category: "code",
+};
 
 For any of the poor souls experiencing lack of [documentation](https://www.blackbaudhq.com/files/etapestry/api3/methods/setIPAddress.html) with using `setIPAddress`, there's few things that you should consider:
 
@@ -26,4 +26,5 @@ if($nsc->fault || $nsc->getError())
 
 $transResponse = $nsc->call("processTransaction", array($transactionRequest));
 ```
+
 The `$_SERVER['REMOTE_ADDR']` gives client's IP address. Also, right after the `setIPAddress` and error handling code, we run the transaction code.

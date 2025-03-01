@@ -1,27 +1,42 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%withoutwax%withoutwax.me)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Fsite)
 
-# withoutwax.me
+# site
 
-## Overview
-
-- `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction)
-- `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
-- `pages/*` - All other static pages.
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [Postgres](https://vercel.com/postgres)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 
 ## Running Locally
 
+This application requires Node.js v18.17+.
+
 ```bash
-$ git clone https://github.com/withoutwax/withoutwax.me.git
-$ cd withoutwax.me
-$ yarn
-$ yarn dev
+git clone https://github.com/leerob/site.git
+cd site
+bun install
+bun run delete # Remove all of my notes
+bun dev
 ```
 
-Create a `.env.local` file similar to [`.env.example`](https://github.com/withoutwax/withoutwax.me/blob/master/.env.example).
+Optional: Create a `.env.local` file with your `POSTGRES_URL` environment variable to store redirects.
 
-## Built Using
+## Database Schema
 
-- [Next.js](https://nextjs.org/)
-- [Vercel](https://vercel.com)
-- [MDX](https://github.com/mdx-js/mdx)
-- [Tailwind CSS](https://tailwindcss.com/)
+```sql
+CREATE TABLE redirects (
+  id SERIAL PRIMARY KEY,
+  source VARCHAR(255) NOT NULL,
+  destination VARCHAR(255) NOT NULL,
+  permanent BOOLEAN NOT NULL
+);
+```
+
+## License
+
+1. You are free to use this code as inspiration.
+2. Please do not copy it directly.
+3. Crediting the author is appreciated.
+
+Please remove all of my personal information by running `bun run delete`.

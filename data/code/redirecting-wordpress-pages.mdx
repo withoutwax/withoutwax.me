@@ -1,10 +1,11 @@
----
-title: 'Redirecting WordPress Pages'
-publishedAt: '2020-01-28'
-summary: 'Quick fix for solving any pages that are created with assets, authors, category, tag , taxonomy which affects SEO.'
-image: ''
-category: 'code'
----
+export const metadata = {
+  title: "Redirecting WordPress Pages",
+  publishedAt: "2020-01-28",
+  description:
+    "Quick fix for solving any pages that are created with assets, authors, category, tag, taxonomy which affects SEO.",
+  image: "",
+  category: "code",
+};
 
 When a user adds a new category, assets, taxonomy, etc to their website, it creates a dedicated template page for those lists. However, this sometimes might cause an issue (especially related with SEO) as it generates weird, broken pages that is meaningless by themselves.
 
@@ -41,6 +42,7 @@ if ( is_author() || is_tax('sample_taxonomy') ) {
 ```
 
 If you care considering redirecting any post_type pages:
+
 ```PHP
 if ( (is_single() && 'sample_post_type' == (get_query_var('post_type')))) {
     wp_redirect(get_option('home'), 301);
@@ -51,5 +53,5 @@ if ( (is_single() && 'sample_post_type' == (get_query_var('post_type')))) {
 Bonus: you can also retrieve current root links with:
 
 ```PHP
-'https://'.$SERVER['HTTP_HOST'] 
-``` 
+'https://'.$SERVER['HTTP_HOST']
+```

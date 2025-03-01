@@ -1,10 +1,10 @@
----
-title: 'Using Angular 9 + Tailwind CSS'
-publishedAt: '2020-02-25'
-summary: 'Configuring Angular to be used with Tailwind CSS.'
-image: ''
-category: 'code'
----
+export const metadata = {
+  title: "Using Angular 9 + Tailwind CSS",
+  publishedAt: "2020-02-25",
+  description: "Configuring Angular to be used with Tailwind CSS.",
+  image: "",
+  category: "code",
+};
 
 1. Install the following:
 
@@ -15,9 +15,9 @@ npm i tailwindcss postcss-scss postcss-import postcss-loader @angular-builders/c
 2. In the `styles.scss` file and add the following:
 
 ```css
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 ```
 
 3. In the project directory, use `npx tailwind init`.
@@ -70,6 +70,7 @@ module.exports = {
   }
 }
 ```
+
 There might be cases where the `"builder: "` might have different address. We would need to change it to the code we have above: `"builder": "@angular-builders/custom-webpack:browser",` & `"builder": "@angular-builders/custom-webpack:dev-server"`.
 
 Start building Angular project with `npm start` or `ng serve --open`.  

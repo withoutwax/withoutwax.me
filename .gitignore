@@ -3,5 +3,7 @@
 .next
 node_modules
 .env.local
+.env.dev
+.env.prod
 public/sitemap.xml
 .vercel
