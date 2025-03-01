@@ -1,0 +1,102 @@
+export const metadata = {
+  title: "Installing Tailwindcss with Parcel for basic html template",
+  publishedAt: "2021-02-06",
+  description:
+    "Sometimes, we want to build a website using just HTML, CSS, and JavaScript. But what if, you want to use Tailwindcss as well..?",
+  image: "",
+  category: "code",
+};
+
+When building a lightweight website, sometimes you may want to use just plain HTML, CSS and JavaScript. But in this case, I also wanted to use Tailwindcss as well. Here's a quick tip in setting up a website to use Tailwindcss in native HTML site.
+
+## Parcel
+
+### Install Parcel
+
+I realized in order to use Tailwindcss, a good bundler would be Parcel.
+
+```bash
+yarn add parcel-bundler
+npm install parcel-bundler
+```
+
+### Updated Package.json "scripts"
+
+```json:package.json
+// In my case, the entry file was index.html
+{
+  "scripts": {
+    "dev": "parcel <your entry file>",
+    "build": "parcel build <your entry file>"
+  }
+}
+```
+
+## Tailwind
+
+### Install Tailwindcss
+
+In installing the Tailwindcss, I've had some issue with PostCSS plugin requiring PostCSS 8. Thus, I've installed the site with PostCSS 7 compatibility build.
+
+```bash
+npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+```
+
+### Create PostCSS Plugin file
+
+```js:postcss.config.js
+module.exports = {
+    plugins: [require('tailwindcss')],
+};
+```
+
+### Create tailwind.config.js file
+
+```js:tailwind.config.js
+module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+For default build guide, please check the official installation [documentation](https://tailwindcss.com/docs/installation).
+
+### Add Tailwind to your CSS
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Link your CSS file to your index.html file
+
+```html:index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOCUMENT</title>
+    <!-- This is a file which contains the Tailwind CSS code which we added in previous step -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- ... -->
+  </body>
+</html>
+```
+
+### Run and build your site with Parcel
+
+```bash
+npm run dev
+npm run build
+```
+
+For production, make sure the server is fed through `./dist` folder.

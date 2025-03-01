@@ -1,0 +1,48 @@
+export const metadata = {
+  title: "Laravel - Paginate with Array",
+  publishedAt: "2022-06-01",
+  description: "A simple code to use when paginating with Laravel.",
+  image: "",
+  category: "code",
+};
+
+```php
+public function result()
+    {
+        $result = $this->calculator(session()->all());
+
+        // session()->flush();
+        $result = $this->paginate($result, 5, 3);
+
+        dump($result);
+        // dump($data);
+
+        return view('result', compact('result', 'result'));
+        // return view('result', compact('data'));
+    }
+
+    // Paginations - https://stackoverflow.com/a/63392687/8762354
+    private function paginate($items, $perPage = 10, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+```
+
+```php
+@foreach ($result as $program => $score)
+  <div class="col-span-2 md:col-span-1 px-1 py-2 flex items-center justify-center">
+    <span class="bg-[#d6a9ff] w-[40px] h-[40px] flex items-center justify-center rounded-full">{{ ceil($score) }}</span>
+  </div>
+  <div class="col-span-5 md:col-span-5 px-3 py-2 flex items-center">
+    {{ $program }}
+  </div>
+  <div class="col-span-3 px-3 py-2 flex items-center">
+    Location
+  </div>
+  <div class="col-span-2 md:col-span-3 px-3 py-2 flex items-center justify-center">
+    <a class="uppercase text-ama-purple text-sm tracking-wider cursor-pointer hover:opacity-70 transition-all">Learn More</a>
+  </div>
+@endforeach
+```
