@@ -98,7 +98,7 @@ export default function RootLayout({
 
                 {/* Desktop - Dark Mode Button */}
                 <div className="order-0 hidden items-center justify-center md:order-1 md:flex">
-                  <DarkModeButton />
+                  {/* <DarkModeButton /> */}
                 </div>
               </nav>
               <main className="mb-8 flex w-full flex-col bg-white p-8 dark:bg-black md:mt-8 flex-1">
@@ -111,7 +111,7 @@ export default function RootLayout({
 
             {/* Mobile - Dark Mode Button */}
             <div className="fixed bottom-8 left-8 md:hidden">
-              <DarkModeButton />
+              {/* <DarkModeButton /> */}
             </div>
           </div>
         </ThemeProvider>
