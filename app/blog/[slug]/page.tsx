@@ -1,14 +1,10 @@
-import { getPost } from "@/utils/mdx";
-import { baseUrl } from "@/app/sitemap";
-import ArticleHeader from "@/components/articles/ArticleHeader";
+import { getPost } from '@/utils/mdx';
+import { baseUrl } from '@/app/sitemap';
+import ArticleHeader from '@/components/articles/ArticleHeader';
 
-const ROUTE_CATEGORY = "blog";
+const ROUTE_CATEGORY = 'blog';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
   let post = getPost({ type: ROUTE_CATEGORY, slug: slug });
 
@@ -16,15 +12,8 @@ export async function generateMetadata({
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    description: description,
-    image,
-  } = post.metadata;
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  let { title, publishedAt: publishedTime, description: description, image } = post.metadata;
+  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -32,7 +21,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      type: "article",
+      type: 'article',
       publishedTime,
       url: `${baseUrl}/${ROUTE_CATEGORY}/${slug}`,
       images: [
@@ -42,7 +31,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description,
       images: [ogImage],
@@ -50,25 +39,19 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  const { default: Post, metadata } = await import(
-    `@/data/${ROUTE_CATEGORY}/${slug}.mdx`
-  );
+  const { default: Post, metadata } = await import(`@/data/${ROUTE_CATEGORY}/${slug}.mdx`);
 
   return (
-    <section>
+    <section className="w-full">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
             headline: metadata.title,
             datePublished: metadata.publishedAt,
             dateModified: metadata.publishedAt,
@@ -78,8 +61,8 @@ export default async function Page({
               : `/og?title=${encodeURIComponent(metadata.title)}`,
             url: `${baseUrl}/blog/${slug}`,
             author: {
-              "@type": "Person",
-              name: "My Portfolio",
+              '@type': 'Person',
+              name: 'My Portfolio',
             },
           }),
         }}
