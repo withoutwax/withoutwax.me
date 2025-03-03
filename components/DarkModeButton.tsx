@@ -9,7 +9,7 @@ const DarkModeButton = () => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="order-0 flex h-10 w-10 items-center justify-center rounded border-2 border-transparent bg-gray-200 transition-all hover:border-gray-400 dark:bg-gray-800 md:order-1 md:m-2"
+      className="order-0 flex h-10 w-10 items-center justify-center rounded border-2 border-transparent bg-gray-200 transition-all hover:border-gray-400 dark:bg-gray-800 md:order-1 md:m-2 cursor-pointer"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       <svg
