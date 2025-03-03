@@ -1,19 +1,21 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-family-sans: 'Inter', ui-sans-serif;
 }
 
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-property: #0550ae;
-  --sh-entity: #249a97;
-  --sh-jsxliterals: #6266d1;
-  --sh-string: #00a99a;
-  --sh-keyword: #f47067;
-  --sh-comment: #a19595;
+  --sh-class: var(--color-blue-500);
+  --sh-identifier: var(--color-gray-800);
+  --sh-sign: var(--color-gray-500);
+  --sh-property: var(--color-blue-600);
+  --sh-entity: var(--color-teal-600);
+  --sh-jsxliterals: var(--color-violet-500);
+  --sh-string: var(--color-teal-600);
+  --sh-keyword: var(--color-red-500);
+  --sh-comment: var(--color-gray-400);
 }
 
 html {
@@ -145,7 +147,6 @@ pre {
   padding: 1rem;
   margin: 1.5rem 0;
   line-height: 1;
-  /* width: 100%; */
 }
 
 pre::-webkit-scrollbar {
@@ -182,20 +183,37 @@ code:not(pre code) span {
   color: black !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  code {
-    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 14px;
-    padding: 0.2em 0.4em;
-    border-radius: 0.3em;
-    background-color: var(--color-zinc-800);
-  }
-
-  code:not(pre code) span {
-    color: var(--color-zinc-100) !important;
-  }
-}
-
 pre code span {
   font-weight: 500;
+}
+
+.dark {
+  --sh-class: var(--color-teal-600);
+  --sh-sign: var(--color-gray-400);
+  --sh-property: var(--color-blue-400);
+  --sh-entity: var(--color-gray-400);
+  --sh-jsxliterals: var(--color-slate-400);
+  --sh-string: var(--color-teal-600);
+  --sh-keyword: var(--color-red-400);
+  --sh-comment: var(--color-slate-500);
+}
+
+.dark pre {
+  background-color: var(--color-slate-800);
+}
+
+.dark pre code > span .sh__token--identifier {
+  color: var(--color-slate-400) !important;
+}
+
+.dark code {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  background-color: var(--color-slate-800);
+}
+
+.dark code:not(pre code) span {
+  color: var(--color-slate-400) !important;
 }

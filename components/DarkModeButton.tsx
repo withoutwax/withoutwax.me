@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useTheme } from "next-themes";
+import useTheme from '@/hooks/useTheme';
 
 const DarkModeButton = () => {
   const { theme, setTheme } = useTheme();
@@ -10,7 +10,7 @@ const DarkModeButton = () => {
       aria-label="Toggle Dark Mode"
       type="button"
       className="order-0 flex h-10 w-10 items-center justify-center rounded border-2 border-transparent bg-gray-200 transition-all hover:border-gray-400 dark:bg-gray-800 md:order-1 md:m-2"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ const DarkModeButton = () => {
         stroke="currentColor"
         className="h-4 w-4 text-gray-800 dark:text-gray-200"
       >
-        {theme === "dark" ? (
+        {theme === 'light' ? (
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -35,8 +35,6 @@ const DarkModeButton = () => {
           />
         )}
       </svg>
-      {/* {mounted && (
-            )} */}
     </button>
   );
 };
