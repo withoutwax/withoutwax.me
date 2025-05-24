@@ -1,13 +1,6 @@
-import { ReadTimeResults } from "reading-time";
+import { ReadTimeResults } from 'reading-time';
 
-export type CategoryType =
-  | "code"
-  | "project"
-  | "archive"
-  | "thoughts"
-  | "faith"
-  | "life"
-  | "idea";
+export type CategoryType = 'code' | 'project' | 'archive' | 'thoughts' | 'faith' | 'life' | 'idea';
 
 // Use it in the interface
 export interface ArticleMetadata {
@@ -15,7 +8,7 @@ export interface ArticleMetadata {
   slug: string;
   publishedAt: string;
   description?: string;
-  category?: string; //CategoryType; // Now using the extracted type
+  category?: CategoryType;
   wordCount?: number;
   readingTime?: ReadTimeResults;
 }
