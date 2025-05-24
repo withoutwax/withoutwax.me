@@ -1,6 +1,6 @@
-import Category from "@/components/articles/Category";
-import { DateTime } from "luxon";
-import { ArticleMetadata } from "@/types/articles";
+import Category from '@/components/articles/Category';
+import { DateTime } from 'luxon';
+import { ArticleMetadata } from '@/types/global';
 
 export default function ArticleHeader({
   title,
@@ -27,11 +27,11 @@ export default function ArticleHeader({
               className="rounded-full"
             /> */}
           <div className="text-sm text-gray-700 dark:text-gray-300 flex">
-            {"Will Kim"}
+            {'Will Kim'}
             {publishedAt && (
               <>
                 <span className="mx-2"> • </span>
-                {DateTime.fromISO(publishedAt).toFormat("MMMM dd, yyyy")}
+                {DateTime.fromISO(publishedAt).toFormat('MMMM dd, yyyy')}
               </>
             )}
             {category && (
