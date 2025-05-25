@@ -44,10 +44,6 @@ const ArticleListsCard = ({
         {category ? (
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-500">•</span>
-            {/* <BlogPostCategory
-              data={category}
-              type={pathname === "/projects" ? "pill" : ""}
-            /> */}
             <Category category={category} />
           </div>
         ) : null}
