@@ -1,5 +1,5 @@
 import Category from '@/components/articles/Category';
-import { DateTime } from 'luxon';
+import dayjs from 'dayjs';
 import { ArticleMetadata } from '@/types/global';
 
 export default function ArticleHeader({
@@ -31,7 +31,7 @@ export default function ArticleHeader({
             {publishedAt && (
               <>
                 <span className="mx-2"> • </span>
-                {DateTime.fromISO(publishedAt).toFormat('MMMM dd, yyyy')}
+                {dayjs(publishedAt).format('MMMM DD, YYYY')}
               </>
             )}
             {category && (

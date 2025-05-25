@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Category from '@/components/articles/Category';
-import { DateTime } from 'luxon';
+import dayjs from 'dayjs';
 import { CategoryType } from '@/types/global';
 
 const ArticleListsCard = ({
@@ -39,7 +39,7 @@ const ArticleListsCard = ({
       </div>
       <div className="mt-4 flex justify-start items-center space-x-2">
         <span className="text-sm text-slate-900 dark:text-gray-200 tracking-normal">
-          {DateTime.fromISO(publishedAt).toFormat('yyyy.MM.dd')}
+          {dayjs(publishedAt).format('YYYY.MM.DD')}
         </span>
         {category ? (
           <div className="flex items-center space-x-2">
