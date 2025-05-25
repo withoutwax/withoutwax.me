@@ -30,6 +30,7 @@
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "acorn": "^8.14.1",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.4",
     "next-mdx-remote": "^5.0.0",
