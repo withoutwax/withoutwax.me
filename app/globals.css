@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -216,4 +217,26 @@ pre code span {
 
 .dark code:not(pre code) span {
   color: var(--color-slate-400) !important;
+}
+
+@media print {
+  .download-button {
+    display: none;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    margin: 20mm;
+    size: auto;
+  }
+
+  pre,
+  blockquote,
+  .callout {
+    break-inside: avoid;
+  }
 }
