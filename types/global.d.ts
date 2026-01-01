@@ -1,6 +1,14 @@
 import { ReadTimeResults } from 'reading-time';
 
-export type CategoryType = 'code' | 'project' | 'archive' | 'thoughts' | 'faith' | 'life' | 'idea';
+export type CategoryType =
+  | 'code'
+  | 'project'
+  | 'archive'
+  | 'thoughts'
+  | 'faith'
+  | 'life'
+  | 'idea'
+  | 'freelance';
 
 // Use it in the interface
 export interface ArticleMetadata {
