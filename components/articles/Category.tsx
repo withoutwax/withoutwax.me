@@ -24,6 +24,9 @@ const Category = ({ category }: { category: CategoryType }) => {
     case 'idea':
       display = 'Idea 💡';
       break;
+    case 'freelance':
+      display = 'Freelance 💼';
+      break;
     default:
       display = category;
       break;
