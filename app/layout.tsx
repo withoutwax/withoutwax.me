@@ -85,6 +85,14 @@ export default function RootLayout({
                   </span>
                 </Link>
                 <Link
+                  href="/resume"
+                  className="md:order-0 order-1 p-1 text-center text-xl text-gray-900 dark:text-gray-100 sm:p-4"
+                >
+                  <span role="img" aria-label="resume">
+                    📄
+                  </span>
+                </Link>
+                <Link
                   href="/contact"
                   className="md:order-0 order-1 p-1 text-center text-xl text-gray-900 dark:text-gray-100 sm:p-4"
                 >
