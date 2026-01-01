@@ -20,13 +20,7 @@ export default function ArticleHeader({
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
         <div className="flex items-center">
           <div className="text-sm text-gray-700 dark:text-gray-300 flex">
-            {'Will Kim'}
-            {publishedAt && (
-              <>
-                <span className="mx-2"> • </span>
-                {dayjs(publishedAt).format('MMMM DD, YYYY')}
-              </>
-            )}
+            {publishedAt && <>{dayjs(publishedAt).format('MMMM DD, YYYY')}</>}
             {category && (
               <>
                 <span className="mx-2"> • </span>
