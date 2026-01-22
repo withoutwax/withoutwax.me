@@ -7,7 +7,7 @@ export const metadata = {
   category: 'code',
 };
 
-# [JavaScript] Async/Await Wasn't Magic, It Was Just 'Reordering'
+## [JavaScript] Async/Await Wasn't Magic, It Was Just 'Reordering'
 
 I have typed `async/await` countless times while writing JavaScript code. But if I’m being honest, I relied more on the result—"writing it this way makes it wait"—rather than understanding exactly how these keywords function inside the engine.
 
@@ -16,7 +16,7 @@ _"Does using Await freeze the browser?"_
 
 Today, as I dove deep into the mechanics of asynchronous operations, I realized my mental model was completely wrong. Here is a record of the "real" face of JavaScript concurrency—specifically regarding the **synchronous nature of Promises** and **sequence reordering via the Microtask Queue**.
 
-## 1. A Promise is Not "Multi-threading" (The Secret of Immediate Execution)
+### 1. A Promise is Not "Multi-threading" (The Secret of Immediate Execution)
 
 The biggest misconception I had was thinking that using a `Promise` made JavaScript act like a multi-threaded language, offloading work to a worker. But JavaScript is, and remains, **single-threaded**.
 
@@ -51,7 +51,7 @@ console.log('2. Sit down');
 
 Surprisingly, the `[Kitchen]` log appears _before_ "Sit down". This is because the code inside the `Promise` constructor is **executed synchronously (immediately) the moment it is created**. A Promise is not a "worker" that does the job for you; it is merely a **"buzzer" object** that promises to notify you when the result is ready.
 
-## 2. The Reality of Await: Cutting Code with Scissors (Microtask Queue)
+### 2. The Reality of Await: Cutting Code with Scissors (Microtask Queue)
 
 So, how does `await` actually work? I thought it was simply a "pause" command, but in reality, it is a technique that **cuts the code in half and manipulates the execution order.**
 
@@ -80,7 +80,7 @@ Tracing the execution order of this code reveals the true nature of `await`:
 3. **Reordering:** The JavaScript engine continues to process what's currently on the Call Stack. Thus, `console.log("Do something else")` runs first.
 4. **Final Execution:** Only after all synchronous code is finished and the stack is empty does the engine retrieve the "Coffee served" code from the queue and execute it.
 
-## 3. "Technically, It Runs Last"
+### 3. "Technically, It Runs Last"
 
 What we commonly refer to as "running asynchronously" is, technically speaking, equivalent to **"deferring priority to the very end."**
 
@@ -90,7 +90,7 @@ No matter how quickly `resolve` happens, the code following an `await` enters th
 
 This is both the illusion and the truth of `async/await`. It looks like it’s running in parallel, but it is actually **meticulously lining up tasks to defer them to the end.**
 
-## 4. Sequential vs. Parallel
+### 4. Sequential vs. Parallel
 
 While `await` makes code look synchronous and clean, using it mindlessly can kill performance.
 
@@ -108,7 +108,7 @@ const [coffee, bread] = await Promise.all([
 
 If you have a separate coffee machine and a bread oven, you should run them simultaneously. If the tasks are unrelated, the key is to use `Promise.all` to process them in parallel.
 
-## Conclusion
+### Conclusion
 
 In the end, JavaScript's asynchrony was an **"Illusion."**
 
