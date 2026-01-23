@@ -1,0 +1,111 @@
+export const metadata = {
+  title: 'React 비동기 처리의 패러다임 전환: useEffect에서 Suspense까지',
+  publishedAt: '2026-01-24',
+  description:
+    'React의 비동기 처리 방식이 어떻게 진화해 왔는지, 그리고 최신 표준인 Suspense와 Error Boundary가 어떤 원리로 동작하는지 아키텍처 관점에서 정리해 보기 원합니다.',
+  image: '',
+  category: 'code',
+};
+
+## [React] 비동기 처리의 패러다임 전환: useEffect에서 Suspense까지
+
+프론트엔드 개발자로서 데이터를 다루다 보면 필연적으로 마주치는 고민이 있습니다. 바로 **"데이터가 오기를 기다리는 시간(공백)을 사용자에게 어떻게 보여줄 것인가?"**입니다.
+
+과거에는 이 공백을 채우기 위해 컴포넌트 내부에서 수많은 `if` 문과 상태(State)를 관리해야 했습니다. 하지만 React 생태계는 이제 **'어떻게(Imperative)'** 구현하느냐에서 **'무엇을(Declarative)'** 보여주느냐로 패러다임을 옮겨가고 있습니다.
+
+이번 글에서는 React의 비동기 처리가 어떻게 진화해 왔는지, 그리고 최신 표준인 **Suspense와 Error Boundary**가 어떤 원리로 동작하는지 아키텍처 관점에서 정리해 보기 원합니다.
+
+---
+
+### 1. 과거의 방식: 명령형(Imperative) 처리의 한계
+
+React를 처음 배울 때 우리는 보통 `useEffect`를 사용해 비동기 로직을 작성합니다.
+
+```jsx
+// ❌ 기존 방식: 모든 상태를 컴포넌트가 직접 관리
+function UserProfile() {
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchUser()
+      .then(setData)
+      .catch(setError)
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (isLoading) return <Spinner />;
+  if (error) return <ErrorMessage />;
+  return <div>{data.name}</div>;
+}
+```
+
+이 방식은 직관적이지만 명확한 한계가 있습니다.
+
+1. **관심사의 혼재:** 컴포넌트 하나가 '데이터 로직', '로딩 UI', '에러 UI', '성공 UI'를 모두 떠안고 있습니다.
+2. **보일러플레이트:** API를 호출할 때마다 `loading`, `error` 상태를 반복해서 정의해야 합니다.
+
+### 2. 서버 상태의 분리: React Query (TanStack Query)
+
+이 문제를 해결하기 위해 **'서버 상태(Server State)'**와 **'클라이언트 상태(Client State)'**를 분리하는 개념이 도입되었습니다. TanStack Query 같은 라이브러리는 데이터 캐싱, 중복 호출 제거 등을 대신 처리해 주며 비동기 로직을 간소화했습니다.
+
+하지만, 여전히 컴포넌트 내부에는 `if (isPending) return ...`과 같은 분기 처리가 남아있었습니다. 우리는 이것을 더 깔끔하게 처리할 방법이 필요했습니다.
+
+### 3. 선언적 처리의 시작: Suspense & Error Boundary
+
+React 18과 TanStack Query v5(useSuspenseQuery)의 조합은 비동기 처리를 완전히 선언적으로 바꿨습니다. 핵심은 **"컴포넌트는 성공한 데이터만 신경 쓴다"**는 것입니다.
+
+그렇다면 로딩과 에러는 누가 책임질까요? 바로 부모 컴포넌트입니다.
+
+```jsx
+// ✅ 선언적 방식: 책임의 명확한 분리
+function App() {
+  return (
+    <ErrorBoundary fallback={<ErrorPage />}>
+      <Suspense fallback={<Spinner />}>
+        <UserProfile /> {/* 데이터가 있다고 가정하고 렌더링 */}
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
+
+function UserProfile() {
+  // 로딩, 에러 상태 분기 처리가 사라짐
+  const { data } = useSuspenseQuery({ ... });
+  return <div>{data.name}</div>;
+}
+
+```
+
+이 구조의 장점은 명확합니다.
+
+- **Suspense:** "데이터가 올 때까지 기다리는 동안(Pending)"을 책임집니다.
+- **Error Boundary:** "데이터 요청이 실패했을 때(Rejected)"를 책임집니다.
+- **Component:** "데이터가 성공적으로 도착했을 때(Resolved)"의 UI만 그립니다.
+
+이를 아키텍처 관점에서는 **'격벽(Bulkhead) 패턴'**과 유사하다고 볼 수 있습니다. 특정 컴포넌트에서 에러가 발생해도, Error Boundary가 해당 구역만 격리하여 처리하므로 전체 앱이 셧다운(White Screen)되는 것을 막을 수 있습니다.
+
+### 4. Deep Dive: Suspense는 어떻게 동작하는가?
+
+여기서 기술적인 의문이 생깁니다. **"부모 컴포넌트인 Suspense는 자식 컴포넌트가 데이터를 로딩 중인지 어떻게 알까요?"**
+
+React는 자바스크립트의 **`throw` 메커니즘**을 기발하게 응용했습니다. 보통 `throw`는 에러를 던질 때 사용하지만, Suspense 환경에서는 **Promise(대기 상태의 객체)**를 던집니다.
+
+### 동작 시나리오
+
+1. **자식 컴포넌트(`UserProfile`):** 데이터를 요청합니다. 데이터가 캐시에 없으면, **`throw Promise`**를 실행해 렌더링을 중단하고 상위로 신호를 보냅니다.
+2. **React 내부:** "어? 자식이 뭘 던졌네? 에러인가?" 하고 확인합니다.
+3. **Suspense:** "에러가 아니라 Promise네? 이건 내가 처리해야지."라고 판단하고, `catch`하여 던져진 Promise가 해결(Resolve)될 때까지 `fallback` UI를 보여줍니다.
+4. **완료 후:** Promise가 해결되면 React는 자식 컴포넌트를 다시 렌더링(Re-render)합니다. 이번엔 데이터가 있으므로 정상적으로 UI가 그려집니다.
+
+만약 Promise가 아니라 진짜 Error가 던져졌다면? Suspense는 이를 무시하고 통과(Bypass)시키며, 그 상위의 Error Boundary가 이를 포착(Catch)하게 됩니다.
+
+### 5. 마치며: 제어의 역전 (Inversion of Control)
+
+이러한 변화는 단순한 문법적 설탕(Syntactic Sugar)이 아닙니다. **UI의 제어권이 개별 컴포넌트에서 부모(레이아웃)로 넘어갔음**을 의미합니다.
+
+자식 컴포넌트는 "어디서 사용되든 데이터만 보여주는 순수한 부품"이 되고, 부모 컴포넌트가 상황에 따라 로딩을 스피너로 보여줄지, 스켈레톤으로 보여줄지 결정합니다. 이는 컴포넌트의 재사용성을 극대화하고, 결합도(Coupling)를 낮추는 훌륭한 설계 패턴입니다.
+
+프론트엔드 개발의 복잡성은 날로 증가하고 있습니다. 하지만 그만큼 도구와 아키텍처 또한 견고해지고 있습니다. Suspense와 Error Boundary를 이해한다는 것은 단순히 새로운 문법을 익히는 것을 넘어, **사용자 경험(UX)과 개발자 경험(DX)을 분리하여 설계하는 시야**를 갖게 됨을 의미합니다.
