@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
 type Metadata = {
   title: string;
@@ -7,6 +7,7 @@ type Metadata = {
   description: string;
   image?: string;
   category?: string;
+  tags?: string[];
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -20,36 +21,45 @@ function parseFrontmatter(fileContent: string) {
     try {
       metadata = eval(`(${metadataMatch[1]})`);
     } catch (error) {
-      console.error("Error parsing metadata:", error);
+      console.error('Error parsing metadata:', error);
     }
   } else {
     const match = yamlFrontmatterRegex.exec(fileContent);
     if (match) {
       let frontMatterBlock = match![1];
-      let frontMatterLines = frontMatterBlock.trim().split("\n");
+      let frontMatterLines = frontMatterBlock.trim().split('\n');
 
       frontMatterLines.forEach((line) => {
-        let [key, ...valueArr] = line.split(": ");
-        let value = valueArr.join(": ").trim();
-        value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-        metadata[key.trim() as keyof Metadata] = value;
+        let [key, ...valueArr] = line.split(': ');
+        let value = valueArr.join(': ').trim();
+        value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
+        const property = key.trim() as keyof Metadata;
+        if (property === 'tags') {
+          const tags = value
+            .replace(/[\[\]]/g, '')
+            .split(',')
+            .map((tag) => tag.trim());
+          metadata[property] = tags;
+        } else {
+          metadata[property] = value as any;
+        }
       });
     }
   }
 
   let content = fileContent
-    .replace(metadataMatch ? exportFrontmatterRegex : yamlFrontmatterRegex, "")
+    .replace(metadataMatch ? exportFrontmatterRegex : yamlFrontmatterRegex, '')
     .trim();
 
   return { metadata: metadata as Metadata, content };
 }
 
 function getMDXFiles(dir: string) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
 
 function readMDXFile(filePath: string) {
-  let rawContent = fs.readFileSync(filePath, "utf-8");
+  let rawContent = fs.readFileSync(filePath, 'utf-8');
   return parseFrontmatter(rawContent);
 }
 
@@ -68,18 +78,18 @@ function getMDXData(dir: string) {
 }
 
 export function getBlogPosts(type: string) {
-  return getMDXData(path.join(process.cwd(), "data", type));
+  return getMDXData(path.join(process.cwd(), 'data', type));
 }
 
 export function getPost({ type, slug }: { type: string; slug: string }) {
   const filePath = path.join(process.cwd(), `data/${type}`, `${slug}.mdx`);
-  const fileContent = fs.readFileSync(filePath, "utf8");
+  const fileContent = fs.readFileSync(filePath, 'utf8');
   return parseFrontmatter(fileContent);
 }
 
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date();
-  if (!date.includes("T")) {
+  if (!date.includes('T')) {
     date = `${date}T00:00:00`;
   }
   let targetDate = new Date(date);
@@ -88,7 +98,7 @@ export function formatDate(date: string, includeRelative = false) {
   let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
   let daysAgo = currentDate.getDate() - targetDate.getDate();
 
-  let formattedDate = "";
+  let formattedDate = '';
 
   if (yearsAgo > 0) {
     formattedDate = `${yearsAgo}y ago`;
@@ -97,13 +107,13 @@ export function formatDate(date: string, includeRelative = false) {
   } else if (daysAgo > 0) {
     formattedDate = `${daysAgo}d ago`;
   } else {
-    formattedDate = "Today";
+    formattedDate = 'Today';
   }
 
-  let fullDate = targetDate.toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
+  let fullDate = targetDate.toLocaleString('en-us', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
   });
 
   if (!includeRelative) {

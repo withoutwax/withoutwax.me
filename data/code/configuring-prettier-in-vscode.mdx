@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Configuring Prettier in VSCode",
-  publishedAt: "2021-02-02",
-  description:
-    "Things you might have to do in order to have Prettier work in VSCode properly.",
-  image: "",
-  category: "code",
+  title: 'Configuring Prettier in VSCode',
+  publishedAt: '2021-02-02',
+  description: 'Things you might have to do in order to have Prettier work in VSCode properly.',
+  image: '',
+  category: 'code',
+  tags: ['VSCode', 'Prettier', 'Configuration'],
 };
 
 Even after you have installed Prettier in VSCode, Prettier might now work right away. In such situations, there's few things that you can can do in order to have Prettier work properly.
@@ -13,13 +13,13 @@ Even after you have installed Prettier in VSCode, Prettier might now work right 
 
 In some cases, the default formatter option might be set to `null`. I such case, we want to set it to: `esbenp.prettier-vscode`.
 
-![default formatter](/static/images/configuring-prettier-in-vscode/default-formatter.png "default formatter")
+![default formatter](/static/images/configuring-prettier-in-vscode/default-formatter.png 'default formatter')
 
 ### Format On Save
 
 It is also important to check if the Format On Save option is checked.
 
-![default formatter](/static/images/configuring-prettier-in-vscode/format-on-save.png "default formatter")
+![default formatter](/static/images/configuring-prettier-in-vscode/format-on-save.png 'default formatter')
 
 With these two options, it's most likely the Prettier should be working.
 
@@ -27,7 +27,7 @@ With these two options, it's most likely the Prettier should be working.
 
 Sometimes, it could be convenient to use Prettier to only specific projects (there could be projects where people may not use prettier). We can specify the editor to only use Prettier when there's a `.prettierrc` file.
 
-![require config](/static/images/configuring-prettier-in-vscode/require-config.png "require config")
+![require config](/static/images/configuring-prettier-in-vscode/require-config.png 'require config')
 
 In the `.prettierrc` file, we can use a default setting:
 

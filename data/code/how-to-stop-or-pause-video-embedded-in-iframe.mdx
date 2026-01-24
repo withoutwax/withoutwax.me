@@ -1,15 +1,16 @@
 export const metadata = {
-  title: "How to stop or pause video embedded in iframe",
-  publishedAt: "2021-11-17",
-  description: "Stop or pause video embedded in iframe",
-  image: "",
-  category: "code",
+  title: 'How to stop or pause video embedded in iframe',
+  publishedAt: '2021-11-17',
+  description: 'Stop or pause video embedded in iframe',
+  image: '',
+  category: 'code',
+  tags: ['JavaScript', 'Iframe', 'Video'],
 };
 
 By re-adding a src file to the element, it will reset the iframe element to original state.
 
 ```jsx
-document.querySelectorAll("iframe").forEach((element) => {
+document.querySelectorAll('iframe').forEach((element) => {
   let iframeSrc = element.src;
   element.src = iframeSrc;
 });
@@ -18,7 +19,7 @@ document.querySelectorAll("iframe").forEach((element) => {
 If there are any `<video>` element that can be easily accessed, (no Cross Origin issues), then we can simply pause the video by:
 
 ```jsx
-let videoElement = document.querySelector("video");
+let videoElement = document.querySelector('video');
 
 videoElement.pause();
 ```
