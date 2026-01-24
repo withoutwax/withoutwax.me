@@ -26,6 +26,7 @@ export default async function ArticleLists({ type }: { type: string }) {
                 category={post.metadata.category as CategoryType}
                 slug={post.slug}
                 route={type}
+                tags={post.metadata.tags}
               />
             ))}
       </div>

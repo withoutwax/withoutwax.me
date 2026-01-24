@@ -12,6 +12,7 @@ const ArticleListsCard = ({
   category,
   slug,
   route,
+  tags,
 }: {
   title: string;
   publishedAt: string;
@@ -20,6 +21,7 @@ const ArticleListsCard = ({
   category?: CategoryType;
   slug: string;
   route: string;
+  tags?: string[];
 }) => {
   return (
     <Link
@@ -48,6 +50,18 @@ const ArticleListsCard = ({
           </div>
         ) : null}
       </div>
+      {tags && tags.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-gray-300"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </Link>
   );
 };
