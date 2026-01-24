@@ -43,12 +43,6 @@ const ArticleListsCard = ({
         <span className="text-sm text-slate-900 dark:text-gray-200 tracking-normal">
           {dayjs(publishedAt).format('YYYY.MM.DD')}
         </span>
-        {category ? (
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-500">•</span>
-            <Category category={category} />
-          </div>
-        ) : null}
       </div>
       {tags && tags.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
