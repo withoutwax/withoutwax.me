@@ -1,7 +1,6 @@
 import ArticleListsCard from '@/components/articles/ArticleListsCard';
 import * as uuid from 'uuid';
 import { getBlogPosts } from '@/utils/mdx';
-import { CategoryType } from '@/types/global';
 
 export default async function ArticleLists({ type }: { type: string }) {
   const data = getBlogPosts(type);
@@ -23,7 +22,6 @@ export default async function ArticleLists({ type }: { type: string }) {
                 publishedAt={post.metadata.publishedAt}
                 description={post.metadata.description}
                 image={post.metadata.image}
-                category={post.metadata.category as CategoryType}
                 slug={post.slug}
                 route={type}
                 tags={post.metadata.tags}
