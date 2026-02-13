@@ -6,7 +6,7 @@ const ROUTE_CATEGORY = 'project';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  let post = getPost({ type: ROUTE_CATEGORY, slug: slug });
+  let post = getPost({ type: ROUTE_CATEGORY, slug: decodeURIComponent(slug) });
 
   if (!post) {
     return;
@@ -41,7 +41,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  const { default: Post, metadata } = await import(`@/data/${ROUTE_CATEGORY}/${slug}.mdx`);
+  const { default: Post, metadata } = await import(
+    `@/data/${ROUTE_CATEGORY}/${decodeURIComponent(slug)}.mdx`
+  );
 
   return (
     <section className="w-full">
@@ -73,7 +75,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         description={metadata.description}
         publishedAt={metadata.publishedAt}
         category={metadata.category}
-        slug={slug}
+        slug={decodeURIComponent(slug)}
       />
       <article className="prose">
         <Post />
