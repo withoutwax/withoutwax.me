@@ -34,7 +34,7 @@
     "acorn": "^8.14.1",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.4",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "postcss": "^8.5.3",
     "reading-time": "^1.5.0",
     "rehype-raw": "^7.0.0",
