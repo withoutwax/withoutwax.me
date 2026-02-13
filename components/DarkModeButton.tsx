@@ -1,9 +1,20 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 import useTheme from '@/hooks/useTheme';
 
 const DarkModeButton = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // or a loading placeholder
+  }
 
   return (
     <button
