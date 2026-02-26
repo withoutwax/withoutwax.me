@@ -167,6 +167,11 @@ code {
   background-color: var(--color-gray-100);
 }
 
+code::before,
+code::after {
+  content: none !important;
+}
+
 pre code {
   background-color: transparent;
   padding: 0;
