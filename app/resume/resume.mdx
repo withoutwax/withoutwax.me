@@ -39,12 +39,16 @@ Mar 2026 ~ Present / [모다플](https://modapl.com/)
 기술 스택: **React, React Native, Next.js, JavaScript, TypeScript, Java, Spring, AWS, AWS IoT Core**
 AI Tools: **Claude Code, Codex, Gemini**
 
-- **AWS 기반 IoT 기기 통신 인프라(AWS IoT Core) 구축**
-- **Medallion 아키텍처 기반 데이터 수집·적재 파이프라인 구축**
-- **온톨로지 구축 및 개발**
-- **차량 데이터 API 연동 및 AI 기술 적용을 위한 기술 리서치 및 PoC 수행, 서비스 적용 가능성 검토**
-- **모다플 서비스의 풀스택 개발 (프론트엔드, 백엔드, DevOps, React Native 모바일)**
-- **IoT 기기 임베디드 개발**
+- **AWS IoT Core 기반 실시간 게이트웨이 모니터링 시스템 구축**
+  - 현장에 배포된 IoT 게이트웨이의 연결 상태를 실시간으로 파악할 수 있도록 AWS IoT Core 기반의 모니터링 체계를 구축하여, 게이트웨이 단절 여부를 즉시 인지할 수 있도록 했습니다.
+- **Medallion 아키텍처 기반 차량 데이터 파이프라인 구축**
+  - 내연기관 차량과 테슬라 등 다양한 차종의 OBD 데이터를 수집하여, S3・Glue・Athena로 이어지는 Medallion(Bronze-Silver-Gold) 아키텍처의 데이터 파이프라인을 설계 및 구축했습니다.
+- **냉장군(냉동저장고·스마트팜) 온톨로지 구축**
+  - Neo4j를 활용해 냉동저장고·스마트팜 도메인의 개체와 관계를 정의하는 온톨로지를 설계 및 구축했습니다.
+- **차량 데이터 API 연동 및 AI 기술 리서치·PoC**
+  - VIN, 속도, DTC 코드, 위치 등 OBD가 제공하는 차량 데이터를 API로 연동해 수집하고, 이를 기반으로 한 AI 기술 적용 가능성을 리서치 및 PoC로 검증했습니다.
+- **냉장군 서비스 풀스택 개발**
+  - React Native(앱), Next.js・Webview(웹), 서버까지 냉장군 서비스 전 영역을 개발했으며, 관리자가 사용하는 어드민·대시보드 페이지도 함께 구축했습니다.
 
 <br />
 
